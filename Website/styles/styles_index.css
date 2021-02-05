@@ -26,7 +26,7 @@ html, body{
     z-index: 5;
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1600px) {
 
     .login_frame {
         position: absolute;
@@ -160,9 +160,102 @@ html, body{
         text-align: center;
         color: #000000;
     }
+
+    .info {
+        position: absolute;
+        top: 200px;
+        left: 70px;
+        width: 600px;
+        height: 500px;
+    }
+
+    .info_main_text {
+        position: absolute;
+        width: 600px;
+        height: 200px;
+        left: 0px;
+        top: 30px;
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 60px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+    }
+    
+    .info_sub_text {
+        position: absolute;
+        width: 600px;
+        height: 100px;
+        left: 0px;
+        top: 220px;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        color: #3F3F3F;
+    }
+
+    .explore {
+        position: absolute;
+        left: 175px;
+        top: 320px;
+        width: 250px;
+        height: 90px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 45px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #FFFFFF;
+        background: #FF6961;
+        border-radius: 10px;
+    }
+
+    .hospital {
+        position: absolute;
+        background-image: url("../icons/Hospital.svg");
+        z-index: 5;
+        left: 620px;
+        top: 182px;
+        width: 717px;
+        height: 536;
+    }
 }
 
-/* background */
+/* Explore */
+
+position: absolute;
+width: 250px;
+height: 90px;
+left: 0px;
+top: 0px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
