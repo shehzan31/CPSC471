@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 
+<!--  
+    Authors:        Tyler Hartleb,
+    Initial Date:   02/04/2021
+    Last Update:    02/05/2021
+    Version:        0.1
+
+    This is for the splash page of the website.
+-->
+
 <html>
 
     <head>
@@ -10,6 +19,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
         <script>
             var name = "index";
+            /* This is for the smooth scroll animation using jquery */
             $(document).on('click', 'a[href^="#"]', function (e) {
                 e.preventDefault();
                 $('html, body').stop().animate({
@@ -56,7 +66,7 @@
             <div class="login_frame">
                 <a href="" class="login">Login</a>
             </div>
-            
+
         </nav>
 
         <header class="header_content">
