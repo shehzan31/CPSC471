@@ -1,7 +1,8 @@
-/*  Authors:        Tyler Hartleb,
+/*  
+    Authors:        Tyler Hartleb,
     Initial Date:   02/04/2021
-    Last Update:    02/04/2021
-    Version:        0.1 alpha
+    Last Update:    02/05/2021
+    Version:        0.2 
 
     The function of this css sheet is to provide styling for the splash page of the website.
 */
@@ -49,6 +50,8 @@ html, body{
     height: 0px;
 }
 
+
+/* This is for the mobile styling */
 @media only screen and (max-width: 767px) {
 
     .content_mobile {
@@ -293,6 +296,8 @@ html, body{
 }
 
 
+
+/* This is for the desktop styling */
 @media only screen and (min-width: 768px) {
 
     .content_desk {
