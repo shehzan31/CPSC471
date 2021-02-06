@@ -28,11 +28,276 @@ html, body{
     z-index: 5;
 }
 
-@media only screen and (max-width:767px) {
-    
+.content_desk {
+    visibility: hidden;
+    overflow: hidden;
 }
 
+.login_frame {
+    visibility: hidden;
+}
+
+.list {
+    visibility: hidden;
+    overflow: hidden;
+    height: 0px;
+}
+
+.content_mobile {
+    visibility: hidden;
+    overflow: hidden;
+    height: 0px;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .content_mobile {
+        visibility: visible;
+    }
+
+    .content_mobile .content_nav{
+        display:grid;
+        z-index: 5;
+        grid-template-columns: 1fr 1fr;
+        overflow: hidden;
+        height: 80px;
+        width: 100%;
+        background: #FF6961;
+        mix-blend-mode: normal;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px -4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0px 0px 45px 0px;
+        position: fixed;
+        transition: height 0.2s;
+    }
+    
+    .list {
+        visibility: hidden;
+        overflow: hidden;
+        box-sizing: content-box;
+        position: fixed;
+        top: 48px;
+        width: 100%;
+        height: 0px;
+        z-index: 4;
+        transition: height 0.2s;
+        text-align: center;
+    }
+    
+    .logo_mobile {
+        position:fixed;
+        width:50%;
+        height: 80px;
+    }
+    .logo_mobile_writing {
+        position: absolute;
+        width: 120px;
+        height: 40px;
+        left: 20px;
+        top: 20px;
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #FFFFFF;
+    }
+    .maple_image_mobile {
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        left: 140px;
+        top: 24px;
+        background-image: url("../icons/maple_image_white.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+    
+    .menu_mobile {
+        position: absolute;
+        width: 29.19%;
+        height: 80px;
+        right: 0%;
+        box-sizing: border-box;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .top_button {
+        position: absolute;
+        width: 50px;
+        height: 6px;
+        border-radius: 45px;
+        background: #FFFFFF;
+        right: 20px;
+        top: 28px;
+        transition: transform 0.2s;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    .bottom_button {
+        position: absolute;
+        width: 40px;
+        height: 6px;
+        border-radius: 45px;
+        background: #ffffff;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        right: 20px;
+        top: 44px;
+        transition: transform 0.2s;
+    }
+    
+    .list {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        z-index: 5;
+        top: 80px;
+        border-radius: 0px 0px 45px 0px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px -4px 4px rgba(0, 0, 0, 0.25);
+    }
+    
+    .home_mobile {
+        position: relative;
+        width: 120px;
+        height: 40px;
+    
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    
+        color: #000000;
+    }
+    
+    .about_mobile {
+        position: relative;
+        width: 120px;
+        height: 40px;
+    
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    
+        color: #000000;
+    }
+    
+    .contact_mobile {
+        position: relative;
+        width: 120px;
+        height: 40px;
+    
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    
+        color: #000000;
+    }
+    
+    .login_mobile {
+        position: relative;
+        width: 120px;
+        height: 40px;
+    
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    
+        color: #000000;
+    }
+    
+    .menu_opening .content_mobile .content_nav {
+        height: 310px;
+    }
+    
+    .active .content_mobile .content_nav {
+        height: 310px;
+    }
+    
+    .menu_closing .content_mobile .content_nav {
+        height: 80px;
+    }
+    
+    .menu_opening .list {
+        visibility: visible;
+        height: 230px;
+        background: #FF6961;
+    }
+    
+    .active .list {
+        visibility: visible;
+        height: 230px;
+        background: #FF6961;
+    }
+    
+    .menu_closing .list {
+        visibility: hidden;
+        height: 0px;
+        background: #FF6961;
+    } 
+
+    .active .top_button {
+        transform: rotate(-45deg);
+    }
+
+    .menu_opening .bottom_button {
+        width: 50px;
+        top: 28px;
+    }
+
+    .active .bottom_button {
+        width: 50px;
+        height: 6px;
+        top: 28px;
+        transform: rotate(45deg);
+    }
+}
+
+
 @media only screen and (min-width: 768px) {
+
+    .content_desk {
+        visibility: visible;
+    }
 
     .header_content {
         height: 100%;
@@ -40,6 +305,7 @@ html, body{
     }
 
     .login_frame {
+        visibility: visible;
         position: absolute;
         width: 21.875%;
         height: 100%;
@@ -48,6 +314,7 @@ html, body{
         border-radius: 45px 0px 0px 45px;
         z-index: 1;
         box-shadow: inset 4px 0px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px -4px 4px rgba(0, 0, 0, 0.25);
     }
 
     .login {
@@ -78,7 +345,7 @@ html, body{
         box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
-    .content {
+    .content_desk {
         position: absolute;
         display:grid;
         box-sizing:content-box;
@@ -171,6 +438,11 @@ html, body{
         color: #000000
     }
 
+    .about:active {
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+    }
+
     .contact {
         position: absolute;
         width: 100px;
@@ -186,6 +458,11 @@ html, body{
         align-items: center;
         text-align: center;
         color: #000000;
+    }
+
+    .contact:active {
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
     }
 
     .info {
@@ -247,6 +524,11 @@ html, body{
         background: #FF6961;
         border-radius: 10px;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .explore:active {
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
     }
 
     .hospital {
