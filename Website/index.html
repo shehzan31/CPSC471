@@ -6,6 +6,17 @@
         <title>myHealth Canada</title>
         <link rel="stylesheet" href="styles/styles_index.css">
         <meta name="viewport" content="width=device-width", initial scale =1.0>
+        <script type="text/javascript" src="../Website/js/core.js"> </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+        <script>
+            var name = "index";
+            $(document).on('click', 'a[href^="#"]', function (e) {
+                e.preventDefault();
+                $('html, body').stop().animate({
+                    scrollTop: $($(this).attr('href')).offset().top
+                }, 250, 'linear');
+            });
+        </script>
     </head>
 
     <body>
@@ -27,15 +38,25 @@
             </div>
         </nav>
 
-        <info class="info">
-            <p class="info_main_text">Providing better health care for you.</p>
-            <p class="info_sub_text">All your health care needs in one place.</p>
-            <a href="" class="explore">Explore</a>
-        </info>
-
-        <section class="hospital">
-            <div class="hospital_image"></div>
-        </section>
+        <header class="header_content">
+            <info class="info">
+                <p class="info_main_text">Providing better health care for you.</p>
+                <p class="info_sub_text">All your health care needs in one place.</p>
+                <a href="#about" class="explore">Explore</a>
+            </info>
+    
+            <section class="hospital">
+                <div class="hospital_image"></div>
+            </section>
+        </header>
         
+        <section id="about" class="about_content">
+            <div class="about_frame"></div>
+            <div class="doctor_image"></div>
+            <div class="explore_info">
+                <p class="explore_info_main_text">Your health infomation available instantly.</p>
+                <p class="explore_info_sub_text">MyHealth Canada provides quick access to important medical information such as medical history, prescriptions, allergies, conditions and more, available instantly anywhere in Canada. With full support from every hospital and clinic in Canada means you will never have to write a medical questionaire again.</p>
+            </div>
+        </section>
     </body>
 </html>
