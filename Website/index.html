@@ -22,7 +22,27 @@
     <body>
 
         <nav id="global_nav">
-            <div class = "content">
+
+            <div class="content_mobile">
+                <ul class="content_nav">
+                    <ul class="logo_mobile">
+                        <h1 class="logo_mobile_writing">myHealth</h1>
+                        <div class="maple_image_mobile"></div>
+                    </ul>
+                    <li onclick="smoothScroll(global_nav, list_menu)" class="menu_mobile" id="nav_menu">
+                        <span class="top_button"></span>
+                        <span class="bottom_button"></span>
+                    </li>
+                </ul>
+                <li class="list" id="list_menu">
+                    <a href=#global_nav class="home_mobile">Home</a>
+                    <a href="" class="about_mobile">About</a>
+                    <a href="" class="contact_mobile">Contact</a>
+                    <a href="" class="login_mobile">Login</a>
+                </li>
+            </div>
+
+            <div class = "content_desk">
                 <ul class="logo">
                     <h1 class="logo_writing">myHealth</h1>
                     <div class="maple_image"> <img src="https://github.com/adarshakanel/CPSC471/blob/main/Website/icons/maple_image.png?raw=true" width = "50" height = "50"> </div>
@@ -36,6 +56,7 @@
             <div class="login_frame">
                 <a href="" class="login">Login</a>
             </div>
+            
         </nav>
 
         <header class="header_content">
