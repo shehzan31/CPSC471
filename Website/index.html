@@ -3,7 +3,7 @@
 <!--  
     Authors:        Tyler Hartleb,
     Initial Date:   02/04/2021
-    Last Update:    02/05/2021
+    Last Update:    02/06/2021
     Version:        0.1
 
     This is for the splash page of the website.
@@ -13,16 +13,23 @@
 
     <head>
         <title>myHealth Canada</title>
+        <!-- Here we are specifying where we want to get our style sheet from, if we want to do a light and dark mode we will add a separate sheet and a js function to change where it is pointing too -->
         <link rel="stylesheet" href="styles/styles_index.css">
         <meta name="viewport" content="width=device-width", initial scale =1.0>
+        <!-- Here we are specifying where we should get our javascript code from -->
         <script type="text/javascript" src="../Website/js/core.js"> </script>
+        <!-- Here we are importing the jquery library so we can use it -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
         <script>
             var name = "index";
-            /* This is for the smooth scroll animation using jquery */
+            /* This is for the smooth scroll animation using jquery I included it in this file as it is easier to understand here */
+            /* This adds a function on click for tags of a (hyperlinks) with the pound in front i.e. internal links */
             $(document).on('click', 'a[href^="#"]', function (e) {
+                /* This prevents the default scrolling behaviour (which is just blinking there) */
                 e.preventDefault();
                 $('html, body').stop().animate({
+                    /* This specifies that we should scroll to the top of the tag with the correct offset in */
+                    /* a time of 250 milliseconds with a linear effect */
                     scrollTop: $($(this).attr('href')).offset().top
                 }, 250, 'linear');
             });
@@ -31,20 +38,26 @@
 
     <body>
 
+        <!-- This is for the navigator section of the website. There are two versions; mobile and desktop, this is because we want to add specific animations for the mobile site -->
         <nav id="global_nav">
 
+            <!-- For the mobile website -->
             <div class="content_mobile">
+                <!-- We want to display this all the time, so we have our logo as well as the menu button -->
                 <ul class="content_nav">
                     <ul class="logo_mobile">
                         <h1 class="logo_mobile_writing">myHealth</h1>
                         <div class="maple_image_mobile"></div>
                     </ul>
+                    <!-- This specifies a function smoothscroll to execute when a user clicks on our menu -->
                     <li onclick="smoothScroll(global_nav, list_menu)" class="menu_mobile" id="nav_menu">
                         <span class="top_button"></span>
                         <span class="bottom_button"></span>
                     </li>
                 </ul>
+                <!-- The defualt behavior is to hide this menu, an id will be added to the super tag global_nav when this list is expanded and collapsed and when the list is active -->
                 <li class="list" id="list_menu">
+                    <!-- All the buttons we need in the menu -->
                     <a href=#global_nav class="home_mobile">Home</a>
                     <a href="" class="about_mobile">About</a>
                     <a href="" class="contact_mobile">Contact</a>
@@ -52,6 +65,7 @@
                 </li>
             </div>
 
+            <!-- This is for the desktop nav section -->
             <div class = "content_desk">
                 <ul class="logo">
                     <h1 class="logo_writing">myHealth</h1>
@@ -69,7 +83,8 @@
 
         </nav>
 
-        <header class="header_content">
+        <!-- This is what the user will see on the "first scroll" of the website -->
+        <header class="header_content"> 
             <info class="info">
                 <p class="info_main_text">Providing better health care for you.</p>
                 <p class="info_sub_text">All your health care needs in one place.</p>
@@ -81,6 +96,7 @@
             </section>
         </header>
         
+        <!-- We must have an id for this section as we want to smoothly scroll to this section if the user clicks on it -->
         <section id="about" class="about_content">
             <div class="about_frame"></div>
             <div class="doctor_image"></div>

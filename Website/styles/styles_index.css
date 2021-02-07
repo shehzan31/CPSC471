@@ -1,13 +1,15 @@
 /*  
     Authors:        Tyler Hartleb,
     Initial Date:   02/04/2021
-    Last Update:    02/05/2021
+    Last Update:    02/06/2021
     Version:        0.2 
 
     The function of this css sheet is to provide styling for the splash page of the website.
 */
 
 @import url('https://fonts.googleapis.com/css?family=Dosis|Quicksand');
+
+/* The purpose of these next few line is add default behavior onto a few classes */
 
 body, header, ul, li, h1, h2, a{
     margin: 0;
@@ -54,10 +56,12 @@ html, body{
 /* This is for the mobile styling */
 @media only screen and (max-width: 767px) {
 
+    /* Make the mobile content visible */
     .content_mobile {
         visibility: visible;
     }
 
+    /* Specifying the design constraints as well as spacing for the mobile nav */
     .content_mobile .content_nav{
         display:grid;
         z-index: 5;
@@ -73,6 +77,7 @@ html, body{
         transition: height 0.2s;
     }
     
+    /* Make sure the list is hidden as well as set the sizing for the list */
     .list {
         visibility: hidden;
         overflow: hidden;
@@ -86,11 +91,14 @@ html, body{
         text-align: center;
     }
     
+    /* Specify where this class should be */
     .logo_mobile {
         position:fixed;
         width:50%;
         height: 80px;
     }
+
+    /* Specify where this class should be */
     .logo_mobile_writing {
         position: absolute;
         width: 120px;
@@ -107,6 +115,8 @@ html, body{
         text-align: center;
         color: #FFFFFF;
     }
+
+    /* Specify where this class should be, as well as the background image. */
     .maple_image_mobile {
         position: absolute;
         width: 35px;
@@ -120,6 +130,7 @@ html, body{
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
     
+    /* Specify where this class should be */
     .menu_mobile {
         position: absolute;
         width: 29.19%;
@@ -132,6 +143,8 @@ html, body{
         justify-content: center;
         flex-direction: column;
     }
+
+    /* Specify where this class should be */
     .top_button {
         position: absolute;
         width: 50px;
@@ -140,6 +153,7 @@ html, body{
         background: #FFFFFF;
         right: 20px;
         top: 28px;
+        /* Specify on what attributes the class should transition on */
         transition: transform 0.2s;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
@@ -152,9 +166,11 @@ html, body{
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         right: 20px;
         top: 44px;
+        /* Specify on what attribute the class should transition on */
         transition: transform 0.2s;
     }
     
+    /* Specify where this class should be, and its content sizing */
     .list {
         display: grid;
         grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -164,6 +180,7 @@ html, body{
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px -4px 4px rgba(0, 0, 0, 0.25);
     }
     
+    /* Specify where this class should be */
     .home_mobile {
         position: relative;
         width: 120px;
@@ -185,6 +202,7 @@ html, body{
         color: #000000;
     }
     
+    /* Specify where this class should be */
     .about_mobile {
         position: relative;
         width: 120px;
@@ -206,6 +224,7 @@ html, body{
         color: #000000;
     }
     
+    /* Specify where this class should be */
     .contact_mobile {
         position: relative;
         width: 120px;
@@ -227,6 +246,7 @@ html, body{
         color: #000000;
     }
     
+    /* Specify where this class should be */
     .login_mobile {
         position: relative;
         width: 120px;
@@ -248,18 +268,24 @@ html, body{
         color: #000000;
     }
     
+    /* These next lines are for specifying the mobile menu opening transition and behavior */
+
+    /* The menu should open to this height */
     .menu_opening .content_mobile .content_nav {
         height: 310px;
     }
     
+    /* The menu should stay at this height when it is "open" (active) */
     .active .content_mobile .content_nav {
         height: 310px;
     }
     
+    /* Reset the height for the mobile menu */
     .menu_closing .content_mobile .content_nav {
         height: 80px;
     }
     
+    /* Very similar to the above lines just for different classes */
     .menu_opening .list {
         visibility: visible;
         height: 230px;
@@ -299,6 +325,8 @@ html, body{
 
 /* This is for the desktop styling */
 @media only screen and (min-width: 768px) {
+
+    /* All of this code functions the same as the above just for different classes and different values */
 
     .content_desk {
         visibility: visible;
