@@ -18,6 +18,7 @@ body, header, ul, li, h1, h2, a{
     text-decoration: none;
     text-align: center;
     justify-content: center;
+    overflow-y: hidden;
 }
 
 html, body{
@@ -40,6 +41,27 @@ html, body{
         background: #F56961;
         box-shadow: inset -4px -4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 0px 45px 45px 0px;
+    }
+
+    .scroll_bar {
+        position: absolute;
+        width: 6px;
+        height: 30px;
+        left: 14px;
+        top: 158px;
+
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        transition: top 0.2s linear;
+    }
+
+    .scroll_bar.dashboard {
+        top: 158px;
+    }
+
+    .scroll_bar.appointments {
+        top: 254px;
     }
 
     .sidebar .logo_desk {
@@ -148,7 +170,7 @@ html, body{
     .sidebar .menu_desk .appointments_desk .appointments_desk_image {
         position: absolute;
         width: 20px;
-        height: 27.4px;
+        height: 28px;
         left: 15px;
         top: 21px;
 
@@ -199,7 +221,7 @@ html, body{
         background-repeat: no-repeat;
         background-size: 100%;
         background-position: center;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
     }
 
     .prescriptions_desk .prescriptions_desk_writing {
@@ -242,7 +264,7 @@ html, body{
         background-repeat: no-repeat;
         background-size: 100%;
         background-position: center;
-        filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
     .tests_desk .tests_desk_writing {
@@ -264,6 +286,28 @@ html, body{
 
         text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     }
+    
+    .dash_page {
+        position: absolute;
+        right: 0%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.25);
+        width: 78.125%;
+    }
+
+    .appointments_page {
+        position: absolute;
+        top: 100%;
+        right: 0%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.25);
+        width: 78.125%;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
 }
 
 
