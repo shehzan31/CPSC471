@@ -1,0 +1,280 @@
+/*  
+    Authors:        Tyler Hartleb,
+    Initial Date:   02/08/2021
+    Last Update:    02/08/2021
+    Version:        0.1
+
+    The function of this css sheet is to provide styling for the dashboard page of the website.
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Dosis|Quicksand');
+
+body, header, ul, li, h1, h2, a{
+    margin: 0;
+    padding: 0;
+    font-family:    "Segoe UI", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+                    Helvetica, Arial, "Lucida Grande", sans-serif, "Quicksand";
+    list-style: none;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-width:767px) {
+
+}
+
+@media only screen and (min-width:768px) {
+    
+    .content_desk .sidebar {
+        visibility: visible;
+        position: fixed;
+        width: 21.875%;
+        height: 100%;
+        left: 0%;
+        background: #F56961;
+        box-shadow: inset -4px -4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0px 45px 45px 0px;
+    }
+
+    .sidebar .logo_desk {
+        position: absolute;
+        width: 85%;
+        height: 7.78%;
+        left: 7.14%;
+        top:20px;
+    }
+
+    .sidebar .logo_desk .logo_writing_desk {
+        position: absolute;
+        width: 185px;
+        height: 70px;
+        left: 0px;
+        top: 0px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 45px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #FFFFFF;
+
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .sidebar .logo_desk .maple_image_desk {
+        position: absolute;
+        width: 54px;
+        height: 50px;
+        left: 185px;
+        top: 10px;
+
+        background-image: url("../icons/maple_image_white.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .sidebar .menu_desk{
+        position: absolute;
+        width: 85%;
+        height: 82.22%;
+        top: 12.556%;
+        left: 7.14%;
+    }
+
+    .sidebar .menu_desk .dashboard_desk {
+        position: absolute;
+        width: 300px;
+        height: 70px;
+        left: 0px;
+        top: 25px;
+    }
+
+    .sidebar .menu_desk .dashboard_desk .dashboard_desk_image {
+        position: absolute;
+        width: 27px;
+        height: 25px;
+        left: 15px;
+        top: 22.53px;
+
+        background-image: url(../icons/dashboard.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+    }
+
+    .sidebar .menu_desk .dashboard_desk .dashboard_desk_writing {
+        position: absolute;
+        width: 140px;
+        height: 70px;
+        left: 50px;
+        top: 0px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: right;
+
+        color: #FFFFFF;
+
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .sidebar .menu_desk .appointments_desk {
+        position: absolute;
+        width: 300px;
+        height: 70px;
+        left: 0px;
+        top: 120px;
+    }
+
+    .sidebar .menu_desk .appointments_desk .appointments_desk_image {
+        position: absolute;
+        width: 20px;
+        height: 27.4px;
+        left: 15px;
+        top: 21px;
+
+        background-image: url(../icons/appointments.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .sidebar .menu_desk .appointments_desk .appointments_desk_writing {
+        position: absolute;
+        width: 160px;
+        height: 70px;
+        left: 50px;
+        top: 0px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: right;
+
+        color: #FFFFFF;
+
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .prescriptions_desk {
+        position: absolute;
+        width: 300px;
+        height: 70px;
+        left: 0px;
+        top: 215px;
+    }
+
+    .prescriptions_desk .prescriptions_desk_image {
+        position: absolute;
+        width: 32px;
+        height: 38px;
+        left: 10px;
+        top: 18px;
+
+        background-image: url(../icons/prescriptions.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .prescriptions_desk .prescriptions_desk_writing {
+        position: absolute;
+        width: 150px;
+        height: 70px;
+        left: 50px;
+        top: 0px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: right;
+
+        color: #FFFFFF;
+
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .tests_desk {
+        position: absolute;
+        width: 300px;
+        height: 70px;
+        left: 0px;
+        top: 310px;
+    }
+
+    .tests_desk_image {
+        position: absolute;
+        width: 30px;
+        height: 39px;
+        left: 12px;
+        top: 19px;
+
+        background-image: url(../icons/tests.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+    }
+
+    .tests_desk .tests_desk_writing {
+        position: absolute;
+        width: 60px;
+        height: 70px;
+        left: 50px;
+        top: 0px;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+
+        color: #FFFFFF;
+
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
