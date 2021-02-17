@@ -1,23 +1,12 @@
+'use strict';
 
+const e = React.createElement;
 
-
-
-function scrollAnimation(pid, string) {
-    if (pid.classList.contains("dashboard")) {
-        console.log("yes");
-        pid.classList.toggle("dashboard");
-        pid.classList.add(string);
-        pid.classList.add("animate");
-        pid.ontransitionend=() => {
-            pid.classList.remove("animate");
-        }
-    }
-    if (pid.classList.contains("appointments")) {
-        pid.classList.remove("appointments");
-        pid.classList.add(string);
-        pid.classList.add("animate");
-        pid.ontransitionend=() => {
-            pid.classList.remove("animate");
-        }
+class Dash extends React.Component {
+    render() {
+        return e("h1",null, "Dashboard")
     }
 }
+
+const domContainer = document.querySelector('#dashboard');
+ReactDOM.render(e(Dash), domContainer);
