@@ -18,8 +18,8 @@
     <title>Login</title>
   </head>
   <body>
-    <img src="icons/Login-Image.jpg" alt="" id="login-img" />
-    <div id="right-side">
+    <img src="icons/Login-Image.jpg" alt="" class="login-img" />
+    <div class="login">
       <p>Welcome Back</p>
       <h1>Login to your account</h1>
       <form action="">
@@ -27,8 +27,7 @@
           <label for="Email">Email Address</label>
           <input
             type="email"
-            class="form-control"
-            id="login-email"
+            class="form-control login-email"
             aria-describedby="emailHelp"
             placeholder="johndoe123@gmail.com"
           />
@@ -38,15 +37,18 @@
           <label for="Password">Password</label>
           <input
             type="password"
-            class="form-control"
-            id="login-password"
+            class="form-control login-password"
             placeholder="Password"
           />
         </div>
         <br />
         <div class="other-selections">
           <div>
-            <input type="checkbox" class="form-check-input" id="Remember-Me" />
+            <input
+              type="checkbox"
+              class="form-check-input"
+              class="Remember-Me"
+            />
             <label class="form-check-label" for="Remember-Me"
               >Remember Me</label
             >
@@ -56,7 +58,7 @@
         <input class="btn btn-primary btn-block" type="submit" />
       </form>
       <br />
-      <p id="join">
+      <p class="new-join">
         Don't have an account? <a href="Join">Join free today.</a>
       </p>
     </div>

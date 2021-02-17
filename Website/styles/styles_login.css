@@ -8,12 +8,12 @@ body {
   height: 100%;
 }
 
-#login-img {
+.login-img {
   width: 100%;
   height: 95%;
 }
 
-#right-side {
+.login {
   height: 50%;
   width: 50%;
   margin-left: auto;
@@ -31,6 +31,6 @@ body {
   justify-content: space-between;
 }
 
-#join {
+.new-join {
   text-align: center;
 }
