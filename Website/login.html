@@ -1,13 +1,60 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/styles_login.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<html>
-    <head>
-        <title>Login page</title>
-        <link rel="stylesheet" href=" something something">
-        <meta name="viewport" content="width=device-width", initial scale =1.0>
-    </head>
-
-    <body>
-
-    </body>   
+    <title>Login</title>
+  </head>
+  <body>
+    <img src="icons/Login-Image.jpg" alt="" id="login-img" />
+    <div id="right-side">
+      <p>Welcome Back</p>
+      <h1>Login to your account</h1>
+      <form action="">
+        <div class="email-group">
+          <label for="Email">Email Address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="login-email"
+            aria-describedby="emailHelp"
+            placeholder="johndoe123@gmail.com"
+          />
+        </div>
+        <br />
+        <div class="password-group">
+          <label for="Password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="login-password"
+            placeholder="Password"
+          />
+        </div>
+        <br />
+        <div class="other-selections">
+          <input type="checkbox" class="form-check-input" id="Remember-Me" />
+          <label class="form-check-label" for="Remember-Me">Remember Me</label>
+          <a href="forgotpassword" id="forgot-password">Forgot Password?</a>
+        </div>
+        <input class="btn btn-primary btn-block" type="submit" />
+      </form>
+      <br />
+      <p id="join">
+        Don't have an account? <a href="Join">Join free today.</a>
+      </p>
+    </div>
+  </body>
 </html>
