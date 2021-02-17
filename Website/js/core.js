@@ -1,5 +1,5 @@
 /*
-    Authors:            Tyler Hartleb,
+    Authors:            Tyler Hartleb, Adarsha Kanel
     Initial Date:       02/05/2021
     Last Update:        02/06/2021
     Version:            0.1
@@ -54,6 +54,22 @@ function scrollAnimation(pid, string) {
     }
     if (pid.classList.contains("appointments")) {
         pid.classList.remove("appointments");
+        pid.classList.add(string);
+        pid.classList.add("animate");
+        pid.ontransitionend=() => {
+            pid.classList.remove("animate");
+        }
+    }
+    if (pid.classList.contains("perscription")) {
+        pid.classList.remove("perscription");
+        pid.classList.add(string);
+        pid.classList.add("animate");
+        pid.ontransitionend=() => {
+            pid.classList.remove("animate");
+        }
+    }
+    if (pid.classList.contains("test")) {
+        pid.classList.remove("test");
         pid.classList.add(string);
         pid.classList.add("animate");
         pid.ontransitionend=() => {

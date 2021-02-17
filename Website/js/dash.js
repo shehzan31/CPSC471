@@ -28,6 +28,16 @@ class Appoint extends React.Component {
 const domContainer1 = document.querySelector('#appointments');
 ReactDOM.render(e(Appoint), domContainer1);
 
+
+class Test extends React.Component {
+  render() {
+      return e("h1", null, "Patient Tests")
+  }
+}
+
+const domContainer3 = document.querySelector('#test');
+ReactDOM.render(e(Test), domContainer3);
+
 const name_s = "John Doe";
 
 class Head extends React.Component {
