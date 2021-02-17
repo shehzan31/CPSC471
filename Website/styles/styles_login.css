@@ -26,8 +26,9 @@ body {
   background-color: green;
 }
 
-#forgot-password {
-  float: right;
+.other-selections {
+  display: flex;
+  justify-content: space-between;
 }
 
 #join {
