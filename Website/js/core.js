@@ -40,27 +40,4 @@ function smoothScroll(id, sid) {
     menuAnimation(id, sid);
     /* the class is removed and the active class is toggled. */
     toggleClassActive(id);
-<<<<<<< HEAD
-=======
-}
-
-function scrollAnimation(pid, string) {
-    if (pid.classList.contains("dashboard")) {
-        console.log("yes");
-        pid.classList.toggle("dashboard");
-        pid.classList.add(string);
-        pid.classList.add("animate");
-        pid.ontransitionend=() => {
-            pid.classList.remove("animate");
-        }
-    }
-    if (pid.classList.contains("appointments")) {
-        pid.classList.remove("appointments");
-        pid.classList.add(string);
-        pid.classList.add("animate");
-        pid.ontransitionend=() => {
-            pid.classList.remove("animate");
-        }
-    }
->>>>>>> 3c6209b1f9a0bcc4a38634c2460b98ed409d7587
 }
