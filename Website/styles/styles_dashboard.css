@@ -376,8 +376,32 @@ html, body{
         top: 110.0022%;
         right: 0%;
         height: 89.9978%;
-        background-color: rgba(0, 0, 0, 0.25);
         width: 78.125%;
+    }
+
+    .appointments_page .appoint_text {
+        position: absolute;
+        top: 2.5%;
+        left: 2.5%;
+        height: auto;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 34px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .appointments_page .appoint_info_pane {
+        position: absolute;
+        width: 50%;
+        top: 10%;
+        left: 2.5%;
+        height: 50%;
+        background: #000000;
     }
 
     .pers_page {
@@ -385,16 +409,65 @@ html, body{
         top: 210.022%;
         right: 0%;
         height: 89.9978%;
-        background-color: rgba(0, 0, 0, 0.25);
         width: 78.125%;
     }
+
+    .pers_page .pres_text {
+        position: absolute;
+        top: 2.5%;
+        left: 2.5%;
+        height: auto;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 34px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .pers_page .pres_info_pane {
+        position: absolute;
+        width: 50%;
+        top: 10%;
+        left: 2.5%;
+        height: 50%;
+        background: #000000;
+    }
+
     .test_page {
         position: absolute;
         top: 310.022%;
         right: 0%;
         height: 89.9978%;
-        background-color: rgba(0, 0, 0, 0.25);
         width: 78.125%;
+    }
+
+    .test_page .tests_text {
+        position: absolute;
+        top: 2.5%;
+        left: 2.5%;
+        height: auto;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 34px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .test_page .tests_info_pane {
+        position: absolute;
+        width: 50%;
+        top: 10%;
+        left: 2.5%;
+        height: 50%;
+        background: #000000;
     }
 }
 
