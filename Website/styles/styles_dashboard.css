@@ -375,34 +375,26 @@ html, body{
         position: absolute;
         top: 110.0022%;
         right: 0%;
-        height: 100%;
+        height: 89.9978%;
         background-color: rgba(0, 0, 0, 0.25);
         width: 78.125%;
     }
 
     .pers_page {
         position: absolute;
-        top: 200%;
+        top: 210.022%;
         right: 0%;
-        height: 100%;
+        height: 89.9978%;
         background-color: rgba(0, 0, 0, 0.25);
         width: 78.125%;
-        box-sizing: border-box;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
     }
     .test_page {
         position: absolute;
-        top: 300%;
+        top: 310.022%;
         right: 0%;
-        height: 100%;
+        height: 89.9978%;
         background-color: rgba(0, 0, 0, 0.25);
         width: 78.125%;
-        box-sizing: border-box;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
     }
 }
 
