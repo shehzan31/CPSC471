@@ -54,6 +54,13 @@ html, body{
     .scroll_bar.appointments {
         top: 254px;
     }
+    .scroll_bar.prescriptions {
+        top:350px;
+    }
+
+    .scroll_bar.tests {
+        top:446px;
+    }
 
     .head_desk {
         visibility: visible;

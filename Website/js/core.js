@@ -60,16 +60,16 @@ function scrollAnimation(pid, string) {
             pid.classList.remove("animate");
         }
     }
-    if (pid.classList.contains("perscription")) {
-        pid.classList.remove("perscription");
+    if (pid.classList.contains("prescriptions")) {
+        pid.classList.remove("prescriptions");
         pid.classList.add(string);
         pid.classList.add("animate");
         pid.ontransitionend=() => {
             pid.classList.remove("animate");
         }
     }
-    if (pid.classList.contains("test")) {
-        pid.classList.remove("test");
+    if (pid.classList.contains("tests")) {
+        pid.classList.remove("tests");
         pid.classList.add(string);
         pid.classList.add("animate");
         pid.ontransitionend=() => {

@@ -11,7 +11,8 @@
         <script>
             var dashboard = "dashboard";
             var appointments = "appointments";
-            var test = "test";
+            var tests = "tests";
+            var prescriptions = "prescriptions"
         </script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
@@ -54,11 +55,11 @@
                         </div>
                         <div class="prescriptions_desk">
                             <div class="prescriptions_desk_image"></div>
-                            <a class="prescriptions_desk_writing" href="#perscription" onclick="scrollAnimation(scroll_desk, appointments)">Prescriptions</a>
+                            <a class="prescriptions_desk_writing" href="#presciption" onclick="scrollAnimation(scroll_desk, prescriptions)">Prescriptions</a>
                         </div>
                         <div class="tests_desk">
                             <div class="tests_desk_image"></div>
-                            <a class="tests_desk_writing" href="#test" onclick="scrollAnimation(scroll_desk, test)">Tests</a>
+                            <a class="tests_desk_writing" href="#test" onclick="scrollAnimation(scroll_desk, tests)">Tests</a>
                         </div>
                     </div>
                 </div>
@@ -78,16 +79,16 @@
 
         <div id="appointments" class="appointments_page"></div>
 
-        <div id="test" class="test_page"></div>
+        <div id="tests" class="test_page"></div>
+
+        <div id="prescriptions" class="pers_page"></div>
         <!--
         <section id="appointments" class="appointments_page">
             <h1>Appointments</h1>
         </section>
         -->
 
-        <section id="perscription" class="pers_page">
-            <h1>Perscription</h1>
-        </section>
+        
 
 
         <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
