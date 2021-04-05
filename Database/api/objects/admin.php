@@ -7,7 +7,7 @@ class Admin {
 
     // Object properties
     public $Admin_ID;
-    public $Master_Login;
+    public $Password;
 
 
     public function __construct($db) {
@@ -28,9 +28,20 @@ class Admin {
         return $stmt;
     }
 
+    function post_admin($Admin_ID, $Password) {
+        $query =   "INSERT INTO $this->database.$this->table_name(Admin_ID, Password)
+                    VALUES ($Admin_ID, $Password)";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "New ADMIN created\n";
+    }
+
+
     function post_person($SIN, $FName, $MInit, $LName, $Address_line, $Province, $City, $Postal_code, $Gender, $DOB) {
         $query =   "INSERT INTO $this->database.$this->Person(SIN, FName, MInit, LName, Address_line, Province, City, Postal_code, Gender, DOB)
-                    VALUES ($SIN, $FName, $MInit, $LName, $Address_line, $Province, $City, $Postal_code, $Gender, $DOB);
+                    VALUES ($SIN, $FName, $MInit, $LName, $Address_line, $Province, $City, $Postal_code, $Gender, $DOB)";
 
         $stmt = $this->conn->prepare($query);
 
@@ -40,7 +51,7 @@ class Admin {
 
     function post_doctor($Doctor_ID, $sin) {
         $query =   "INSERT INTO $this->database.Doctor(Doctor_ID, SIN)
-                    VALUES ($Doctor_ID, $sin);
+                    VALUES ($Doctor_ID, $sin)";
 
         $stmt = $this->conn->prepare($query);
 

@@ -4,8 +4,8 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
   
 // include database and object files
-include_once '../../config/database.php';
-include_once '../../objects/admin.php';
+include_once '../config/database.php';
+include_once '../objects/admin.php';
   
 // instantiate database and product object
 $database = new Database();
@@ -15,11 +15,10 @@ $db = $database->getConnection();
 $admin = new Admin($db);
 
 // Object properties
-$Doctor_ID = 1234567;
-$SIN = 891887442;
+$Admin_ID = 717171717;
+$Password = "Password123";
 
   
 // query products
-$stmt = $admin->post_doctor($Doctor_ID, $SIN);
+$stmt = $person->post_admin($Admin_ID, $Password);
 ?>
-
