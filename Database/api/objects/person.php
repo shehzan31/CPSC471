@@ -34,5 +34,16 @@ class Person {
         $stmt->execute();
         return $stmt;
     }
+
+    function sin($sin) {
+        $query =   "SELECT *
+                    FROM $this->database.$this->table_name as p
+                    WHERE p.SIN = $sin";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        return $stmt;
+    }
 }
 ?>

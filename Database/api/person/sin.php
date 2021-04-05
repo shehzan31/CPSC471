@@ -10,12 +10,16 @@ include_once '../objects/person.php';
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
+
+//$_SESSION['sin'];
+
+$sin = "123456789";
   
 // initialize object
 $person = new Person($db);
   
 // query products
-$stmt = $person->read();
+$stmt = $person->sin($sin);
 $num = $stmt->rowCount();
   
 // check if more than 0 record found
