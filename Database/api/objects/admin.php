@@ -28,6 +28,15 @@ class Admin {
         return $stmt;
     }
 
+    function post_person($SIN, $FName, $MInit, $LName, $Address_line, $Province, $City, $Postal_code, $Gender, $DOB) {
+        $query =   "INSERT INTO $this->database.$this->Person(SIN, FName, MInit, LName, Address_line, Province, City, Postal_code, Gender, DOB)
+                    VALUES ($SIN, $FName, $MInit, $LName, $Address_line, $Province, $City, $Postal_code, $Gender, $DOB);
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "New Person created\n";
+    }
 
     function post_doctor($Doctor_ID, $sin) {
         $query =   "INSERT INTO $this->database.Doctor(Doctor_ID, SIN)
