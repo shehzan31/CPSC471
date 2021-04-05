@@ -14,39 +14,29 @@ class Admin {
         $this->conn = $db;
     }
 
-    // function read() {
-    //     $query =   "SELECT 
-    //                 *
-    //                 FROM
-    //                     ". $this->database . "." . $this->table_name ."";
+    function read() {
+        $query =   "SELECT 
+                    *
+                    FROM
+                        ". $this->database . "." . $this->table_name ."";
         
-    //     //prepare query statement
-    //     $stmt = $this->conn->prepare($query); 
+        //prepare query statement
+        $stmt = $this->conn->prepare($query); 
 
-    //     //execute query 
-    //     $stmt->execute();
-    //     return $stmt;
-    // }
+        //execute query 
+        $stmt->execute();
+        return $stmt;
+    }
 
-    // function sin($sin) {
-    //     $query =   "SELECT *
-    //                 FROM $this->database.$this->table_name as p
-    //                 WHERE p.SIN = $sin";
 
-    //     $stmt = $this->conn->prepare($query);
-
-    //     $stmt->execute();
-    //     return $stmt;
-    // }
-
-    function new_doctor($Doctor_ID, $sin) {
+    function post_doctor($Doctor_ID, $sin) {
         $query =   "INSERT INTO $this->database.Doctor(Doctor_ID, SIN)
                     VALUES ($Doctor_ID, $sin);
 
         $stmt = $this->conn->prepare($query);
 
         $stmt->execute();
-        return $stmt;
+        echo "New Doctor created\n";
     }
 
     function doctor_info($Doctor_ID) {
