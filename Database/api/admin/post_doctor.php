@@ -21,7 +21,5 @@ $SIN = 891887442;
   
 // query products
 $stmt = $person->post_doctor($Doctor_ID, $SIN);
-//$stmt = $person->post($SIN, $FName, $MInit, $LName, $Address_line, $Province, $City, $Postal_code, $Gender, $DOB);
-
 ?>
 
