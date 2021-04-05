@@ -45,5 +45,15 @@ class Person {
         $stmt->execute();
         return $stmt;
     }
+
+    function post($SIN, $FName, $MInit, $LName, $Address_line, $Province, $City, $Postal_code, $Gender, $DOB) {
+        $query =   "INSERT INTO $this->database.$this->table_name(SIN, FName, MInit, LName, Address_line, Province, City, Postal_code, Gender, DOB) VALUES
+                    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$SIN, $FName, $MInit, $LName, $Address_line, $Province, $City, $Postal_code, $Gender, $DOB]);
+        echo "\nNew record created successfuly";
+    }
+
 }
 ?>
