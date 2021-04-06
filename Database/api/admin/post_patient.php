@@ -15,11 +15,11 @@ $db = $database->getConnection();
 $admin = new Admin($db);
 
 // Object properties
-$Doctor_ID = 123456789;
-$SIN = 123456789;
+$H_Number = 123432441;
+$MR_Number = 932492390;
+$SIN = 2100789;
 
   
 // query products
-$stmt = $admin->post_doctor($Doctor_ID, $SIN);
+$stmt = $admin->post_patient($H_Number, $MR_Number, $SIN);
 ?>
-
