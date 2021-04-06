@@ -15,7 +15,7 @@ $db = $database->getConnection();
 $admin = new Admin($db);
   
 // query products
-$stmt = $admin->read();
+$stmt = $admin->read_admin();
 $num = $stmt->rowCount();
   
 // check if more than 0 record found
