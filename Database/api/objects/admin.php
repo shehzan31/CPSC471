@@ -14,7 +14,7 @@ class Admin {
         $this->conn = $db;
     }
 
-    function read() {
+    function read_admin() {
         $query =   "SELECT 
                     *
                     FROM
@@ -28,6 +28,49 @@ class Admin {
         return $stmt;
     }
 
+    function read_person() {
+        $query =   "SELECT 
+                    *
+                    FROM
+                        ". $this->database . "." ."Person" ."";
+        
+        //prepare query statement
+        $stmt = $this->conn->prepare($query); 
+
+        //execute query 
+        $stmt->execute();
+        return $stmt;
+    }
+
+    function read_patient() {
+        $query =   "SELECT 
+                    *
+                    FROM
+                        ". $this->database . "." ."Patient" ."";
+        
+        //prepare query statement
+        $stmt = $this->conn->prepare($query); 
+
+        //execute query 
+        $stmt->execute();
+        return $stmt;
+    }
+
+    function read_doctor() {
+        $query =   "SELECT 
+                    *
+                    FROM
+                        ". $this->database . "." ."Doctor" ."";
+        
+        //prepare query statement
+        $stmt = $this->conn->prepare($query); 
+
+        //execute query 
+        $stmt->execute();
+        return $stmt;
+    }
+
+
     function post_admin($Admin_ID, $Password) {
         $query =   "INSERT INTO $this->database.$this->table_name(Admin_ID, Password)
                     VALUES ($Admin_ID, $Password)";
@@ -38,9 +81,18 @@ class Admin {
         echo "New ADMIN created\n";
     }
 
-
     function post_person($SIN, $FName, $MInit, $LName, $Address_line, $Province, $City, $Postal_code, $Gender, $DOB) {
         $query =   "INSERT INTO $this->database.$this->Person(SIN, FName, MInit, LName, Address_line, Province, City, Postal_code, Gender, DOB)
+                    VALUES ($SIN, $FName, $MInit, $LName, $Address_line, $Province, $City, $Postal_code, $Gender, $DOB)";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "New Person created\n";
+    }
+
+    function delete_person($SIN) {
+        $query =   "DELETE FROM $this->database.$this->Person(SIN, FName, MInit, LName, Address_line, Province, City, Postal_code, Gender, DOB)
                     VALUES ($SIN, $FName, $MInit, $LName, $Address_line, $Province, $City, $Postal_code, $Gender, $DOB)";
 
         $stmt = $this->conn->prepare($query);
