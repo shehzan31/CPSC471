@@ -124,25 +124,33 @@ class Admin {
     }
 
     function delete_person($SIN) {
-        $query =   "DELETE FROM $this->database.$this->Person(SIN, FName, MInit, LName, Address_line, Province, City, Postal_code, Gender, DOB)
-                    VALUES ($SIN, $FName, $MInit, $LName, $Address_line, $Province, $City, $Postal_code, $Gender, $DOB)";
+        $query =   "DELETE FROM $this->database.$this->person_table as p
+                    WHERE p.SIN = $SIN";
 
         $stmt = $this->conn->prepare($query);
 
         $stmt->execute();
-        echo "New Person created\n";
+        echo "\nPerson deleted\n";
     }
 
-
-    function doctor_info($Doctor_ID) {
-        $query =   "SELECT *
-                    FROM $this->database.Doctor as d
-                    WHERE d.Doctor_ID = $Doctor_ID";
+    function delete_patient($H_Number) {
+        $query =   "DELETE FROM $this->database.$this->patient_table as p
+                    WHERE p.H_Number = $H_Number";
 
         $stmt = $this->conn->prepare($query);
 
         $stmt->execute();
-        return $stmt;
+        echo "\nPatient deleted\n";
+    }
+
+    function delete_doctor($Doctor_ID) {
+        $query =   "DELETE FROM $this->database.$this->doctor_table as p
+                    WHERE p.Doctor_ID = $Doctor_ID";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "\nDoctor deleted\n";
     }
 }
 ?>
