@@ -22,14 +22,16 @@
     <div class="login">
       <p>Welcome Back</p>
       <h1>Login to your account</h1>
-      <form action="dashboard.html">
+      <form name="f1" action="../Database/api/object_methods/account/authenticate.php" onsubmit = "return validate()" method = "POST">
         <div class="email-group">
-          <label for="Email">Email Address</label>
+          <label for="Email">Health ID</label>
           <input
-            type="email"
+            type="number"
+            id = "user"
+            name = "user"
             class="form-control login-email"
-            aria-describedby="emailHelp"
-            placeholder="johndoe123@gmail.com"
+            aria-describedby="health id"
+            placeholder="123456789"
           />
         </div>
         <br />
@@ -37,6 +39,8 @@
           <label for="Password">Password</label>
           <input
             type="password"
+            id = "pass"
+            name = "pass"
             class="form-control login-password"
             placeholder="Password"
           />
@@ -62,5 +66,25 @@
         Don't have an account? <a href="Join">Join free today.</a>
       </p>
     </div>
+    <script>
+      function validate() {
+        var id = document.f1.user.value;
+        var ps = document.f1.pass.value;
+
+        if (id.length=="" && ps.length=="") {
+          alert("Username and password can not be empty");
+          return false;
+        } else {
+          if (id.length=="") {
+            alert("Username can not be empty");
+            return false;
+          }
+          if (ps.length=="") {
+            alert("Password can not be empty");
+            return false;
+          }
+        }
+      }
+    </script>
   </body>
 </html>
