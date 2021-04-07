@@ -2,8 +2,8 @@
     //session_start();
 
     // include database and object files
-    include_once '../../config/database.php';
-    include_once '../../objects/account.php';
+    include_once 'database.php';
+    include_once 'account.php';
   
     // instantiate database and product object
 
@@ -32,14 +32,12 @@
             $user = $stmt->fetch();
 
             if (hash('sha256', $password) == $user['Password']) {         
-                echo "\nLogin Successful";
-                //$_SESSION['login_user'] = $myusername;
                 header("location: ../../../../Website/dashboard.html");
             } else {
-                echo "\nLogin failure: Invalid Username or Password";
+                header("location: ../../../../Website/login.html");
             }
         } else {
-            echo "\nLogin failure: Invalid Username or Password";
+            header("location: ../../../../Website/login.html");
         }
     }
     
