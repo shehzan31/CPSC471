@@ -33,14 +33,14 @@
 
             if (hash('sha256', $password) == $user['Password']) {   
                 echo("Login successful");      
-                //header("location: ../../../../Website/dashboard.html");
+                header("location: https://www.myhealthcanadaproject.ca/dashboard.html");
             } else {
                 echo("Login failure");  
-                //header("location: ../../../../Website/login.html");
+                header("location: https://www.myhealthcanadaproject.ca/login.html");
             }
         } else {
             echo("Login failure"); 
-            //header("location: ../../../../Website/login.html");
+            header("location: https://www.myhealthcanadaproject.ca/login.html");
         }
     }
     
