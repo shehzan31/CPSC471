@@ -2,8 +2,8 @@
     //session_start();
 
     // include database and object files
-    include_once '../Database/api/config/database.php';
-    include_once '../Database/api/objects/account/account.php';
+    include_once '../../config/database.php';
+    include_once '../../objects/account.php';
   
     // instantiate database and product object
 
