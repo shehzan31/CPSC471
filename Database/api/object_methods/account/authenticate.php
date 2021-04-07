@@ -31,13 +31,16 @@
 
             $user = $stmt->fetch();
 
-            if (hash('sha256', $password) == $user['Password']) {         
-                header("location: ../../../../Website/dashboard.html");
+            if (hash('sha256', $password) == $user['Password']) {   
+                echo("Login successful");      
+                //header("location: ../../../../Website/dashboard.html");
             } else {
-                header("location: ../../../../Website/login.html");
+                echo("Login failure");  
+                //header("location: ../../../../Website/login.html");
             }
         } else {
-            header("location: ../../../../Website/login.html");
+            echo("Login failure"); 
+            //header("location: ../../../../Website/login.html");
         }
     }
     
