@@ -3,7 +3,7 @@
 
     // include database and object files
     include_once '../../config/database.php';
-    include_once '../..//objects/account/account.php';
+    include_once '../../objects/account/account.php';
   
     // instantiate database and product object
 
