@@ -6,14 +6,14 @@ header("Content-Type: application/json; charset=UTF-8");
 // include database and object files
 include_once '../../config/database.php';
 include_once '../../objects/patient.php';
+
+start_session();
   
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
 
-//$_SESSION['sin'];
-
-$h_number = "123";
+$h_number = $_SESSION['user'];
   
 // initialize object
 $patient = new Patient($db);
@@ -23,7 +23,7 @@ $stmt = $patient->mr_number($h_number);
 $num = $stmt->rowCount();
   
 // check if more than 0 record found
-if($num>0){
+if($num == 1){
   
     // products array
     $products_arr=array();

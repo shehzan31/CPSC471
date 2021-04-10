@@ -1,5 +1,7 @@
 'use strict';
 
+//const { get } = require("core-js/core/dict");
+
 const e = React.createElement;
 
 class Dash extends React.Component {
@@ -50,17 +52,38 @@ class Pres extends React.Component {
 const domContainer4 = document.querySelector('#prescriptions');
 ReactDOM.render(e(Pres), domContainer4);
 
-const name_s = "John Doe";
 
 class Head extends React.Component {
+
+    constructor(props) {
+        super(props);
+            this.state = { 
+                name: 'default',
+                isLoaded: false
+            }
+    }
+
+    componentDidMount() {
+        fetch('../Database/api/object_methods/person/getName.php')
+            .then(res => res.json())
+            .then(data => {
+                this.setState({
+                    name: data,
+                    isLoaded: true
+                })
+                console.log(data);
+            });
+    }
+
     render() {
-      return React.createElement("div", null, React.createElement("h1", {
-        className: "header_text"
-      }, "", name_s), React.createElement("div", {
-        className: "profile_image"
-      }));
-    } 
-  }
+        return e("div", null, e("h1", {
+          className: "header_text"
+        }, "", this.state.name), e("div", {
+          className: "profile_image"
+        }));
+    }
+
+}
 
 const domContainer2 = document.querySelector('#header');
 ReactDOM.render(e(Head), domContainer2);

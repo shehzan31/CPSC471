@@ -1,5 +1,7 @@
 <?php
+
     //session_start();
+    session_start();
 
     // include database and object files
     include_once '../../config/database.php';
@@ -32,15 +34,17 @@
             $user = $stmt->fetch();
 
             if (hash('sha256', $password) == $user['Password']) {   
-                echo("Login successful");      
-                header("location: https://www.myhealthcanadaproject.ca/dashboard.html");
+                echo("Login successful"); 
+                $_SESSION["login"] = "1";    
+                $_SESSION["user"] = $username;
+                header("location: ../../../../Website/dashboard.html");
             } else {
                 echo("Login failure");  
-                header("location: https://www.myhealthcanadaproject.ca/login.html");
+                header("location: ./Website/login.html?err=1");
             }
         } else {
             echo("Login failure"); 
-            header("location: https://www.myhealthcanadaproject.ca/login.html");
+            header("location: ./Website/login.html?err=1");
         }
     }
     

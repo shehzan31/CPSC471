@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 
+
+<?php 
+    start_session();
+    $session_value=(isset($_SESSION['user']))?$_SESSION['user']:'';
+?>
+
 <html>
 
     <head>
@@ -9,10 +15,25 @@
         <script type="text/javascript" src="js/core.js"> </script>
 
         <script>
+
             var dashboard = "dashboard";
             var appointments = "appointments";
             var tests = "tests";
-            var prescriptions = "prescriptions"
+            var prescriptions = "prescriptions";
+
+            /*
+            var user;
+            function reqListener() {
+                console.log(this.responseText);
+                user = this.resonseText;
+            }
+            var userReq = new XMLHttpRequest();
+            userReq.addEventListener("load", reqListener);
+            var url = "../Database/api/object_methods/account/initSession.php";
+            userReq.open("get", url, true);
+            userReq.onload = function() {
+            user = userReq.responseText;
+            */
         </script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 

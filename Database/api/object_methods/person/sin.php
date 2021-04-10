@@ -4,16 +4,17 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
   
 // include database and object files
-include_once '../config/database.php';
-include_once '../objects/person.php';
+include_once '../../config/database.php';
+include_once '../../objects/person.php';
+
+//session_start();
   
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
 
-//$_SESSION['sin'];
-
-$sin = "123456789";
+//$sin = $_SESSION['sin'];
+$sin = 123456789;
   
 // initialize object
 $person = new Person($db);
