@@ -1,14 +1,13 @@
 <?php
-class Prescription{
+class Doctor{
     // database connection and table name
     private $conn;
-    private $table_name = "Prescription";
+    private $table_name = "Doctor";
     private $database = "HealthDatabase";
     
     // Object Properties
-    public $Pname;
-    public $Type;
-    public $Field;
+    public $Doctor_ID;
+    public $SIN;
     
     public function __construct($db) {
         $this->conn = $db;
@@ -28,10 +27,10 @@ class Prescription{
         return $stmt;
     }
     
-    function nickSucks($pname) {
+    function doctorID($doctorID) {
         $query =   "SELECT *
-                    FROM $this->database.$this->table_name as p
-                    WHERE p.Pname = $pname";
+                    FROM $this->database.$this->table_name as d
+                    WHERE d.Doctor_ID = $doctorID";
         
         $stmt = $this->conn->prepare($query);
         
@@ -39,12 +38,12 @@ class Prescription{
         return $stmt;
     }
     
-    function post($pname, $type, $field) {
-        $query =   "INSERT INTO $this->database.$this->table_name(PName, Type, Field) VALUES
-                    (?,?,?)";
+    function post($doctorID, $sin) {
+        $query =   "INSERT INTO $this->database.$this->table_name(Doctor_ID, SIN) VALUES
+                    (?,?)";
         
         $stmt = $this->conn->prepare($query);
-        $stmt->execute([$pname, $type, $field]);
+        $stmt->execute([$doctorID, $sin]);
         echo "\nNew record created successfuly";
     }
 }
