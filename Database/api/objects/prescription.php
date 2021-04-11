@@ -31,7 +31,7 @@ class Prescription{
     function pname($pname) {
         $query =   "SELECT *
                     FROM $this->database.$this->table_name as p
-                    WHERE p.Pname = $pname";
+                    WHERE p.Pname = '$pname'";
         
         $stmt = $this->conn->prepare($query);
         
