@@ -22,10 +22,36 @@ ReactDOM.render(e(Dash), domContainer);
 
 
 class Appoint extends React.Component {
+
+    constructor(props) {
+        super(props);
+            this.state = { list: [] }
+    }
+
+
+    componentDidMount() {
+        fetch('../Database/api/object_methods/medical_record/showAllAppointments.php')
+            .then(res => res.json())
+            .then(data => {
+                this.setState({ list: data.records})
+                console.log(data.records);
+            });
+    }
+
     render() {
-        return e("div", null, e("h1", { className: "appoint_text"}, " Appointments "), 
-        e("SampleDash", {className: "appoint_info_pane"}));
-      }
+        if (this.state.list != []) {
+            return(
+                e("div", null, e("h1", {className: "appoint_text"}, "Appointments"),
+                    e("table", {className: "appoint_info"},
+                        e("tr", null, " ", e("th", null, "ID"), " ", e("th", null, "Location"), " ", e("th", null, "Date"), e("th", null, "Time")), 
+                            this.state.list.map(records => e("tr", {className: "trow"}, 
+                                e("td", null, " ", records.Appointment, " "), e("td", null, " ", records.Location, " "), e("td", null, " ", records.Date, " "), e("td", null, " ", records.Time, " "))), " "))
+            );
+        } else {
+            return e("div", null, e("h1", { className: "appoint_text"}, "Appointments"), 
+            e("SampleDash", {className: "appoint_info_pane"}));
+        }
+    }
 }
 
 const domContainer1 = document.querySelector('#appointments');

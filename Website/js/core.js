@@ -44,7 +44,6 @@ function smoothScroll(id, sid) {
 
 function scrollAnimation(pid, string) {
     if (pid.classList.contains("dashboard")) {
-        console.log("yes");
         pid.classList.toggle("dashboard");
         pid.classList.add(string);
         pid.classList.add("animate");

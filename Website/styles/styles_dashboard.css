@@ -404,6 +404,21 @@ html, body{
         background: #000000;
     }
 
+    .appointments_page .appoint_info {
+        position: absolute;
+        width: 75%;
+        top: 10%;
+        left: 5%;
+        height: auto;
+        border: 1px black solid;
+        /*border-collapse: collapse;*/
+    }
+
+    th {
+        height: 30px;
+    }
+
+
     .pers_page {
         position: absolute;
         top: 210.022%;
