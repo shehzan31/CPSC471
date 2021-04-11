@@ -28,7 +28,7 @@ class Prescription{
         return $stmt;
     }
     
-    function nickSucks($pname) {
+    function pname($pname) {
         $query =   "SELECT *
                     FROM $this->database.$this->table_name as p
                     WHERE p.Pname = $pname";

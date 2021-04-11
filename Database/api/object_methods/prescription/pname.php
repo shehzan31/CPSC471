@@ -19,7 +19,7 @@ $Pname = "Colon medicine";
 $prescription = new Prescription($db);
   
 // query products
-$stmt = $prescription->nickSucks($Pname);
+$stmt = $prescription->pname($Pname);
 $num = $stmt->rowCount();
   
 // check if more than 0 record found
