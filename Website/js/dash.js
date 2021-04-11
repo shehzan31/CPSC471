@@ -39,7 +39,7 @@ class Appoint extends React.Component {
     }
 
     render() {
-        if (this.state.list != []) {
+        if ((this.state.list != []) && (this.state.list != null)) {
             return(
                 e("div", null, e("h1", {className: "appoint_text"}, "Appointments"),
                     e("table", {className: "appoint_info"},

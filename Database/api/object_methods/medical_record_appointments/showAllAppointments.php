@@ -19,7 +19,7 @@ $patient = new Patient($db);
 $mra = new Medical_Records_Appointments($db);
 $appointments = new Appointment($db);
 
-$user = 201201201;//$_SESSION['user'];
+$user = $_SESSION['user'];
 
 // Query MR_Number 
 $stmt1 = $patient->mr_number($user);
