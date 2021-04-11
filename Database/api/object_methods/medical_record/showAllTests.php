@@ -6,7 +6,7 @@ header("Content-Type: application/json; charset=UTF-8");
 // include database and object files
 include_once '../../config/database.php';
 include_once '../../objects/patient.php';
-include_once '../../objects/appointments.php';
+include_once '../../objects/test.php';
 
 session_start();
   
