@@ -452,6 +452,15 @@ html, body{
         background: #000000;
     }
 
+    .pers_page .pres_info{
+        position: absolute;
+        width: 75%;
+        top: 10%;
+        left: 5%;
+        height: auto;
+        border: 1px black solid;
+    }
+
     .test_page {
         position: absolute;
         top: 310.022%;

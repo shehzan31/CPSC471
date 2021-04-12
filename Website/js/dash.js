@@ -95,9 +95,34 @@ const domContainer3 = document.querySelector('#tests');
 ReactDOM.render(e(Test), domContainer3);
 
 class Pres extends React.Component {
+
+    constructor(props){
+        super(props);
+            this.state = {list:[]}
+    }
+
+    componentDidMount() {
+        fetch('../Database/api/object_methods/medical_record/showAllPrescriptions.php')
+            .then(res => res.json())
+            .then(data => {
+                this.setState({ list: data.records})
+                console.log(data.records);
+            });
+    }
+
     render() {
-        return e("div", null, e("h1", { className: "pres_text" }, " Prescriptions "),
-            e("SampleDash", { className: "pres_info_pane" }));
+        if ((this.state.list != []) && (this.state.list != null)) {
+            return(
+                e("div", null, e("h1", {className: "pres_text"}, "Prescriptions"),
+                    e("table", {className: "pres_info"},
+                        e("tr", null, " ", e("th", null, "Name"), " ", e("th", null, "Type"), " ", e("th", null, "Field")),
+                            this.state.list.map(records => e("tr", {className: "trow"},
+                                e("td", null, " ", records.Prescription, " "), e("td", null, " ", records.Type, " "), e("td", null, " ", records.Field, " "))), " "))
+            );
+        } else {
+            return e("div", null, e("h1", { className: "pres_text"}, "Prescriptions"),
+            e("SampleDash", {className: "pres_info_pane"}));
+        }
     }
 }
 
