@@ -64,7 +64,7 @@ class Finds {
     }
     
     function post($Doctor_ID, $H_Number, $Condition, $Date, $Chart) {
-        $query =   "INSERT INTO $this->database.$this->table_name(Doctor_ID, H_Number, Condition, Date, Chart) VALUES
+        $query =   "INSERT INTO $this->database.$this->table_name(Doctor_ID, H_Number, `Condition`, Date, Chart) VALUES
                     (?, ?, ?, ?, ?)";
         
         $stmt = $this->conn->prepare($query);
