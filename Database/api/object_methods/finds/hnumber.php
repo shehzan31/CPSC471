@@ -14,8 +14,8 @@ $database = new Database();
 $db = $database->getConnection();
 
 //$sin = $_SESSION['sin'];
-$condition = "constipation";
-$hnumber = 201201201;
+$hnumber = $_SESSION['user'];
+//$hnumber = $_SESSION['h_number'];
   
 // initialize object
 $find = new Finds($db);
