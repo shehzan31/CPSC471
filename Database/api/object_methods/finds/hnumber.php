@@ -15,12 +15,13 @@ $db = $database->getConnection();
 
 //$sin = $_SESSION['sin'];
 $condition = "constipation";
+$hnumber = 201201201;
   
 // initialize object
 $find = new Finds($db);
   
 // query products
-$stmt = $find->condition($condition);
+$stmt = $find->hnumber($hnumber);
 $num = $stmt->rowCount();
   
 // check if more than 0 record found

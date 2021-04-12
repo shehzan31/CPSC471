@@ -17,9 +17,9 @@ $finds= new Finds($db);
 // Object Properties
 $Doctor_ID = 123456789;
 $H_Number = 201201201;
-$Condition = "constipation";
-$Date = "2021-02-16";
-$Chart = "hair blockage";
+$Condition = "food poisoning";
+$Date = "2021-01-16";
+$Chart = "bad curry";
 
 // query products
 $stmt = $finds->post($Doctor_ID, $H_Number, $Condition, $Date, $Chart);

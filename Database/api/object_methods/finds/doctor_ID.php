@@ -14,13 +14,13 @@ $database = new Database();
 $db = $database->getConnection();
 
 //$sin = $_SESSION['sin'];
-$condition = "constipation";
+$doctor_ID = 123456789;
   
 // initialize object
 $find = new Finds($db);
   
 // query products
-$stmt = $find->condition($condition);
+$stmt = $find->doctor_ID($doctor_ID);
 $num = $stmt->rowCount();
   
 // check if more than 0 record found

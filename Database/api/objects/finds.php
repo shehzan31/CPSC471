@@ -52,10 +52,10 @@ class Finds {
         return $stmt;
     }
     
-    function condition($hnumber, $condition) {
+    function condition($condition) {
         $query =   "SELECT *
                     FROM $this->database.$this->table_name as f
-                    WHERE ((f.Condition = '$condition') && (f.H_Number = '$hnumber'))";
+                    WHERE (f.Condition = '$condition')";
         
         $stmt = $this->conn->prepare($query);
         

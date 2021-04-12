@@ -15,7 +15,7 @@ $db = $database->getConnection();
 $diagnosis= new Diagnosis($db);
 
 // Object Properties
-$Condition = "constipation";
+$Condition = "food poisoning";
 
 // query products
 $stmt = $diagnosis->post($Condition);
