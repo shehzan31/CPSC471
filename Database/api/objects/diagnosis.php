@@ -27,11 +27,11 @@ class Diagnosis {
     }
 
     function post($Condition) {
-        $query =   "INSERT INTO $this->database.$this->table_name(Condition) VALUES
+        $query =   "INSERT INTO $this->database.$this->table_name(`Condition`) VALUES
                     (?)";
         
         $stmt = $this->conn->prepare($query);
-        $stmt-> execute([$Condition]);
+        $stmt->execute([$Condition]);
         echo "\nNew record created successfuly";
     }
 
