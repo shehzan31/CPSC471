@@ -33,14 +33,26 @@
 
             $user = $stmt->fetch();
 
-            if (hash('sha256', $password) == $user['Password']) {   
-                echo("Login successful"); 
-                $_SESSION["login"] = "1";    
-                $_SESSION["user"] = $username;
-                header("location: ../../../../Website/dashboard.html");
+            if (isset($_SESSION['doctor'])) {
+                if (hash('sha256', $password) == $user['Password']) {   
+                    echo("Login successful"); 
+                    $_SESSION["login"] = "1";    
+                    $_SESSION["user"] = $username;
+                    header("location: ../../../../Website/dashboard_doctor.html");
+                } else {
+                    echo("Login failure");  
+                    header("location: ./Website/login.html?err=1");
+                }
             } else {
-                echo("Login failure");  
-                header("location: ./Website/login.html?err=1");
+                if (hash('sha256', $password) == $user['Password']) {   
+                    echo("Login successful"); 
+                    $_SESSION["login"] = "1";    
+                    $_SESSION["user"] = $username;
+                    header("location: ../../../../Website/dashboard.html");
+                } else {
+                    echo("Login failure");  
+                    header("location: ./Website/login.html?err=1");
+                }
             }
         } else {
             echo("Login failure"); 

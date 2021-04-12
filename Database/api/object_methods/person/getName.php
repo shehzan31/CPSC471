@@ -8,6 +8,7 @@ header("Content-Type: application/json; charset=UTF-8");
 include_once '../../config/database.php';
 include_once '../../objects/person.php';
 include_once '../../objects/patient.php';
+include_once '../../objects/doctor.php';
 
 session_start();
   
@@ -17,14 +18,42 @@ $db = $database->getConnection();
 
 // initialize object
 $patient = new Patient($db);
+$doctor = new Doctor($db);
 
 $user = $_SESSION['user'];
-  
-// query products
-$stmt = $patient->mr_number($user);
-$num = $stmt->rowCount();
 
-if ($num = 1) {
+
+if (isset($_SESSION['doctor'])) {
+    // query products
+    $stmt = $doctor->doctorID($user);
+    $num = $stmt->rowCount();
+
+    if ($num = 1) {
+        $user = $stmt->fetch();
+        $sin = $user['SIN'];
+
+        // initialize object
+        $person = new Person($db);
+  
+        // query products
+        $stmt = $person->sin($sin);
+        $num = $stmt->rowCount();
+  
+        // check if more than 0 record found
+        if($num == 1){
+  
+        $per = $stmt->fetch();
+        $name = "Dr. " . $per['LName'];
+        // show products data in json format
+        echo json_encode($name);
+    }
+}
+} else {
+    // query products
+    $stmt = $patient->mr_number($user);
+    $num = $stmt->rowCount();
+
+    if ($num = 1) {
     $user = $stmt->fetch();
     $sin = $user['SIN'];
 
@@ -44,6 +73,9 @@ if ($num = 1) {
         echo json_encode($name);
     }
 }
+}
+  
+
 
   
 

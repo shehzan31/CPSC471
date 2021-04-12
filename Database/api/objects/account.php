@@ -19,6 +19,7 @@ class Account {
 
         $stmt->execute();
         if ($stmt->rowCount() != 1) {
+            session_start();
             $query =   "SELECT *
                         FROM $this->database.$this->table_name2 as p
                         WHERE p.Username = $username and p.Password = $password";
@@ -26,6 +27,7 @@ class Account {
             $stmt = $this->conn->prepare($query);
 
             $stmt->execute();
+            if ($stmt->rowCount() == 1) $_SESSION['doctor'] = 1;
         }
 
         return $stmt;
