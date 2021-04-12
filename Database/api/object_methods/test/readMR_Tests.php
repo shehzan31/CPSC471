@@ -15,7 +15,7 @@ $db = $database->getConnection();
 $test = new Test($db);
   
 // query products
-$stmt = $test->read();
+$stmt = $test->readMR_Tests();
 $num = $stmt->rowCount();
   
 // check if more than 0 record found
@@ -35,10 +35,8 @@ if($num>0){
         extract($row);
   
         $test_item=array(
-            "test id" => $Test_ID,
-            "test name" => $TName,
-            "date" => $Date,
-            "result" => $Result
+            "MR num" => $MR_Number,
+            "test id" => $Test
         );
   
         array_push($products_arr["records"], $test_item);
