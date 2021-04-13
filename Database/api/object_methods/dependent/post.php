@@ -12,12 +12,12 @@ $database = new Database();
 $db = $database->getConnection();
 
 // initialize object
-$dependent= new Dependent($db);
+$dependent= new Dependent($db); 
 
 // Object Properties
-$SIN = 201201201;
-$D_SSN = 200200200;
-$Relationship = "brother";
+$SIN = 891887441;
+$D_SSN = 123456789;
+$Relationship = "Brother";
 
 // query products
 $stmt = $dependent->post($SIN, $D_SSN, $Relationship);
