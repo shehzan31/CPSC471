@@ -41,7 +41,7 @@
                     header("location: ../../../../Website/dashboard_doctor.html");
                 } else {
                     echo("Login failure");  
-                    header("location: ./Website/login.html?err=1");
+                    header("location: ../../../../Website/login.html");
                 }
             } else {
                 if (hash('sha256', $password) == $user['Password']) {   
@@ -51,12 +51,12 @@
                     header("location: ../../../../Website/dashboard.html");
                 } else {
                     echo("Login failure");  
-                    header("location: ./Website/login.html?err=1");
+                    header("location: ../../../../Website/login.html");
                 }
             }
         } else {
             echo("Login failure"); 
-            header("location: ./Website/login.html?err=1");
+            header("location: ../../../../Website/index.html");
         }
     }
     

@@ -42,6 +42,27 @@ class Appointment {
         return $stmt;
     }
 
+    function getMax() {
+        $query =   "SELECT MAX(Appointment_ID) as largestID
+                    FROM $this->database.$this->table_name";
+        
+        //prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        //execute query
+        $stmt->execute();
+        return $stmt;
+    }
+
+    function insert($aid, $location, $date, $time) {
+        $query =   "INSERT INTO $this->database.$this->table_name(Appointment_ID, location, Date, Time) VALUES
+        (?, ?, ?, ?)";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$aid, $location, $date, $time]);
+        return $stmt;
+    }
+
 }
 
 ?>
