@@ -24,7 +24,7 @@ class Dash extends React.Component {
         if ((this.state.list != []) && (this.state.list != null)) {
             return (
                 e("div", null, e("h1", { className: "dashboard_text" }, "Dashboard"),
-                    e("table", { className: "dash_info" },
+                    e("table", { className: "dash_info" }, "Health Diagnosis",
                         e("tr", null, " ", e("th", null, "Doctor ID"), " ", e("th", null, "H Number"), " ", e("th", null, "Condition"), e("th", null, "Date"), " ", e("th", null, "Chart/Notes")),
                         this.state.list.map(records => e("tr", { className: "trow" },
                             e("td", null, " ", records.doctor_ID, " "), e("td", null, " ", records.hnumber, " "), e("td", null, " ", records.condition, " "), e("td", null, " ", records.date, " "), e("td", null, " ", records.chart))), " "))
