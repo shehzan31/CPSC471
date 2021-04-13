@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis|Quicksand');
+
+body, header, ul, li, h1, h2, h3, a{
+    margin: 0;
+    padding: 0;
+    font-family:    "Segoe UI", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+                    Helvetica, Arial, "Lucida Grande", sans-serif, "Quicksand";
+    list-style: none;
+    text-decoration: none;
+    overflow-y: hidden;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (min-width:768px) {
+    
+    * {
+        outline: none;
+    }
+
+    .doctor_page .doc_page {
+        width: 100%;
+        height: 100%;
+    }
+
+    .doctor_page .doc_page .doctor_text {
+        position: absolute;
+        width: auto;
+        height: 70px;
+        left: 5%;
+        top: 4%;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 45px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .doctor_page .doc_page .search_container {
+        visibility: visible;
+        position: fixed;
+        top: 15%;
+        left:  5%;
+        display: grid;
+        height: 5%;
+        width: 25%;
+        background-color: #ff7575;
+        border-radius: 10px;
+        margin: -25px auto 0 auto;
+        grid-template-columns: 75% 25%;
+    }
+
+    .doctor_page .doc_page .search_btn {
+        background-color: #fff;
+        border: 2px;
+        border-radius: 10px;
+        border-color: #ff7575;
+        margin: 4px;
+        align-items: center;
+    }
+
+    .doctor_page .doc_page .search_btn .search_btn_text {
+        font-family: Quicksand;
+        color: #e16868;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        font-size: 16px;
+        line-height: 1;
+        font-family: Quicksand;
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+    }
+
+    .doctor_page .doc_page .search_bar .search_bar_text {
+        width: 100%;
+        height: 100%;
+        font-size: 16px;
+        color: #fff;
+        line-height: 1;
+        font-family: Quicksand;
+        padding: 0;
+        padding-left: 25px;
+        border: 0;
+        background-color: transparent;
+    }
+
+    input::placeholder {
+        color: #e16868;
+    }
+
+    .doctor_page .doc_page .person_card {
+        position: fixed;
+        top: 25%;
+        bottom: 10%;
+        left:5%;
+        width: 32.5%;
+        border: 10px;
+        border-radius: 10px;
+        background-color: #ffcccc;
+    }
+
+    .doctor_page .doc_page .person_card .person_name {
+        color: #000;
+        position: relative;
+        width:70%;
+        top: 5%;
+        left: 5%;
+        font-size: 48px;
+    }
+
+    .doctor_page .doc_page .person_card .person_hnum {
+        color: #000;
+        position: relative;
+        top: 5%;
+        left: 5%;
+        font-size: 32px;
+    }
+
+    .doctor_page .doc_page .person_card .person_dob {
+        color: #000;
+        position: relative;
+        top: 5%;
+        left: 5%;
+        font-size: 32px;
+    }
+
+    .doctor_page .doc_page .person_card .person_image {
+        background-color: #fff;
+        background-image: url('../icons/profile.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 10px;
+        background-position: center;
+        position: absolute;
+        width: 30%;
+        height: 30%;
+        top: 5%;
+        right: 5%;
+        font-size: 32px;
+    }
+
+    .doctor_page .doc_page .Appointments {
+        border: none;
+        position: fixed;
+        font-size: 22px;
+        top: 30%;
+        left: 40%;
+        width: 15%;
+        height: 10%;
+        background-color: #ff7575;
+        border-radius: 10px;
+        color:#fff;
+    }
+
+    .doctor_page .doc_page .Appointments:active {
+        box-shadow: 1px 1px 24px 3px rgba(0,0,0,0.75) inset;
+    }
+
+    .doctor_page .doc_page .Conditions {
+        border: none;
+        position: fixed;
+        font-size: 22px;
+        top: 45%;
+        left: 40%;
+        width: 15%;
+        height: 10%;
+        background-color: #ff7575;
+        border-radius: 10px;
+        color:#fff;
+    }
+
+    .doctor_page .doc_page .Conditions:active {
+        box-shadow: 1px 1px 24px 3px rgba(0,0,0,0.75) inset;
+    }
+
+    .doctor_page .doc_page .Prescriptions {
+        border: none;
+        position: fixed;
+        font-size: 22px;
+        bottom: 30%;
+        left: 40%;
+        width: 15%;
+        height: 10%;
+        background-color: #ff7575;
+        border-radius: 10px;
+        color:#fff;
+    }
+
+    .doctor_page .doc_page .Prescriptions:active {
+        box-shadow: 1px 1px 24px 3px rgba(0,0,0,0.75) inset;
+    }
+
+    .doctor_page .doc_page .Tests {
+        border: none;
+        position: fixed;
+        bottom: 15%;
+        font-size: 22px;
+        left: 40%;
+        width: 15%;
+        height: 10%;
+        background-color: #ff7575;
+        border-radius: 10px;
+        color:#fff;
+    }
+
+    .doctor_page .doc_page .Tests:active {
+        box-shadow: 1px 1px 24px 3px rgba(0,0,0,0.75) inset;
+    }
+
+    th {
+        height: 30px;
+        border-bottom: 2px white solid;
+        border-radius: 10px;
+        font-family: Quicksand;
+    }
+    .trow {
+        font-family: Quicksand;
+        border: 1px white solid;
+    }
+
+    .doctor_page .doc_page .view_deck {
+        position: fixed;
+        top: 25%;
+        bottom: 10%;
+        right:5%;
+        width: 32.5%;
+        border: 10px;
+        border-radius: 10px;
+        background-color: #ffcccc;
+        align-items: center;
+    }
+
+    .doctor_page .doc_page .view_deck .appoint_text {
+        position: absolute;
+        top:    5%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .doctor_page .doc_page .view_deck .appoint_info {
+        left: 2.5%;
+        position: absolute;
+        width: 95%;
+        top: 15%;
+        margin: auto;
+        padding: auto;
+        height: auto;
+        border: 2px white solid;
+        border-radius: 10px;
+        border-collapse: collapse;
+    }
+
+    .doctor_page .doc_page .view_deck .appoint_info .trow td{
+        margin: auto;
+        padding: auto;
+        height: auto;
+        border: 2px white solid;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+
+
+}

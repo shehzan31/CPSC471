@@ -11,6 +11,8 @@ class Account {
     }
 
     public function authenticate($username, $password) {
+        session_start();
+        
         $query =   "SELECT *
                     FROM $this->database.$this->table_name1 as p
                     WHERE p.Username = $username";
@@ -19,7 +21,6 @@ class Account {
 
         $stmt->execute();
         if ($stmt->rowCount() != 1) {
-            session_start();
             $query =   "SELECT *
                         FROM $this->database.$this->table_name2 as p
                         WHERE p.Username = $username and p.Password = $password";
