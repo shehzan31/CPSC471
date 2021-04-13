@@ -27,6 +27,20 @@ class Dependent {
         $stmt->execute();
         return $stmt;
     }
+
+    public function returnAllDependents($SIN){
+        $query =   "SELECT *
+                    FROM $this->database.$this->table_name as d
+                    WHERE d.SIN = $SIN";
+        
+        //prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        //execute query
+        $stmt->execute();
+        return $stmt;
+    }
+
     function post($SIN, $D_SIN, $Relationship) {
         $query =   "INSERT INTO $this->database.$this->table_name(SIN, D_SIN, Relationship) VALUES
                     (?, ?, ?)";
