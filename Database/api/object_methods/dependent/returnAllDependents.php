@@ -27,32 +27,33 @@ if($num1 > 0){
     
 
     while ($row = $stmt1->fetch(PDO::FETCH_ASSOC)) {
-        $d = $stmt1->fetch();
-        $dsin = $d['D_SIN'];
-        $relation = $d['Relationship'];
+//         $d = $stmt1->fetch();
+        $dsin = $row['D_SIN'];
+        $relation = $row['Relationship'];
         $stmt2 = $person->sin($dsin);
         $num2 = $stmt2->rowCount();
-    
+        $arr = array();
+        $arr['records'] = array();
         if($num2 == 1){
-            $arr = array();
-            $arr['records'] = array();
+
 
             while($row1 = $stmt2->fetch(PDO::FETCH_ASSOC)){
                 extract($row1);
                 $item = array(
-                    "DFName"      => $fname,
-                    "DMInit"      => $minit,
-                    "DLName"      => $lname,
+                    "DFName"      => $FName,
+                    "DMInit"      => $MInit,
+                    "DLName"      => $LName,
                     "Relation"    => $relation,
                 );
 
-                array_push($arr['records'], $item);
+                array_push($arr['records'], $item);           
             }
         }
+        echo json_encode($arr);
+        
     }
 
     // show products data in json format
-    echo json_encode($arr);  
 
 }
 else {
