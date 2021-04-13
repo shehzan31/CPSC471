@@ -6,6 +6,7 @@ header("Content-Type: application/json; charset=UTF-8");
 // include database and object files
 include_once '../../config/database.php';
 include_once '../../objects/person.php';
+include_once '../../objects/patient.php';
 
 //session_start();
   
@@ -13,11 +14,15 @@ include_once '../../objects/person.php';
 $database = new Database();
 $db = $database->getConnection();
 
-//$sin = $_SESSION['sin'];
-$sin = 123456789;
+$user = $_SESSION['user'];
+//$sin = 123456789;
   
 // initialize object
 $person = new Person($db);
+$patient = new Patient($db);
+
+$p = $patient->mr_number($user);
+$sin = $p['sin'];
   
 // query products
 $stmt = $person->sin($sin);
