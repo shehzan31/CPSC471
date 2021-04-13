@@ -252,6 +252,7 @@ html, body{
         position: absolute;
         width: 95%;
         top: 15%;
+        height: 50%;
         margin: auto;
         padding: auto;
         height: auto;
@@ -267,6 +268,38 @@ html, body{
         border: 2px white solid;
         border-radius: 10px;
         text-align: center;
+    }
+
+    /*  Styles for appointment submit form  */
+
+    .doctor_page .doc_page .view_deck .submit_form {
+        position: absolute;
+        width: 95%;
+        left: 2.5%;
+        bottom: 5%;
+        height: 25%;
+    }
+
+    .doctor_page .doc_page .view_deck .submit_form .submit_form_text {
+        font-size: 24px;
+    }
+
+    .doctor_page .doc_page .view_deck .submit_form .location .location_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+
+    .doctor_page .doc_page .view_deck .submit_form .date .date_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+
+    .doctor_page .doc_page .view_deck .submit_form .time .time_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
     }
 
 

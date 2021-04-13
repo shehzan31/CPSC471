@@ -34,6 +34,10 @@ class Super extends React.Component {
         this.testsButton.current.changeUrl('Tests','');
     }
 
+    getState() {
+        return this.viewDeck.state.source;
+    }
+
     handleClicks = data => {
         if (data == 'Appointments') {
             this.handleAppointments();
@@ -56,7 +60,7 @@ class Super extends React.Component {
                     e(DoctorButton, {className:'conditions',    ref: this.conditionsButton,     style: 'display: none'}),
                     e(DoctorButton, {className:'prescriptions', ref: this.prescriptionsButton,  style: 'display: none'}),
                     e(DoctorButton, {className:'test',          ref: this.testsButton,          style: 'display: none'}),
-                    e(View,         {className:'view_deck',     ref: this.viewDeck,             style: 'display: none'})
+                    e(View,         {className:'view_deck',     ref: this.viewDeck,             style: 'display: none', returnState: this.getState})
                 ))
         }
         else {
@@ -226,7 +230,8 @@ class View extends React.Component {
             this.state = {
                 source: '',
                 url: '',
-                data: []
+                data: [],
+                hnum: ''
             }
     }
 
@@ -246,10 +251,21 @@ class View extends React.Component {
                 this.setState( {
                     source: calle,
                     url:    passed_url,
-                    data:   res.records
+                    data:   res.records,
+                    hnum: h_num
                 })
             })
     }
+
+    getState = () => {
+        return (this.state.source)
+    }
+
+    getPatient = () => {
+        return (this.state.hnum)
+    }
+
+
 
 
     render() {
@@ -259,8 +275,88 @@ class View extends React.Component {
             if (this.state.source == 'appointments') {
                 return (
                     e("div", {className:'view_deck'}, e("h1", { className: "appoint_text" }, "Appointments"),
-                    e("table", { className: "appoint_info" },e("tr", null, " ", e("th", null, "ID"), " ", e("th", null, "Location"), " ", e("th", null, "Date"), e("th", null, "Time")),this.state.data.map(records => e("tr", { className: "trow" },e("td", null, " ", records.Appointment, " "), e("td", null, " ", records.Location, " "), e("td", null, " ", records.Date, " "), e("td", null, " ", records.Time, " "))), " "))
+                    e("table", {className: "appoint_info"},
+                        e("tr", null, " ", 
+                            e("th", null, "ID"), " ", 
+                            e("th", null, "Location"), " ", 
+                            e("th", null, "Date"), 
+                            e("th", null, "Time")), 
+                            this.state.data.map(records => 
+                                e("tr", { className: "trow" },
+                                e("td", null, " ", records.Appointment, " "), 
+                                e("td", null, " ", records.Location, " "), 
+                                e("td", null, " ", records.Date, " "), 
+                                e("td", null, " ", records.Time, " ")))),
+                    e(Submit, {className: "submit_form", returnState:this.getState, getHNum:this.getPatient})
+                ))
+            }
+        }
+    }
+}
+
+class Submit extends React.Component {
+    constructor(props) {
+        super(props);
+            this.state = {
+                hnum: null,
+                data1: null,
+                data2: null,
+                data3: null,
+                data4: null
+            }
+    }
+
+    onSubmit = (event) => {
+        const str = this.props.getHNum();
+        this.setState({
+            hnum: str
+        }, () => {
+            this.sendData();
+        });
+        return;
+    }
+
+    sendData = () => {
+        console.log(this.state);
+            if (this.props.returnState() == 'appointments') {
+            
+                const request = new Request('../Database/api/object_methods/doctor/edits/editsAppointment.php', {
+                    method: 'POST',
+                    body: JSON.stringify(this.state),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+
+                fetch(request)
+                .then(res => res.json())
+                .then(res => {
+                    console.log('appointment added');
+                })
+    
+            }
+    }
+
+    render() {
+        if (this.props.returnState() == '') {
+            return (null)
+        } else {
+            if (this.props.returnState() == 'appointments') {
+                return (
+                    e("div", {className: "submit_form"}, 
+                        e("h3", {className:"submit_form_text"}, "Enter new appointment"), 
+                        e("div", {className: "location"}, 
+                            "Location", e("input", {className: "location_text", placeholder: "123rd St SE, Townsville BC A1A 1A1", onChange: e => this.setState({data1: e.target.value}) })), 
+                        e("div", {className: "date"}, 
+                            "Date", e("input", {className: "date_text", placeholder: "1900-01-01", onChange: e => this.setState({data2: e.target.value}) })), 
+                        e("div", {className: "time"}, 
+                            "Time", e("input", {className: "time_text",placeholder: "12:00", onChange: e => this.setState({data3: e.target.value}) })), 
+                        e("div", {className: "submit_btn"}, 
+                            e("input", {className: "submit_btn_text",type: "submit", value: "Submit", onClick: e => this.onSubmit(e)}))
+                    )
                 )
+            } else {
+                return (e('div', null))
             }
         }
     }
