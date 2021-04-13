@@ -8,7 +8,7 @@ class Dash extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { list: [] }
+        this.state = { list: [], list2: []}
     }
 
     componentDidMount() {
@@ -16,6 +16,12 @@ class Dash extends React.Component {
             .then(res => res.json())
             .then(data => {
                 this.setState({ list: data.records })
+                console.log(data.records);
+            }),
+        fetch('../Database/api/object_methods/dependent/returnAllDependents.php')
+            .then(res => res.json())
+            .then(data => {
+                this.setState({ list2: data.records })
                 console.log(data.records);
             });
     }
@@ -27,7 +33,12 @@ class Dash extends React.Component {
                     e("table", { className: "dash_info" }, "Health Diagnosis",
                         e("tr", null, " ", e("th", null, "Doctor ID"), " ", e("th", null, "H Number"), " ", e("th", null, "Condition"), e("th", null, "Date"), " ", e("th", null, "Chart/Notes")),
                         this.state.list.map(records => e("tr", { className: "trow" },
-                            e("td", null, " ", records.doctor_ID, " "), e("td", null, " ", records.hnumber, " "), e("td", null, " ", records.condition, " "), e("td", null, " ", records.date, " "), e("td", null, " ", records.chart))), " "))
+                            e("td", null, " ", records.doctor_ID, " "), e("td", null, " ", records.hnumber, " "), e("td", null, " ", records.condition, " "), e("td", null, " ", records.date, " "), e("td", null, " ", records.chart))), " "),
+                    e("table", { className: "dash_info_dependent" }, "Dependents Info",
+                        e("tr", null, " ", e("th", null, "Dependent Name"), " ", e("th", null, "Relation")),
+                        this.state.list2.map(records => e("tr", { className: "trow" },
+                            e("td", null, " ", records.DFName, " ", records.FMInit, " ", records.DLName, " "), e("td", null, " ", records.Relation, " "))), " ")
+                            )
             );
         }else{
             return e("div", null, e("h1", { className: "dashboard_text" }, " Dashboard "),

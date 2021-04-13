@@ -372,6 +372,16 @@ html, body{
         /*border-collapse: collapse;*/
     }
 
+    .dash_page .dash_info_dependent {
+        position: absolute;
+        width: 75%;
+        top: 50%;
+        left: 5%;
+        height: auto;
+        border: 1px black solid;
+        /*border-collapse: collapse;*/
+    }
+
     .dash_page .dash_info_pane {
         position: absolute;
         width: 50%;
