@@ -27,7 +27,14 @@ class Dependent {
         $stmt->execute();
         return $stmt;
     }
-
+    function post($SIN, $D_SIN, $Relationship) {
+        $query =   "INSERT INTO $this->database.$this->table_name(SIN, D_SIN, Relationship) VALUES
+                    (?, ?, ?)";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$SIN, $D_SIN, $Relationship]);
+        echo "\nNew record created successfuly";
+    }
 }
 
 ?>
