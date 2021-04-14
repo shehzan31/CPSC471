@@ -240,14 +240,14 @@ html, body{
         align-items: center;
     }
 
-    .doctor_page .doc_page .view_deck .appoint_text .cond_text {
+    .doctor_page .doc_page .view_deck .appoint_text {
         position: absolute;
         top:    5%;
         width: 100%;
         text-align: center;
     }
 
-    .doctor_page .doc_page .view_deck .appoint_info .cond_info {
+    .doctor_page .doc_page .view_deck .appoint_info {
         left: 2.5%;
         position: absolute;
         width: 95%;
@@ -261,7 +261,37 @@ html, body{
         border-collapse: collapse;
     }
 
-    .doctor_page .doc_page .view_deck .appoint_info .cond_info .trow td{
+    .doctor_page .doc_page .view_deck .appoint_info .trow td{
+        margin: auto;
+        padding: auto;
+        height: auto;
+        border: 2px white solid;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .doctor_page .doc_page .view_deck .pres_text {
+        position: absolute;
+        top:    5%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .doctor_page .doc_page .view_deck .pres_info {
+        left: 2.5%;
+        position: absolute;
+        width: 95%;
+        top: 15%;
+        height: 50%;
+        margin: auto;
+        padding: auto;
+        height: auto;
+        border: 2px white solid;
+        border-radius: 10px;
+        border-collapse: collapse;
+    }
+
+    .doctor_page .doc_page .view_deck .pres_info .trow td{
         margin: auto;
         padding: auto;
         height: auto;
@@ -279,7 +309,6 @@ html, body{
         bottom: 5%;
         height: 25%;
     }
-
 
     .doctor_page .doc_page .view_deck .submit_form .submit_form_text {
         font-size: 24px;
@@ -302,6 +331,38 @@ html, body{
         width:  67.5%;
         left:   30%;
     }
+
+    .doctor_page .doc_page .view_deck .submit_form .pname .pname_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+
+    .doctor_page .doc_page .view_deck .submit_form .type .type_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+
+    .doctor_page .doc_page .view_deck .submit_form .field .field_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+
+    .doctor_page .doc_page .view_deck .submit_form .startD .startD_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+
+    .doctor_page .doc_page .view_deck .submit_form .endD .endD_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+
+    
 
 
 
