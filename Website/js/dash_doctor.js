@@ -85,7 +85,7 @@ class Super extends React.Component {
                     e(Search,       {onSearchChange: this.handleSearchChange}),
                     e(PersonCard,   {ref: this.personCardElement}),
                     e(DoctorButton, {ref: this.appointmentsButton,  buttonPushed: this.handleClicks}),
-                    e(DoctorButton, {ref: this.conditionsButton}),
+                    e(DoctorButton, {ref: this.conditionsButton, buttonPushed: this.handleClicks}),
                     e(DoctorButton, {ref: this.prescriptionsButton, buttonPushed: this.handleClicks}),
                     e(DoctorButton, {ref: this.testsButton}),
                     e(View,         {ref: this.viewDeck}))
@@ -324,15 +324,11 @@ class View extends React.Component {
                     e("div", {className:'view_deck'}, e("h1", { className: "cond_text" }, "Conditions"),
                     e("table", {className: "cond_info"},
                         e("tr", null, " ", 
-                            e("th", null, "Doctor_ID"), " ", 
-                            e("th", null, "H_Number"), " ", 
                             e("th", null, "Condition"), " ", 
                             e("th", null, "Date"), 
                             e("th", null, "Chart")), 
                             this.state.data.map(records => 
                                 e("tr", { className: "trow" },
-                                e("td", null, " ", records.Doctor_ID, " "), 
-                                e("td", null, " ", records.H_Number, " "),
                                 e("td", null, " ", records.Condition, " "), 
                                 e("td", null, " ", records.Date, " "), 
                                 e("td", null, " ", records.Chart, " ")))),
@@ -461,11 +457,11 @@ class Submit extends React.Component {
                     e("div", {className: "submit_form"}, 
                         e("h3", {className:"submit_form_text"}, "Enter new condition"), 
                         e("div", {className: "condition"}, 
-                            "Location", e("input", {className: "condition_text", placeholder: "normal", onChange: e => this.setState({data1: e.target.value}) })), 
+                            "Condition", e("input", {className: "condition_text", placeholder: "normal", onChange: e => this.setState({data1: e.target.value}) })), 
                         e("div", {className: "date"}, 
                             "Date", e("input", {className: "date_text", placeholder: "2021-04-12", onChange: e => this.setState({data2: e.target.value}) })), 
                         e("div", {className: "chart"}, 
-                            "Time", e("input", {className: "chart_text",placeholder: "no comment", onChange: e => this.setState({data3: e.target.value}) })), 
+                            "Chart", e("input", {className: "chart_text",placeholder: "no comment", onChange: e => this.setState({data3: e.target.value}) })), 
                         e("div", {className: "submit_btn"}, 
                             e("input", {className: "submit_btn_text",type: "submit", value: "Submit", onClick: e => this.onSubmit(e)}))
                     )
