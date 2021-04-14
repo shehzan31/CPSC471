@@ -2,6 +2,8 @@
 
 const e = React.createElement;
 
+<<<<<<< Updated upstream
+=======
 
 class Super extends React.Component {
     
@@ -87,6 +89,7 @@ class Super extends React.Component {
     }
 }
 
+>>>>>>> Stashed changes
 class Head extends React.Component {
 
     constructor(props) {
@@ -119,6 +122,8 @@ class Head extends React.Component {
 
 }
 
+<<<<<<< Updated upstream
+=======
 class Search extends React.Component {
 
     constructor(props) {
@@ -424,5 +429,6 @@ class Submit extends React.Component {
 
 // Render everything
 
+>>>>>>> Stashed changes
 const domContainer2 = document.querySelector('#doctor_page');
 ReactDOM.render(e(Head), domContainer2);
