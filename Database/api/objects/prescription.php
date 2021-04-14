@@ -45,7 +45,7 @@ class Prescription{
         
         $stmt = $this->conn->prepare($query);
         $stmt->execute([$pname, $type, $field]);
-        echo "\nNew record created successfuly";
+        return $stmt;
     }
 }
 

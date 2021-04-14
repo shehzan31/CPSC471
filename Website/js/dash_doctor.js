@@ -41,12 +41,19 @@ class Super extends React.Component {
     handleClicks = data => {
         if (data == 'Appointments') {
             this.handleAppointments();
+        } else if(data == 'Prescriptions'){
+            this.handlePrescriptions();
         }
     }
 
     handleAppointments() {
         console.log('Button Clicked');
         this.viewDeck.current.changeInfo('appointments', '../Database/api/object_methods/Doctor/medical_record_doctor/showAllAppointments.php', this.state.h_num);
+    }
+
+    handlePrescriptions() {
+        console.log('Button Clicked');
+        this.viewDeck.current.changeInfo('prescriptions', '../Database/api/object_methods/Doctor/medical_record_doctor/showAllPrescriptions.php', this.state.h_num);
     }
 
     render () {
@@ -72,7 +79,7 @@ class Super extends React.Component {
                     e(PersonCard,   {ref: this.personCardElement}),
                     e(DoctorButton, {ref: this.appointmentsButton,  buttonPushed: this.handleClicks}),
                     e(DoctorButton, {ref: this.conditionsButton}),
-                    e(DoctorButton, {ref: this.prescriptionsButton}),
+                    e(DoctorButton, {ref: this.prescriptionsButton, buttonPushed: this.handleClicks}),
                     e(DoctorButton, {ref: this.testsButton}),
                     e(View,         {ref: this.viewDeck}))
             )
@@ -290,6 +297,22 @@ class View extends React.Component {
                     e(Submit, {className: "submit_form", returnState:this.getState, getHNum:this.getPatient})
                 ))
             }
+            else if(this.state.source == 'prescriptions'){
+                return (
+                    e("div", {className:'view_deck'}, e("h1", { className: "pres_text" }, "Prescriptions"),
+                    e("table", {className: "pres_info"},
+                        e("tr", null, " ", 
+                            e("th", null, "Name"), " ", 
+                            e("th", null, "Type"), " ", 
+                            e("th", null, "Field")), 
+                            this.state.data.map(records => 
+                                e("tr", { className: "trow" },
+                                e("td", null, " ", records.Prescription, " "), 
+                                e("td", null, " ", records.Type, " "), 
+                                e("td", null, " ", records.Field, " ")))),
+                    e(Submit, {className: "submit_form", returnState:this.getState, getHNum:this.getPatient})
+                ))
+            }
         }
     }
 }
@@ -302,7 +325,8 @@ class Submit extends React.Component {
                 data1: null,
                 data2: null,
                 data3: null,
-                data4: null
+                data4: null,
+                data5: null
             }
     }
 
@@ -335,6 +359,21 @@ class Submit extends React.Component {
                 })
     
             }
+            else if(this.props.returnState() == 'appointments'){
+                const request = new Request('../Database/api/object_methods/doctor/edits/editsPrescription.php', {
+                    method: 'POST',
+                    body: JSON.stringify(this.state),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+
+                fetch(request)
+                .then(res => res.json())
+                .then(res => {
+                    console.log('prescription added');
+                })
+            }
     }
 
     render() {
@@ -355,7 +394,27 @@ class Submit extends React.Component {
                             e("input", {className: "submit_btn_text",type: "submit", value: "Submit", onClick: e => this.onSubmit(e)}))
                     )
                 )
-            } else {
+            } 
+            else if(this.props.returnState() == 'prescriptions'){
+                return (
+                    e("div", {className: "submit_form"}, 
+                        e("h3", {className:"submit_form_text"}, "Enter new prescription"), 
+                        e("div", {className: "pname"}, 
+                            "Name", e("input", {className: "pname_text", placeholder: "Colon Medicine", onChange: e => this.setState({data1: e.target.value}) })), 
+                        e("div", {className: "type"}, 
+                            "Type", e("input", {className: "type_text", placeholder: "Tablets", onChange: e => this.setState({data2: e.target.value}) })), 
+                        e("div", {className: "field"}, 
+                            "Field", e("input", {className: "field_text",placeholder: "Painkiller", onChange: e => this.setState({data3: e.target.value}) })),
+                        e("div", {className: "startD"}, 
+                            "Start Date", e("input", {className: "startD_text",placeholder: "01-01-2000", onChange: e => this.setState({data4: e.target.value}) })),
+                        e("div", {className: "endD"}, 
+                            "End Date", e("input", {className: "endD_text",placeholder: "01-01-2000", onChange: e => this.setState({data5: e.target.value}) })), 
+                        e("div", {className: "submit_btn"}, 
+                            e("input", {className: "submit_btn_text",type: "submit", value: "Submit", onClick: e => this.onSubmit(e)}))
+                    )
+                )
+            }
+            else {
                 return (e('div', null))
             }
         }
