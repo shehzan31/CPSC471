@@ -399,6 +399,21 @@ class Submit extends React.Component {
                     console.log('prescription added');
                 })
         }
+        else if (this.props.returnState() == 'tests') {
+            // const request = new Request('../Database/api/object_methods/doctor/edits/orderNewTest.php', {
+            //     method: 'POST',
+            //     body: JSON.stringify(this.state),
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            // })
+
+            // fetch(request)
+            //     .then(res => res.json())
+            //     .then(res => {
+            //         console.log('test added');
+            //     })
+        }
     }
 
     render() {
@@ -439,6 +454,23 @@ class Submit extends React.Component {
                     )
                 )
             }
+
+            if (this.props.returnState() == 'tests') {
+                return (
+                    e("div", { className: "submit_form" },
+                        e("h3", { className: "submit_form_text" }, "Enter new test"),
+                        e("div", { className: "test_type" },
+                            "Test Type", e("input", { className: "test_type_text", placeholder: "Blood Test", onChange: e => this.setState({ data1: e.target.value }) })),
+                        e("div", { className: "test_date" },
+                            "Test Date", e("input", { className: "test_date_text", placeholder: "1900-01-01", onChange: e => this.setState({ data2: e.target.value }) })),
+                        // e("div", { className: "Test_Time" },
+                        //     "Time", e("input", { className: "test_time_text", placeholder: "12:00", onChange: e => this.setState({ data3: e.target.value }) })),
+                        e("div", { className: "submit_btn" },
+                            e("input", { className: "submit_btn_text", type: "submit", value: "Submit", onClick: e => this.onSubmit(e) }))
+                    )
+                )
+            }
+
             else {
                 return (e('div', null))
             }

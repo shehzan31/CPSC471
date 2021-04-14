@@ -395,6 +395,18 @@ html, body{
         left:   30%;
     }
 
+    .doctor_page .doc_page .view_deck .submit_form .test_type .test_type_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+
+    .doctor_page .doc_page .view_deck .submit_form .test_date .test_date_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+
     
 
 
