@@ -300,6 +300,39 @@ html, body{
         text-align: center;
     }
 
+
+
+    .doctor_page .doc_page .view_deck .test_text {
+        position: absolute;
+        top:    5%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .doctor_page .doc_page .view_deck .test_info {
+        left: 2.5%;
+        position: absolute;
+        width: 95%;
+        top: 15%;
+        height: 50%;
+        margin: auto;
+        padding: auto;
+        height: auto;
+        border: 2px white solid;
+        border-radius: 10px;
+        border-collapse: collapse;
+    }
+
+    .doctor_page .doc_page .view_deck .test_info .trow td{
+        margin: auto;
+        padding: auto;
+        height: auto;
+        border: 2px white solid;
+        border-radius: 10px;
+        text-align: center;
+    }
+    
+
     /*  Styles for appointment submit form  */
 
     .doctor_page .doc_page .view_deck .submit_form {
