@@ -71,6 +71,14 @@ class Finds {
         $stmt->execute([$Doctor_ID, $H_Number, $Condition, $Date, $Chart]);
         echo "\nNew record created successfuly";
     }
-
+    
+    function insert($Doctor_ID, $H_Number, $Condition, $Date, $Chart) {
+        $query =   "INSERT INTO $this->database.$this->table_name(Doctor_ID, H_Number, `Condition`, Date, Chart) VALUES
+                    (?, ?, ?, ?, ?)";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$Doctor_ID, $H_Number, $Condition, $Date, $Chart]);
+        return $stmt;
+    }
 }
 ?>

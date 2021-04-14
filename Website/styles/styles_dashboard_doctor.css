@@ -240,14 +240,14 @@ html, body{
         align-items: center;
     }
 
-    .doctor_page .doc_page .view_deck .appoint_text {
+    .doctor_page .doc_page .view_deck .appoint_text .cond_text {
         position: absolute;
         top:    5%;
         width: 100%;
         text-align: center;
     }
 
-    .doctor_page .doc_page .view_deck .appoint_info {
+    .doctor_page .doc_page .view_deck .appoint_info .cond_info {
         left: 2.5%;
         position: absolute;
         width: 95%;
@@ -261,7 +261,7 @@ html, body{
         border-collapse: collapse;
     }
 
-    .doctor_page .doc_page .view_deck .appoint_info .trow td{
+    .doctor_page .doc_page .view_deck .appoint_info .cond_info .trow td{
         margin: auto;
         padding: auto;
         height: auto;
@@ -279,6 +279,7 @@ html, body{
         bottom: 5%;
         height: 25%;
     }
+
 
     .doctor_page .doc_page .view_deck .submit_form .submit_form_text {
         font-size: 24px;
