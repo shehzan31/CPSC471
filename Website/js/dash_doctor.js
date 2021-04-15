@@ -65,7 +65,7 @@ class Super extends React.Component {
         this.viewDeck.current.changeInfo('tests', '../Database/api/object_methods/Doctor/medical_record_doctor/showAllTests.php', this.state.h_num);
     }
 	
-	handleCondition() {
+	handleConditions() {
         console.log('Condition Button Clicked');
         this.viewDeck.current.changeInfo('tests', '../Database/api/object_methods/Doctor/medical_record_doctor/showAllConditions.php', this.state.h_num);
     }
