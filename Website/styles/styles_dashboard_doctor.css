@@ -300,7 +300,36 @@ html, body{
         text-align: center;
     }
 
+     .doctor_page .doc_page .view_deck .cond_text {
+        position: absolute;
+        top:    5%;
+        width: 100%;
+        text-align: center;
+    }
 
+
+    .doctor_page .doc_page .view_deck .cond_info {
+        left: 2.5%;
+        position: absolute;
+        width: 95%;
+        top: 15%;
+        height: 50%;
+        margin: auto;
+        padding: auto;
+        height: auto;
+        border: 2px white solid;
+        border-radius: 10px;
+        border-collapse: collapse;
+    }
+
+    .doctor_page .doc_page .view_deck .cond_info .trow td{
+        margin: auto;
+        padding: auto;
+        height: auto;
+        border: 2px white solid;
+        border-radius: 10px;
+        text-align: center;
+    }
 
     .doctor_page .doc_page .view_deck .test_text {
         position: absolute;
@@ -407,7 +436,40 @@ html, body{
         left:   30%;
     }
 
-    
+    .doctor_page .doc_page .view_deck .submit_form .endD .endD_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+
+    .doctor_page .doc_page .view_deck .submit_form .field .doctor_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+	
+	    .doctor_page .doc_page .view_deck .submit_form .field .hnum_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+    .doctor_page .doc_page .view_deck .submit_form .field .condition_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+
+    .doctor_page .doc_page .view_deck .submit_form .startD .date_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+
+    .doctor_page .doc_page .view_deck .submit_form .endD .chart_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
 
 
 

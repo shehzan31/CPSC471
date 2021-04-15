@@ -45,8 +45,10 @@ class Super extends React.Component {
             this.handlePrescriptions();
         } else if (data == 'Tests') {
             this.handleTests();
+        }else if (data == 'Conditions') {
+            this.handleConditions();
         }
-    }
+	}
 
     handleAppointments() {
         console.log('Button Clicked');
@@ -85,7 +87,7 @@ class Super extends React.Component {
                     e(Search, { onSearchChange: this.handleSearchChange }),
                     e(PersonCard, { ref: this.personCardElement }),
                     e(DoctorButton, { ref: this.appointmentsButton, buttonPushed: this.handleClicks }),
-                    e(DoctorButton, { ref: this.conditionsButton }),
+                    e(DoctorButton, {ref: this.conditionsButton, buttonPushed: this.handleClicks}),
                     e(DoctorButton, { ref: this.prescriptionsButton, buttonPushed: this.handleClicks }),
                     e(DoctorButton, { ref: this.testsButton, buttonPushed: this.handleClicks }),
                     e(View, { ref: this.viewDeck }))
@@ -338,6 +340,26 @@ class View extends React.Component {
                         e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient })
                     ))
             }
+			else if(this.state.source == 'conditions'){
+                return (
+                    e("div", {className:'view_deck'}, e("h1", { className: "cond_text" }, "Conditions"),
+                    e("table", {className: "cond_info"},
+                        e("tr", null, " ", 
+						    e("th", null, "Doctor_ID"), " ", 
+                            e("th", null, "H_Number"), " ", 
+                            e("th", null, "Conditions"), " ", 
+                            e("th", null, "Date"), " ", 
+                            e("th", null, "Chart")), 
+                            this.state.data.map(records => 
+                                e("tr", { className: "trow" },
+								e("td", null, " ", records.Doctor_ID, " "),
+								e("td", null, " ", records.H_Number, " "),
+                                e("td", null, " ", records.Conditions, " "), 
+                                e("td", null, " ", records.Date, " "), 
+                                e("td", null, " ", records.Chart, " ")))),
+                    e(Submit, {className: "submit_form", returnState:this.getState, getHNum:this.getPatient})
+                ))
+			}
         }
     }
 }
@@ -414,6 +436,23 @@ class Submit extends React.Component {
             //         console.log('test added');
             //     })
         }
+		else if (this.props.returnState() == 'conditions') {
+            
+                const request = new Request('../Database/api/object_methods/doctor/edits/editsCondition.php', {
+                    method: 'POST',
+                    body: JSON.stringify(this.state),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+
+                fetch(request)
+                .then(res => res.json())
+                .then(res => {
+                    console.log('condition added');
+                })
+    
+            }
     }
 
     render() {
@@ -470,7 +509,25 @@ class Submit extends React.Component {
                     )
                 )
             }
-
+            else if (this.props.returnState() == 'conditions') {
+                return (
+                    e("div", { className: "submit_form" },
+                        e("h3", { className: "submit_form_text" }, "Enter new condition"),
+                        e("div", { className: "doctor_ID" },
+                            "Name", e("input", { className: "doctor_text", placeholder: "no id", onChange: e => this.setState({ data1: e.target.value }) })),
+                        e("div", { className: "h_number" },
+                            "Type", e("input", { className: "hnum_text", placeholder: "no hnum", onChange: e => this.setState({ data2: e.target.value }) })),
+                        e("div", { className: "condition" },
+                            "Field", e("input", { className: "cond_text", placeholder: "no condition", onChange: e => this.setState({ data3: e.target.value }) })),
+                        e("div", { className: "date" },
+                            "Start Date", e("input", { className: "date_text", placeholder: "01-01-2000", onChange: e => this.setState({ data4: e.target.value }) })),
+                        e("div", { className: "chart" },
+                            "End Date", e("input", { className: "chart_text", placeholder: "no chart", onChange: e => this.setState({ data5: e.target.value }) })),
+                        e("div", { className: "submit_btn" },
+                            e("input", { className: "submit_btn_text", type: "submit", value: "Submit", onClick: e => this.onSubmit(e) }))
+                    )
+                )
+            }
             else {
                 return (e('div', null))
             }
