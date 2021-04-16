@@ -55,5 +55,15 @@ class Person {
         echo "\nNew record created successfuly";
     }
 
+    function delete($SIN) {
+        $query =   "DELETE FROM $this->database.$this->table_name as p
+                    WHERE p.SIN = $SIN";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "\nPerson deleted\n";
+    }
+
 }
 ?>

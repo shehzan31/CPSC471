@@ -88,6 +88,27 @@ class Test{
         $stmt->execute();
         return $stmt;
     }
+
+    function delete_test($Test_ID) {
+        $query =   "DELETE FROM $this->database.$this->table_name as p
+                    WHERE p.Test_ID = $Test_ID";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "\nDoctor deleted\n";
+    }
+
+    function edit_result($Test_ID, $Result) {
+        $query =   "UPDATE $this->database.$this->table_name as p
+                    SET p.Result = '$Result'
+                    WHERE p.Test_ID = $Test_ID";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "\nResult Updated!\n";
+    }
 }
 
 ?>
