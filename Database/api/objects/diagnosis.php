@@ -35,5 +35,24 @@ class Diagnosis {
         echo "\nNew record created successfuly";
     }
 
+    function returnPost($Condition) {
+        $query =   "INSERT INTO $this->database.$this->table_name(`Condition`) VALUES
+                    (?)";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$Condition]);
+        echo "\nNew record created successfuly";
+    }
+    
+    function findCond($Condition){
+        $query =   "SELECT *
+                    FROM $this->database.$this->table_name as d
+                    WHERE d.condition = '$Condition'";
+        
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->execute();
+        return $stmt;
+    }
 }
 ?>
