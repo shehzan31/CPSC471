@@ -17,15 +17,9 @@ $db = $database->getConnection();
 // initialize object
 $patient = new Patient($db);
 $mrc = new MedicalRecordCondition($db);
-// $finds = new Finds($db);
+// $prescriptions = new Finds($db);
 
-// Get contents of post
-$rest_json = file_get_contents('php://input');
-
-$_POST = json_decode($rest_json, true);
-
-// Put contents of post into variable
-$user = $_POST;
+$user = $_SESSION['user'];
 
 // // Query MR_Number
 $stmt1 = $patient->mr_number($user);
@@ -42,28 +36,30 @@ if ($num1 == 1) {
         $arr = array();
         $arr['records'] = array();
         while ($row1 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-
+            
             extract($row1);
-
+            
             $item = array(
                 "MR_Number"   => $MR_Number,
                 "Condition"    => $Condition,
             );
-
+            
             array_push($arr['records'], $item);
         }
+        echo json_encode($arr);
         
     }
+    
 //     $stmt2 = $patient->returnHnum($mr_number);
 //     $num2 = $stmt2->rowCount();
- 
+    
 //     if ($num2 == 1) {
         
 //         $arr = array();
 //         $arr['records'] = array();
         
 //         $hnum = $stmt2['H_Number'];
-//         $stmt3 = $finds->hnumber($hnum);
+//         $stmt3 = $mrc->showAllHConditions($hnum);
 //         $num3 = $stmt3->rowCount();
 //         if ($num3 >= 0) {
                    
@@ -84,10 +80,10 @@ if ($num1 == 1) {
 //         }
        
             
-            // show products data in json format
-            echo json_encode($arr);
+//             // show products data in json format
+//             echo json_encode($arr);
             
-    }
+//     }
     
     else {
         echo json_encode(
@@ -95,6 +91,6 @@ if ($num1 == 1) {
             );
     }
     
-// }
+}
 
 ?>
