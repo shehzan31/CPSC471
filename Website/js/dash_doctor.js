@@ -400,7 +400,6 @@ class Submit extends React.Component {
                 })
         }
         else if (this.props.returnState() == 'tests') {
-            console.log('hello');
             const request = new Request('../Database/api/object_methods/doctor/edits/editsTest.php', {
                 method: 'POST',
                 body: JSON.stringify(this.state),

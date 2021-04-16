@@ -16,6 +16,7 @@ session_start();
 $database = new Database();
 $db = $database->getConnection();
 
+
 // initialize object
 $patient = new Patient($db);
 $mrt = new Medical_Records_Tests($db);
@@ -34,12 +35,6 @@ $H_Number = $_POST['hnum'];
 $Test_Name = $_POST['data1'];
 $Date = $_POST['data2'];
 $Result = "Pending";
-
-// $user = 123456789;
-// $H_Number = 200200200;
-// $Test_Name = "Urine Test";
-// $Date = "2021-09-09";
-// $Result = "Pending";
 
 $stmt1 = $tests->getMax();
 $num1 = $stmt1->rowCount();
