@@ -400,19 +400,20 @@ class Submit extends React.Component {
                 })
         }
         else if (this.props.returnState() == 'tests') {
-            // const request = new Request('../Database/api/object_methods/doctor/edits/orderNewTest.php', {
-            //     method: 'POST',
-            //     body: JSON.stringify(this.state),
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     }
-            // })
+            console.log('hello');
+            const request = new Request('../Database/api/object_methods/doctor/edits/editsTest.php', {
+                method: 'POST',
+                body: JSON.stringify(this.state),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
 
-            // fetch(request)
-            //     .then(res => res.json())
-            //     .then(res => {
-            //         console.log('test added');
-            //     })
+            fetch(request)
+                .then(res => res.json())
+                .then(res => {
+                    console.log('test added');
+                })
         }
     }
 

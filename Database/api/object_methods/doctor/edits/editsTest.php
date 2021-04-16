@@ -29,17 +29,17 @@ $rest_json = file_get_contents('php://input');
 $_POST = json_decode($rest_json, true);
 
 // Put contents of post into variable
-// $user = $_SESSION['user'];
-// $H_Number = $_POST['hnum'];
-// $Test_Name = $_POST['data1'];
-// $Date = $_POST['data2'];
-// $Result = "Pending";
-
-$user = 123456789;
-$H_Number = 200200200;
-$Test_Name = "Urine Test";
-$Date = "2021-09-09";
+$user = $_SESSION['user'];
+$H_Number = $_POST['hnum'];
+$Test_Name = $_POST['data1'];
+$Date = $_POST['data2'];
 $Result = "Pending";
+
+// $user = 123456789;
+// $H_Number = 200200200;
+// $Test_Name = "Urine Test";
+// $Date = "2021-09-09";
+// $Result = "Pending";
 
 $stmt1 = $tests->getMax();
 $num1 = $stmt1->rowCount();
