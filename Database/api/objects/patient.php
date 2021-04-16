@@ -59,6 +59,15 @@ class Patient{
         $stmt->execute();
         return $stmt;
     }
+    
+    function post($h_num, $mr_num, $sin) {
+        $query =   "INSERT INTO $this->database.$this->table_name(H_Number, MR_Number, SIN) VALUES
+                    (?, ?, ?)";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$h_num, $mr_num, $sin]);
+        echo "\nNew record created successfuly";
+    }
 }
 
 ?>
