@@ -431,6 +431,10 @@ html, body{
         text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     }
 
+    .abody {
+        max-height: 20em;
+    }
+
     .appoint_info {
         font-family: Quicksand;
         position: relative;
@@ -438,7 +442,7 @@ html, body{
         border-radius: 10px;
         margin: auto;
         margin-top: 15%;
-        width: 10%;
+        width: 90%;
         height: 50%;
     }
 
@@ -462,6 +466,10 @@ html, body{
         margin-top: 80px;
         height: 90.1477833%;
         width: 100%;
+    }
+
+    .pbody {
+        max-height: 20em;
     }
 
     .pres_text {
@@ -513,6 +521,10 @@ html, body{
         width: 100%;
     }
 
+    .tbody {
+        max-height: 20em;
+    }
+
     .test_text {
         position: relative;
         margin: auto;
@@ -560,6 +572,10 @@ html, body{
 
 @media only screen and (min-width:768px) {
 
+    a {
+        text-decoration: none;
+    }
+
     .scroll_bar {
         position: absolute;
         width: 6px;
@@ -571,6 +587,32 @@ html, body{
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
         transition: top 0.2s linear;
+    }
+
+    .logout_desk {
+        position: absolute;
+        width:40%;
+        height: 5%;
+        background-color: #ffffff;
+        color: #000000;
+        border-radius: 10px;
+        bottom: 0%;
+        margin: auto;
+        left: 30%;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 45px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .logout_desk:active {
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
     
     .scroll_bar.dashboard {
@@ -623,7 +665,7 @@ html, body{
         width: 70px;
         height: 70px;
         border-radius: 15px;
-        background: #000000;
+        background-image: url(../icons/profile.png);
         background-repeat: no-repeat;
         background-size: 100%;
         background-position: center;
@@ -639,6 +681,7 @@ html, body{
         background: #F56961;
         box-shadow: inset -4px -4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 0px 45px 45px 0px;
+        align-items: center;
     }
 
     .sidebar .logo_desk {
@@ -864,6 +907,38 @@ html, body{
         text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     }
 
+    th {
+        height: 30px;
+        border-bottom: 2px white solid;
+        border-radius: 10px;
+        font-family: Quicksand;
+    }
+    .trow {
+        font-family: Quicksand;
+        border: 1px white solid;
+    }
+
+    thead {
+        display: block;
+        align-items: center;
+    }
+
+    tbody {
+        display: block;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        max-height: 600px;
+        align-items: center;
+    }
+    tbody::-webkit-scrollbar {
+        display: none;
+    }
+
+    thead th, tbody td {
+        width: 30vw;
+    }
+
     .dash_page {
         position: absolute;
         top: 10.0022%;
@@ -890,11 +965,12 @@ html, body{
 
     .dash_page .dash_info {
         position: absolute;
-        width: 75%;
+        width: 42.5%;
         top: 10%;
         left: 5%;
         height: auto;
-        border: 1px black solid;
+        background-color: #ffcccc;
+        border-radius: 10px;
         /*border-collapse: collapse;*/
     }
 
@@ -905,6 +981,16 @@ html, body{
         left: 2.5%;
         height: 50%;
         background: #000000;
+    }
+
+    .dep_info {
+        position: absolute;
+        width: 42.5%;
+        top: 10%;
+        right: 5%;
+        height: auto;
+        background-color: #ffcccc;
+        border-radius: 10px;
     }
 
     .appointments_page {
@@ -946,13 +1032,10 @@ html, body{
         top: 10%;
         left: 5%;
         height: auto;
-        border: 1px black solid;
-        /*border-collapse: collapse;*/
+        background-color: #ffcccc;
+        border-radius: 10px;
     }
 
-    th {
-        height: 30px;
-    }
 
 
     .pers_page {
@@ -994,7 +1077,8 @@ html, body{
         top: 10%;
         left: 5%;
         height: auto;
-        border: 1px black solid;
+        background-color: #ffcccc;
+        border-radius: 10px;
     }
 
     .test_page {
@@ -1027,7 +1111,8 @@ html, body{
         top: 10%;
         left: 2.5%;
         height: 50%;
-        background: #000000;
+        background-color: #ffcccc;
+        border-radius: 10px;
     }
 
     .test_page .test_info {
@@ -1036,7 +1121,8 @@ html, body{
         top: 10%;
         left: 5%;
         height: auto;
-        border: 1px black solid;
+        background-color: #ffcccc;
+        border-radius: 10px;
     }
 }
 

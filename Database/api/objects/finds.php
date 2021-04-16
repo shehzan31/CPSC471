@@ -69,7 +69,6 @@ class Finds {
         
         $stmt = $this->conn->prepare($query);
         $stmt->execute([$Doctor_ID, $H_Number, $Condition, $Date, $Chart]);
-        echo "\nNew record created successfuly";
     }
 
     function returnPost($Doctor_ID, $H_Number, $Condition, $Date, $Chart) {

@@ -336,15 +336,12 @@ class View extends React.Component {
                     return (
                         e("div", { className: 'view_deck' }, e("h1", { className: "pres_text" }, "Prescriptions"),
                             e("table", { className: "pres_info" },
-                                e("tr", null, " ",
-                                    e("th", null, "Name"), " ",
-                                    e("th", null, "Type"), " ",
-                                    e("th", null, "Field")),
-                                this.state.data.map(records =>
+                            e("thead", null,  e("tr", null, " ", e("th", null, "Name"),e("th", null, "Type"),e("th", null, "Field"))),
+                                e("tbody", null, this.state.data.map(records =>
                                     e("tr", { className: "trow" },
                                         e("td", null, " ", records.Prescription, " "),
                                         e("td", null, " ", records.Type, " "),
-                                        e("td", null, " ", records.Field, " ")))),
+                                        e("td", null, " ", records.Field, " "))))),
                             e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient, newScene:this.updateInfo })
                         ))
                 } else {
@@ -360,17 +357,13 @@ class View extends React.Component {
                     return (
                         e("div", { className: 'view_deck' }, e("h1", { className: "test_text" }, "Tests"),
                             e("table", { className: "test_info" },
-                                e("tr", null, " ",
-                                    e("th", null, " Test Type"), " ",
-                                    e("th", null, "Test ID"), " ",
-                                    e("th", null, "Date"), " ",
-                                    e("th", null, "Result")),
-                                this.state.data.map(records =>
+                            e("thead", null,  e("tr", null, " ", e("th", null, " Test Type"),e("th", null, "Test ID"),e("th", null, "Date"), e("th", null, "Result"))),
+                                e("tbody", null, this.state.data.map(records =>
                                     e("tr", { className: "trow" },
                                         e("td", null, " ", records.Test_Type, " "),
                                         e("td", null, " ", records.Test_ID, " "),
                                         e("td", null, " ", records.Test_Date, " "),
-                                        e("td", null, " ", records.Test_Result, " ")))),
+                                        e("td", null, " ", records.Test_Result, " "))))),
                             e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient, newScene:this.updateInfo })
                         ))
                 } else {
@@ -386,13 +379,11 @@ class View extends React.Component {
                     return (
                         e("div", {className:'view_deck'}, e("h1", { className: "cond_text" }, "Conditions"),
                         e("table", {className: "cond_info"},
-                            e("tr", null, " ", 
-                                e("th", null, "MR_Number"), " ", 
-                                e("th", null, "Conditions")),					   
-                                this.state.data.map(records => 
+                        e("thead", null,  e("tr", null, " ", e("th", null, "MR_Number"), e("th", null, "Conditions"))),					   
+                            e("tbody", null,  this.state.data.map(records => 
                                     e("tr", { className: "trow" },
                                     e("td", null, " ", records.MR_Number, " "),
-                                    e("td", null, " ", records.Condition)))),
+                                    e("td", null, " ", records.Condition))))),
                         e(Submit, {className: "submit_form", returnState:this.getState, getHNum:this.getPatient, newScene:this.updateInfo})
                     ))
                 } else {

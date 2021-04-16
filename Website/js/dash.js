@@ -107,9 +107,9 @@ class Appoint extends React.Component {
             return (
                 e("div", null, e("h1", { className: "appoint_text" }, "Appointments"),
                     e("table", { className: "appoint_info" },
-                        e("tr", null, " ", e("th", null, "ID"), " ", e("th", null, "Location"), " ", e("th", null, "Date"), e("th", null, "Time")),
-                        this.state.list.map(records => e("tr", { className: "trow" },
-                            e("td", null, " ", records.Appointment, " "), e("td", null, " ", records.Location, " "), e("td", null, " ", records.Date, " "), e("td", null, " ", records.Time, " "))), " "))
+                    e("thead", null, e("tr", null, " ", e("th", null, "ID"), " ", e("th", null, "Location"), " ", e("th", null, "Date"), e("th", null, "Time"))),
+                        e("tbody", {className:"abody"}, this.state.list.map(records => e("tr", { className: "trow" },
+                            e("td", null, " ", records.Appointment, " "), e("td", null, " ", records.Location, " "), e("td", null, " ", records.Date, " "), e("td", null, " ", records.Time, " "))), " ")))
             );
         } else {
             return e("div", null, e("h1", { className: "appoint_text" }, "Appointments"),
@@ -144,9 +144,9 @@ class Test extends React.Component {
             return (
                 e("div", null, e("h1", { className: "test_text" }, "Tests"),
                     e("table", { className: "test_info" },
-                        e("tr", null, " ", e("th", null, "Test Name"), " ", e("th", null, "Result"), " ", e("th", null, "Date")),
-                        this.state.list.map(records => e("tr", { className: "trow" },
-                            e("td", null, " ", records.Test_Name, " "), e("td", null, " ", records.Result, " "), e("td", null, " ", records.Date, " "))), " "))
+                        e("thead", null, e("tr", null, " ", e("th", null, "Test Name"), " ", e("th", null, "Result"), " ", e("th", null, "Date"))),
+                            e("tbody", {className:"tbody"}, this.state.list.map(records => e("tr", { className: "trow" },
+                            e("td", null, " ", records.Test_Name, " "), e("td", null, " ", records.Result, " "), e("td", null, " ", records.Date, " "))), " ")))
             );
         } else {
             return e("div", null, e("h1", { className: "test_text" }, "Test"),
@@ -179,9 +179,9 @@ class Pres extends React.Component {
             return(
                 e("div", null, e("h1", {className: "pres_text"}, "Prescriptions"),
                     e("table", {className: "pres_info"},
-                        e("tr", null, " ", e("th", null, "Name"), " ", e("th", null, "Type"), " ", e("th", null, "Field")),
-                            this.state.list.map(records => e("tr", {className: "trow"},
-                                e("td", null, " ", records.Prescription, " "), e("td", null, " ", records.Type, " "), e("td", null, " ", records.Field, " "))), " "))
+                        e("thead", null, e("tr", null, " ", e("th", null, "Name"), " ", e("th", null, "Type"), " ", e("th", null, "Field"))),
+                            e("tbody", {className:"pbody"}, this.state.list.map(records => e("tr", {className: "trow"},
+                                e("td", null, " ", records.Prescription, " "), e("td", null, " ", records.Type, " "), e("td", null, " ", records.Field, " "))), " ")))
             );
         } else {
             return e("div", null, e("h1", { className: "pres_text"}, "Prescriptions"),

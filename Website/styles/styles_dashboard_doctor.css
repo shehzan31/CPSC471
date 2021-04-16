@@ -20,6 +20,19 @@ html, body{
         outline: none; 
     }
 
+    .logout {
+        position: absolute;
+        right: 2.5%;
+        bottom: 0%;
+        width: 25%;
+        height: 5%;
+        font-size: 20px;
+        background-color: #ff7575;
+        border-radius: 10px;
+        color:#fff;
+        text-align: center;
+    }
+
     .doctor_page .doc_page {
         width: 100%;
         height: 100%;
@@ -240,7 +253,7 @@ html, body{
     tbody {
         display: block;
         overflow-y: scroll;
-        max-height: 175px;
+        max-height: 125px;
         align-items: center;
     }
 

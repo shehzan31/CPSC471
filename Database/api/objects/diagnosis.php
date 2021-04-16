@@ -32,7 +32,6 @@ class Diagnosis {
         
         $stmt = $this->conn->prepare($query);
         $stmt->execute([$Condition]);
-        echo "\nNew record created successfuly";
     }
 
     function returnPost($Condition) {
@@ -41,7 +40,6 @@ class Diagnosis {
         
         $stmt = $this->conn->prepare($query);
         $stmt->execute([$Condition]);
-        echo "\nNew record created successfuly";
     }
     
     function findCond($Condition){
