@@ -15,7 +15,7 @@ $db = $database->getConnection();
 $patient = new Patient($db);
 
 // Object properties
-$Doctor_ID = 123456896;
+$H_Number = 58568858;
   
 // query products
 $stmt = $patient->delete_patient($H_Number);
