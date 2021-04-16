@@ -15,6 +15,310 @@ html, body{
     height: 100%;
 }
 
+@media only screen and (max-width:767px) {
+    * {
+        outline: none; 
+    }
+
+    .doctor_page .doc_page {
+        width: 100%;
+        height: 100%;
+        align-items: center;
+    }
+
+    .doctor_page .doc_page .doctor_text {
+        position: relative;
+        width: 50%;
+        height: 70px;
+        margin: auto;
+        margin-top: 5%;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 45px;
+        align-items: center;
+        text-align: center;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .doctor_page .doc_page .search_container {
+        position: relative;
+        margin: auto;
+        margin-top: 2.5%;
+        display: grid;
+        height: 20%;
+        width: 60%;
+        background-color: #ff7575;
+        border-radius: 10px;
+        grid-template-columns: 75% 25%;
+    }
+
+    .doctor_page .doc_page .search_btn {
+        position: relative;
+        background-color: #fff;
+        border: 2px;
+        border-radius: 10px;
+        border-color: #ff7575;
+        margin: 4px;
+        align-items: center;
+    }
+
+    .doctor_page .doc_page .search_btn .search_btn_text {
+        position: relative;
+        font-family: Quicksand;
+        color: #e16868;
+        width: 100%;
+        height: 100%;
+        font-size: 12px;
+        font-family: Quicksand;
+        padding: 0;
+        margin: 0;
+        top: 0px;
+        border: 0;
+        background-color: transparent;
+    }
+
+    .doctor_page .doc_page .search_bar .search_bar_text {
+        width: 100%;
+        height: 100%;
+        font-size: 12px;
+        color: #fff;
+        line-height: 1;
+        font-family: Quicksand;
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+        padding-left: 5%;
+    }
+
+    input::placeholder {
+        color: #e16868;
+    }
+
+    /* For the person card */
+
+    .doctor_page .doc_page .person_card {
+        position: relative;
+        margin: auto;
+        margin-top: 5%;
+        width: 90%;
+        border: 10px;
+        border-radius: 10px;
+        background-color: #ffcccc;
+    }
+
+    .doctor_page .doc_page .person_card .person_name {
+        color: #000;
+        position: relative;
+        width:70%;
+        top: 5%;
+        left: 5%;
+        font-size: 28px;
+    }
+
+    .doctor_page .doc_page .person_card .person_hnum {
+        color: #000;
+        position: relative;
+        top: 5%;
+        left: 5%;
+        font-size: 16px;
+    }
+
+    .doctor_page .doc_page .person_card .person_dob {
+        color: #000;
+        position: relative;
+        top: 5%;
+        left: 5%;
+        font-size: 16px;
+    }
+
+    .doctor_page .doc_page .person_card .person_image {
+        background-color: #fff;
+        background-image: url('../icons/profile.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 10px;
+        background-position: center;
+        position: absolute;
+        width: 20%;
+        height: 80%;
+        top: 10%;
+        right: 5%;
+        font-size: 32px;
+    }
+
+    /* buttons */
+
+    .doctor_page .doc_page .Appointments {
+        border: none;
+        position: fixed;
+        font-size: 8px;
+        margin-top: 2.5%;
+        width: 20%;
+        height: 5%;
+        left: 2.5%;
+        background-color: #ff7575;
+        border-radius: 10px;
+        color:#fff;
+    }
+
+    .doctor_page .doc_page .Appointments:active {
+        box-shadow: 1px 1px 24px 3px rgba(0,0,0,0.75) inset;
+    }
+
+    .doctor_page .doc_page .Conditions {
+        border: none;
+        position: fixed;
+        font-size: 8px;
+        margin-top: 2.5%;
+        left: 27.5%;
+        width: 20%;
+        height: 5%;
+        background-color: #ff7575;
+        border-radius: 10px;
+        color:#fff;
+    }
+
+    .doctor_page .doc_page .Conditions:active {
+        box-shadow: 1px 1px 24px 3px rgba(0,0,0,0.75) inset;
+    }
+
+    .doctor_page .doc_page .Prescriptions {
+        border: none;
+        position: fixed;
+        font-size: 8px;
+        margin-top: 2.5%;
+        right: 27.5%;
+        width: 20%;
+        height: 5%;
+        background-color: #ff7575;
+        border-radius: 10px;
+        color:#fff;
+    }
+
+    .doctor_page .doc_page .Prescriptions:active {
+        box-shadow: 1px 1px 24px 3px rgba(0,0,0,0.75) inset;
+    }
+
+    .doctor_page .doc_page .Tests {
+        border: none;
+        position: fixed;
+        font-size: 8px;
+        margin-top: 2.5%;
+        right: 2.5%;
+        width: 20%;
+        height: 5%;
+        background-color: #ff7575;
+        border-radius: 10px;
+        color:#fff;
+    }
+
+    .doctor_page .doc_page .Tests:active {
+        box-shadow: 1px 1px 24px 3px rgba(0,0,0,0.75) inset;
+    }
+
+    /* Table styling now */
+
+    th {
+        border-bottom: 2px white solid;
+        border-radius: 10px;
+        font-family: Quicksand;
+    }
+    .trow {
+        font-family: Quicksand;
+        border: 1px white solid;
+    }
+
+    thead {
+        display: block;
+        align-items: center;
+        width: 100%;
+    }
+
+    tbody {
+        display: block;
+        overflow-y: scroll;
+        max-height: 175px;
+        align-items: center;
+    }
+
+    thead th, tbody td {
+        width: 60vw;
+    }
+
+    .doctor_page .doc_page .view_deck {
+        position: relative;
+        margin: auto;
+        margin-top: 20%;
+        margin-bottom: 5%;
+        width: 95%;
+        border: 10px;
+        border-radius: 10px;
+        background-color: #ffcccc;
+        align-items: center;
+    }
+
+    .doctor_page .doc_page .view_deck .appoint_text {
+        position: relative;
+        margin-top:    5%;
+        width: 100%;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .doctor_page .doc_page .view_deck .appoint_info {
+        position: relative;
+        width: 95%;
+        margin-top: 5%;
+    }
+
+    .doctor_page .doc_page .view_deck .pres_text {
+        position: relative;
+        margin-top:    5%;
+        width: 100%;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .doctor_page .doc_page .view_deck .pres_info {
+        position: relative;
+        width: 95%;
+        margin-top: 5%;
+    }
+
+    .doctor_page .doc_page .view_deck .test_text {
+        position: relative;
+        margin-top:    5%;
+        width: 100%;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .doctor_page .doc_page .view_deck .test_info {
+        position: relative;
+        width: 95%;
+        margin-top: 5%;
+    }
+
+    .doctor_page .doc_page .view_deck .cond_text {
+        position: relative;
+        margin-top:    5%;
+        width: 100%;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .doctor_page .doc_page .view_deck .cond_info {
+        position: relative;
+        width: 95%;
+        margin-top: 5%;
+    }
+
+
+}
+
 @media only screen and (min-width:768px) {
     
     * {

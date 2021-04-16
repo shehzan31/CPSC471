@@ -277,6 +277,23 @@ class View extends React.Component {
             })
     }
 
+    updateInfo = () => {
+        const request = new Request(this.state.url, {
+            method: 'POST',
+            body: JSON.stringify(this.state.hnum),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        fetch(request)
+            .then(res => res.json())
+            .then(res => {
+                this.setState({
+                    data: res.records,
+                })
+            })
+    }
+
     getState = () => {
         return (this.state.source)
     }
@@ -293,70 +310,98 @@ class View extends React.Component {
             return (null)
         } else {
             if (this.state.source == 'appointments') {
-                return (
-                    e("div", { className: 'view_deck' }, e("h1", { className: "appoint_text" }, "Appointments"),
-                        e("table", { className: "appoint_info" },
-                            e("tr", null, " ",
-                                e("th", null, "ID"), " ",
-                                e("th", null, "Location"), " ",
-                                e("th", null, "Date"),
-                                e("th", null, "Time")),
-                            this.state.data.map(records =>
-                                e("tr", { className: "trow" },
-                                    e("td", null, " ", records.Appointment, " "),
-                                    e("td", null, " ", records.Location, " "),
-                                    e("td", null, " ", records.Date, " "),
-                                    e("td", null, " ", records.Time, " ")))),
-                        e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient })
-                    ))
+                if (this.state.data != null && this.state.data != []) {
+                    return (
+                        e("div", { className: 'view_deck' }, e("h1", { className: "appoint_text" }, "Appointments"),
+                            e("table", { className: "appoint_info" },
+                               e("thead", null,  e("tr", null, " ", e("th", null, "ID"), " ", " ", e("th", null, "Location"),e("th", null, "Date"),e("th", null, "Time"))),
+                                e("tbody", null, this.state.data.map(records =>
+                                    e("tr", { className: "trow" },
+                                        e("td", null, " ", records.Appointment, " "),
+                                        e("td", null, " ", records.Location, " "),
+                                        e("td", null, " ", records.Date, " "),
+                                        e("td", null, " ", records.Time, " "))))),
+                            e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient, newScene:this.updateInfo })
+                        ))
+                } else {
+                    return (
+                        e("div", { className: 'view_deck' }, e("h1", { className: "appoint_text" }, "Appointments"),
+                            e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient, newScene:this.updateInfo })
+                        ))
+                }
+
             }
             else if (this.state.source == 'prescriptions') {
-                return (
-                    e("div", { className: 'view_deck' }, e("h1", { className: "pres_text" }, "Prescriptions"),
-                        e("table", { className: "pres_info" },
-                            e("tr", null, " ",
-                                e("th", null, "Name"), " ",
-                                e("th", null, "Type"), " ",
-                                e("th", null, "Field")),
-                            this.state.data.map(records =>
-                                e("tr", { className: "trow" },
-                                    e("td", null, " ", records.Prescription, " "),
-                                    e("td", null, " ", records.Type, " "),
-                                    e("td", null, " ", records.Field, " ")))),
-                        e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient })
-                    ))
+                if (this.state.data != null && this.state.data != []) {
+                    return (
+                        e("div", { className: 'view_deck' }, e("h1", { className: "pres_text" }, "Prescriptions"),
+                            e("table", { className: "pres_info" },
+                                e("tr", null, " ",
+                                    e("th", null, "Name"), " ",
+                                    e("th", null, "Type"), " ",
+                                    e("th", null, "Field")),
+                                this.state.data.map(records =>
+                                    e("tr", { className: "trow" },
+                                        e("td", null, " ", records.Prescription, " "),
+                                        e("td", null, " ", records.Type, " "),
+                                        e("td", null, " ", records.Field, " ")))),
+                            e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient, newScene:this.updateInfo })
+                        ))
+                } else {
+                    return (
+                        e("div", { className: 'view_deck' }, e("h1", { className: "pres_text" }, "Prescriptions"),
+                            e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient, newScene:this.updateInfo })
+                        ))
+                }
+
             }
             else if (this.state.source == 'tests') {
-                return (
-                    e("div", { className: 'view_deck' }, e("h1", { className: "test_text" }, "Tests"),
-                        e("table", { className: "test_info" },
-                            e("tr", null, " ",
-                                e("th", null, " Test Type"), " ",
-                                e("th", null, "Test ID"), " ",
-                                e("th", null, "Date"), " ",
-                                e("th", null, "Result")),
-                            this.state.data.map(records =>
-                                e("tr", { className: "trow" },
-                                    e("td", null, " ", records.Test_Type, " "),
-                                    e("td", null, " ", records.Test_ID, " "),
-                                    e("td", null, " ", records.Test_Date, " "),
-                                    e("td", null, " ", records.Test_Result, " ")))),
-                        e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient })
+                if (this.state.data != null && this.state.data != []) {
+                    return (
+                        e("div", { className: 'view_deck' }, e("h1", { className: "test_text" }, "Tests"),
+                            e("table", { className: "test_info" },
+                                e("tr", null, " ",
+                                    e("th", null, " Test Type"), " ",
+                                    e("th", null, "Test ID"), " ",
+                                    e("th", null, "Date"), " ",
+                                    e("th", null, "Result")),
+                                this.state.data.map(records =>
+                                    e("tr", { className: "trow" },
+                                        e("td", null, " ", records.Test_Type, " "),
+                                        e("td", null, " ", records.Test_ID, " "),
+                                        e("td", null, " ", records.Test_Date, " "),
+                                        e("td", null, " ", records.Test_Result, " ")))),
+                            e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient, newScene:this.updateInfo })
+                        ))
+                } else {
+                    return (
+                        e("div", { className: 'view_deck' }, e("h1", { className: "test_text" }, "Tests"),
+                            e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient, newScene:this.updateInfo })
                     ))
+                }
+
             }
 			else if(this.state.source == 'conditions'){
-                return (
-                    e("div", {className:'view_deck'}, e("h1", { className: "cond_text" }, "Conditions"),
-                    e("table", {className: "cond_info"},
-                        e("tr", null, " ", 
-						    e("th", null, "MR_Number"), " ", 
-							e("th", null, "Conditions")),					   
-                            this.state.data.map(records => 
-                                e("tr", { className: "trow" },
-								e("td", null, " ", records.MR_Number, " "),
-								e("td", null, " ", records.Condition)))),
-                    e(Submit, {className: "submit_form", returnState:this.getState, getHNum:this.getPatient})
-                ))
+                if (this.state.data != null && this.state.data != []) {
+                    return (
+                        e("div", {className:'view_deck'}, e("h1", { className: "cond_text" }, "Conditions"),
+                        e("table", {className: "cond_info"},
+                            e("tr", null, " ", 
+                                e("th", null, "MR_Number"), " ", 
+                                e("th", null, "Conditions")),					   
+                                this.state.data.map(records => 
+                                    e("tr", { className: "trow" },
+                                    e("td", null, " ", records.MR_Number, " "),
+                                    e("td", null, " ", records.Condition)))),
+                        e(Submit, {className: "submit_form", returnState:this.getState, getHNum:this.getPatient, newScene:this.updateInfo})
+                    ))
+                } else {
+                    return (
+                        e("div", {className:'view_deck'}, e("h1", { className: "cond_text" }, "Conditions"),
+                        e(Submit, {className: "submit_form", returnState:this.getState, getHNum:this.getPatient, newScene:this.updateInfo})
+                    ))
+                }
+
 			}
         }
     }
@@ -400,9 +445,8 @@ class Submit extends React.Component {
             fetch(request)
                 .then(res => res.json())
                 .then(res => {
-                    console.log('appointment added');
-                })
-
+                    this.props.newScene();
+                })      
         }
         else if (this.props.returnState() == 'prescriptions') {
             const request = new Request('../Database/api/object_methods/doctor/edits/editsPrescription.php', {
@@ -417,6 +461,7 @@ class Submit extends React.Component {
                 .then(res => res.json())
                 .then(res => {
                     console.log('prescription added');
+                    this.props.newScene();
                 })
         }
         else if (this.props.returnState() == 'tests') {
@@ -432,6 +477,7 @@ class Submit extends React.Component {
                 .then(res => res.json())
                 .then(res => {
                     console.log('test added');
+                    this.props.newScene();
                 })
         }
         else if (this.props.returnState() == 'conditions') {
@@ -447,6 +493,7 @@ class Submit extends React.Component {
                 .then(res => res.json())
                 .then(res => {
                     console.log('condition added');
+                    this.props.newScene();
                 })
         }
     }
