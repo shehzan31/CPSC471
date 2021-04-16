@@ -7,7 +7,7 @@ header("Content-Type: application/json; charset=UTF-8");
 include_once '../../../config/database.php';
 include_once '../../../objects/medicalRecordCondition.php';
 include_once '../../../objects/patient.php';
-include_once '../../../objects/finds.php';
+include_once '../../../objects/findsCondition.php';
 include_once '../../../objects/diagnosis.php';
 
 session_start();
