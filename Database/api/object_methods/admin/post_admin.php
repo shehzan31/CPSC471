@@ -15,10 +15,11 @@ $db = $database->getConnection();
 $admin = new Admin($db);
 
 // Object properties
-$Admin_ID = 717171717;
-$Password = "Password123";
+$Admin_ID = 67676767;
+$Password = hash('sha256', 'Password123');
+
 
   
 // query products
-$stmt = $person->post_admin($Admin_ID, $Password);
+$stmt = $admin->post_admin($Admin_ID, $Password);
 ?>
