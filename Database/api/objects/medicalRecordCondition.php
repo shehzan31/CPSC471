@@ -1,19 +1,18 @@
 <?php
-class Patient{
+class MedicalRecordCondition{
     // database connection and table name
     private $conn;
-    private $table_name = "Patient";
+    private $table_name = "MR_Conditions";
     private $database = "HealthDatabase";
-    
-    // Object Properties
-    public $H_Number;
+
+    //Object properties
     public $MR_Number;
-    public $SIN;
-    
+    public $Condition;
+
     public function __construct($db) {
         $this->conn = $db;
     }
-    
+
     function read(){
         $query =   "SELECT
                     *
@@ -28,37 +27,40 @@ class Patient{
         return $stmt;
     }
     
-    function mr_number($h_number) {
+    function showAllConditions($mr_number){
         $query =   "SELECT *
-                    FROM $this->database.$this->table_name as p
-                    WHERE p.H_Number = $h_number";
+                    FROM $this->database.$this->table_name as a
+                    WHERE a.MR_Number = $mr_number";
         
+        //prepare query statement
         $stmt = $this->conn->prepare($query);
-        
+
+        //execute query
         $stmt->execute();
         return $stmt;
     }
     
-    function returnPatient($h_number) {
+    function showAllHConditions($hnum){
         $query =   "SELECT *
-        FROM $this->database.$this->table_name as p
-        WHERE p.H_Number = $h_number";
+                    FROM $this->database.$this->table_name as a
+                    WHERE a.H_Number = $hnum";
         
+        //prepare query statement
         $stmt = $this->conn->prepare($query);
         
+        //execute query
         $stmt->execute();
         return $stmt;
     }
-    function returnHnum($mrnum) {
-        $query =   "SELECT *
-        FROM $this->database.$this->table_name as p
-        WHERE p.MR_Number = $mrnum";
-        
-        $stmt = $this->conn->prepare($query);
-        
-        $stmt->execute();
-        return $stmt;
-    }
-}
+    
+    function insert($mr_number, $condition) {
+        $query =   "INSERT INTO $this->database.$this->table_name(MR_Number, `Condition`) VALUES
+        (?, ?)";
 
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$mr_number, $condition]);
+        return $stmt;
+    }
+
+}
 ?>
