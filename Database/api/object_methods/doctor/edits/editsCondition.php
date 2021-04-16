@@ -8,6 +8,7 @@ include_once '../../../config/database.php';
 include_once '../../../objects/medicalRecordCondition.php';
 include_once '../../../objects/patient.php';
 include_once '../../../objects/findsCondition.php';
+include_once '../../../objects/finds.php';
 include_once '../../../objects/diagnosis.php';
 
 session_start();
@@ -38,13 +39,14 @@ $chart = $_POST['data4'];
 
 $stmt1 = $diagnosis->findCond($cond);
 $num1 = $stmt1->rowCount();
+
 if($num1 == 0){
-    $stmt2 = $diagnosis->post($cond);
+    $stmt2 = $diagnosis->returnPost($cond);
 }
 
 if (true) {
 
-    $stmt3 = $finds->insert($did, $hnum, $cond, $date, $chart);
+    $stmt3 = $finds->returnPost($did, $hnum, $cond, $date, $chart);
     $num3 = $stmt3->rowCount();
 
     if ($num3 == 1) {
@@ -56,7 +58,7 @@ if (true) {
             $row2 = $stmt4->fetch();
             $mr_num = intval($row2['MR_Number']);
             $stmt4 = $mrc->insert($mr_num, $cond);
-            http_response_code(200);
+            http_response_code(800);
             echo json_encode('');
         }
     }

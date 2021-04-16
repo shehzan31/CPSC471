@@ -350,18 +350,10 @@ class View extends React.Component {
                     e("table", {className: "cond_info"},
                         e("tr", null, " ", 
 						    e("th", null, "MR_Number"), " ", 
-                            //e("th", null, "H_Number"), " ", 
-                           // e("th", null, "Conditions"), " ", 
-                           // e("th", null, "Date"), " ", 
-                           // e("th", null, "Chart")),
 							e("th", null, "Conditions")),					   
                             this.state.data.map(records => 
                                 e("tr", { className: "trow" },
 								e("td", null, " ", records.MR_Number, " "),
-								//e("td", null, " ", records.H_Number, " "),
-                               // e("td", null, " ", records.Conditions, " "), 
-                               // e("td", null, " ", records.Date, " "), 
-                                //e("td", null, " ", records.Chart, " ")))),
 								e("td", null, " ", records.Condition)))),
                     e(Submit, {className: "submit_form", returnState:this.getState, getHNum:this.getPatient})
                 ))
@@ -442,23 +434,21 @@ class Submit extends React.Component {
             //         console.log('test added');
             //     })
         }
-		else if (this.props.returnState() == 'conditions') {
-            
-                const request = new Request('../Database/api/object_methods/doctor/edits/editsCondition.php', {
-                    method: 'POST',
-                    body: JSON.stringify(this.state),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                })
+        else if (this.props.returnState() == 'conditions') {
+            const request = new Request('../Database/api/object_methods/doctor/edits/editsCondition.php', {
+                method: 'POST',
+                body: JSON.stringify(this.state),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
 
-                fetch(request)
+            fetch(request)
                 .then(res => res.json())
                 .then(res => {
                     console.log('condition added');
                 })
-    
-            }
+        }
     }
 
     render() {
@@ -521,12 +511,10 @@ class Submit extends React.Component {
                         e("h3", { className: "submit_form_text" }, "Enter new condition"),
                         e("div", { className: "doctoR_ID" },
                             "Doctor_ID", e("input", { className: "doctoR_text", placeholder: "no id", onChange: e => this.setState({ data1: e.target.value }) })),
-                        // e("div", { className: "h_number" },
-                            // "H_Number", e("input", { className: "hnum_text", placeholder: "no hnum", onChange: e => this.setState({ data2: e.target.value }) })),
-                        e("div", { className: "condition" },
+                        e("div", { className: "conditioN" },
                             "Condition", e("input", { className: "condi_text", placeholder: "no condition", onChange: e => this.setState({ data2: e.target.value }) })),
                         e("div", { className: "date" },
-                            "Date", e("input", { className: "date_text", placeholder: "01-01-2000", onChange: e => this.setState({ data3: e.target.value }) })),
+                            "Date", e("input", { className: "date_text", placeholder: "2000-01-30", onChange: e => this.setState({ data3: e.target.value }) })),
                         e("div", { className: "chart" },
                             "Chart", e("input", { className: "chart_text", placeholder: "no chart", onChange: e => this.setState({ data4: e.target.value }) })),
                         e("div", { className: "submit_btn" },

@@ -16,7 +16,7 @@ $insertmedicalcondition= new MedicalRecordCondition($db);
 
 // Object Properties
 $mr_number = 101010108;
-$condition = "constipation";    
+$condition = "food poisoning";    
 
 // query products
 $stmt = $insertmedicalcondition->insert($mr_number, $condition);
