@@ -60,7 +60,7 @@ if ($num1 == 1) {
                 $row2 = $stmt4->fetch();
                 $mr_num = intval($row2['MR_Number']);
                 $stmt4 = $mra->insert($mr_num, $a_id);
-                http_response_code(200);
+                http_response_code(800);
                 echo json_encode('');
             }
         }
