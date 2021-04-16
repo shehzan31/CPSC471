@@ -35,5 +35,15 @@ class Diagnosis {
         echo "\nNew record created successfuly";
     }
 
+    function findCond($condition){
+        $query =   "SELECT *
+                    FROM $this->database.$this->table_name as d
+                    WHERE d.condition = $Condition";
+        
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->execute();
+        return $stmt;
+    }
 }
 ?>

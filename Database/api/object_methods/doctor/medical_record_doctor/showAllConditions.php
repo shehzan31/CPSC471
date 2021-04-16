@@ -47,47 +47,16 @@ if ($num1 == 1) {
 
             $item = array(
                 "MR_Number"   => $MR_Number,
-                "Condition"    => $Condition,
+                "Condition"    => $Condition
             );
 
             array_push($arr['records'], $item);
         }
+        echo json_encode($arr);
         
     }
-//     $stmt2 = $patient->returnHnum($mr_number);
-//     $num2 = $stmt2->rowCount();
- 
-//     if ($num2 == 1) {
-        
-//         $arr = array();
-//         $arr['records'] = array();
-        
-//         $hnum = $stmt2['H_Number'];
-//         $stmt3 = $finds->hnumber($hnum);
-//         $num3 = $stmt3->rowCount();
-//         if ($num3 >= 0) {
-                   
-//             while ($row1 = $stmt3->fetch(PDO::FETCH_ASSOC)) {
-                
-//                 extract($row1);
-                
-//                 $item = array(
-//                     "Doctor_ID"   => $Doctor_ID,
-//                     "H_Number"     => $H_Number,
-//                     "Condition"    => $Condition,
-//                     "Date"         => $Date,
-//                     "Chart"         => $Chart
-//                 );
-                
-//                 array_push($arr['records'], $item);
-//             }
-//         }
-       
             
-            // show products data in json format
-            echo json_encode($arr);
-            
-    }
+//     }
     
     else {
         echo json_encode(
@@ -95,6 +64,6 @@ if ($num1 == 1) {
             );
     }
     
-// }
+}
 
 ?>

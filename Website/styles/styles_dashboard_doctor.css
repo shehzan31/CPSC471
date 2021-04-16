@@ -442,30 +442,30 @@ html, body{
         left:   30%;
     }
 
-    .doctor_page .doc_page .view_deck .submit_form .field .doctor_text {
+    .doctor_page .doc_page .view_deck .submit_form .doctoR_ID .doctoR_text {
         position:   absolute;
         width:  67.5%;
         left:   30%;
     }
 	
-	    .doctor_page .doc_page .view_deck .submit_form .field .hnum_text {
+	.doctor_page .doc_page .view_deck .submit_form .h_number .hnum_text {
         position:   absolute;
         width:  67.5%;
         left:   30%;
     }
-    .doctor_page .doc_page .view_deck .submit_form .field .condition_text {
-        position:   absolute;
-        width:  67.5%;
-        left:   30%;
-    }
-
-    .doctor_page .doc_page .view_deck .submit_form .startD .date_text {
+    .doctor_page .doc_page .view_deck .submit_form .condition .condi_text {
         position:   absolute;
         width:  67.5%;
         left:   30%;
     }
 
-    .doctor_page .doc_page .view_deck .submit_form .endD .chart_text {
+    .doctor_page .doc_page .view_deck .submit_form .date .date_text {
+        position:   absolute;
+        width:  67.5%;
+        left:   30%;
+    }
+
+    .doctor_page .doc_page .view_deck .submit_form .chart .chart_text {
         position:   absolute;
         width:  67.5%;
         left:   30%;
