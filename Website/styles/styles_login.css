@@ -1,36 +1,131 @@
-html {
-  height: 100%;
-}
 
-body {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  height: 100%;
-}
 
-.login-img {
-  width: 100%;
-  height: 95%;
-}
-
-.login {
-  height: 50%;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.enter {
-  background-color: green;
-}
-
-.other-selections {
-  display: flex;
-  justify-content: space-between;
-}
-
-.new-join {
+body, header, ul, li, h1, h2, a{
+  margin: 0;
+  padding: 0;
+  font-family:    "Segoe UI", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+                  Helvetica, Arial, "Lucida Grande", sans-serif, "Quicksand";
+  list-style: none;
+  text-decoration: none;
   text-align: center;
+  justify-content: center;
 }
+
+html, body{
+  min-width: 100%;
+  min-height: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+
+  * {
+    outline: none;
+  }
+
+  body {
+    height: 100%;
+    width: 100%;
+  }
+
+  .login-img {
+    visibility: hidden;
+  }
+  
+  p {
+    visibility: hidden;
+  }
+
+  h1 {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .form-check-input {
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.25));
+  }
+  .Remember-Me {
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.25));
+  }
+
+  .login {
+    position: absolute;
+    width: 80%;
+    height: 55%;
+    top: 22.5%;
+    left: 10%;
+    align-items: center;
+    align-self: center;
+    color: #FFFFFF;
+    background: #FF6961;
+    border-radius: 10px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+  
+  .email-group {
+    width: 90%;
+    margin: auto;
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+  }
+
+  .password-group {
+    width: 90%;
+    margin: auto;
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+  }
+
+  .submit-form {
+    width: 50%;
+    line-height: 250%;
+    margin: auto;
+    margin-top: 2.5%;
+    color: #000;
+    background: #FFF;
+    border-radius: 5px;
+    border: 0;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .submit-form.active {
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+  body {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 100%;
+  }
+
+  .login-img {
+    object-fit: scale-down;
+    width: 100%;
+    height: 95%;
+  }
+  
+  .login {
+    height: 50%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  
+  .enter {
+    background-color: green;
+  }
+  
+  .other-selections {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .new-join {
+    text-align: center;
+  }
+}
+
+

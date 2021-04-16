@@ -39,12 +39,14 @@ if($num>0){
         // this will make $row['name'] to
         // just $name only
         extract($row);
+        $createDate = new DateTime($Date);
+        $strip = $createDate->format('Y-m-d');
   
         $finds_item=array(
             "doctor_ID" => $Doctor_ID,
             "hnumber" => $H_Number,
             "condition" => $Condition,
-            "date" => $Date,
+            "date" => $strip,
             "chart" => $Chart
         );
   

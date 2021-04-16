@@ -8,28 +8,64 @@ class Dash extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { list: [] }
+        this.state = {  list: [],
+                        list2: [] }
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         fetch('../Database/api/object_methods/finds/hnumber.php')
             .then(res => res.json())
-            .then(data => {
-                this.setState({ list: data.records })
-                console.log(data.records);
-            });
+                .then(data => {
+                    fetch ('../Database/api/object_methods/dependent/returnAllDependents.php')
+                        .then(res1 => res1.json())
+                            .then(data1 => {
+                                this.setState({ list: data.records,
+                                                list2: data1.records });
+                                console.log(data1.records);
+                                console.log(data.records);
+                        });
+                });
     }
 
     render() {
-        if ((this.state.list != []) && (this.state.list != null)) {
+        if ((this.state.list != []) && (this.state.list2 != []) && (this.state.list != null) && (this.state.list2 != null)) {
             return (
                 e("div", null, e("h1", { className: "dashboard_text" }, "Dashboard"),
                     e("table", { className: "dash_info" }, "Health Diagnosis",
-                        e("tr", null, " ", e("th", null, "Doctor ID"), " ", e("th", null, "H Number"), " ", e("th", null, "Condition"), e("th", null, "Date"), " ", e("th", null, "Chart/Notes")),
-                        this.state.list.map(records => e("tr", { className: "trow" },
-                            e("td", null, " ", records.doctor_ID, " "), e("td", null, " ", records.hnumber, " "), e("td", null, " ", records.condition, " "), e("td", null, " ", records.date, " "), e("td", null, " ", records.chart))), " "))
+                        e("thead", null, e("tr", null, " ", e("th", null, "Doctor ID"), " ",  " ", e("th", null, "Condition"), e("th", null, "Date"), " ")),
+                        e("tbody", null, this.state.list.map(records => e("tr", { className: "trow" },
+                            e("td", null, " ", records.doctor_ID, " "), e("td", null, " ", records.condition, " "), e("td", null, " ", records.date, " "), " ")))),
+                    e("table", {className: "dep_info"}, "Dependents",
+                        e("thead", null, e("tr", null, " ", e("th", null, "First Name"), " ", " ", e("th", null, "Middle Initial"), e("th", null, "Last name"), e("th", null, "Relation"))),
+                            e("tbody", null, this.state.list2.map(records => e("tr", { className: "trow" },
+                            e("td", null, " ", records.DFName, " "), e("td", null, " ", records.DMInit, " "), e("td", null, " ", records.DLName, " "), e("td", null, " ", records.Relation, " "))   
+                        ))
+                    )
+                )
             );
-        }else{
+        } else {
+            if (this.state.list != [] && (this.state.list != null)) {
+                return (
+                    e("div", null, e("h1", { className: "dashboard_text" }, "Dashboard"),
+                        e("table", { className: "dash_info" }, "Health Diagnosis",
+                            e("thead", null , e("tr", null, " ", e("th", null, "Doctor ID"), " ",  " ", e("th", null, "Condition"), e("th", null, "Date"), " ")),
+                            e ("tbody", null, this.state.list.map(records => e("tr", { className: "trow"},
+                                e("td", null, " ", records.doctor_ID, " "), e("td", null, " ", records.condition, " "), e("td", null, " ", records.date, " "), " "))),
+                    ))
+                );
+            }
+            if (this.state.list2 != [] && (this.state.list2 != null)) {
+                return (
+                    e("div", null, e("h1", { className: "dashboard_text" }, "Dashboard"),
+                        e("table", {className: "dep_info"}, "Dependents",
+                            e("thead", null, e("tr", null, " ", e("th", null, "First Name"), " ", " ", e("th", null, "Middle Initial"), e("th", null, "Last name"), e("th", null, "Relation"))),
+                            e("tbody", null, this.state.list2.map(records => e("tr", { className: "trow" },
+                                e("td", null, " ", records.DFName, " "), e("td", null, " ", records.DMInit, " "), e("td", null, " ", records.DLName, " "), e("td", null, " ", records.Relation, " "))   
+                            ))
+                        )
+                    )
+                );
+            }
             return e("div", null, e("h1", { className: "dashboard_text" }, " Dashboard "),
                 e("SampleDash", { className: "dash_info_pane" }));
         }
@@ -77,7 +113,7 @@ class Appoint extends React.Component {
             );
         } else {
             return e("div", null, e("h1", { className: "appoint_text" }, "Appointments"),
-                e("SampleDash", { className: "appoint_info_pane" }));
+                e("h2", { className: "appoint_info_text" }, "You have no appointments"));
         }
     }
 }
@@ -114,7 +150,7 @@ class Test extends React.Component {
             );
         } else {
             return e("div", null, e("h1", { className: "test_text" }, "Test"),
-                e("SampleDash", { className: "test_info_pane" }));
+                e("h2", { className: "test_info_test" }, "You have no tests"));
         }
     }
 }
@@ -149,7 +185,7 @@ class Pres extends React.Component {
             );
         } else {
             return e("div", null, e("h1", { className: "pres_text"}, "Prescriptions"),
-            e("SampleDash", {className: "pres_info_pane"}));
+            e("h2", {className: "pres_info_text"}, "You have no prescriptions"));
         }
     }
 }

@@ -12,7 +12,7 @@
         <title>myHealth Canada</title>
         <meta name="viewport" content="width=device-width", initial scale =1.0>
         <link rel="stylesheet" href="styles/styles_dashboard.css">
-        <script type="text/javascript" src="js/core.js"> </script>
+        <script type="text/javascript" src="./js/core.js"> </script>
 
         <script>
 
@@ -35,7 +35,7 @@
                 $('html, body').stop().animate({
                     /* This specifies that we should scroll to the top of the tag with the correct offset in */
                     /* a time of 250 milliseconds with a linear effect */
-                    scrollTop: $($(this).attr('href')).offset().top - document.getElementById('header').offsetHeight
+                    scrollTop: $($(this).attr('href')).offset().top - 80
                 }, 250, 'linear');
             });
         </script>
@@ -43,7 +43,7 @@
 
     <body>
 
-        <nav>
+        <nav id="global_nav">
             <div class="content_desk">
 
                 <div class="sidebar">
@@ -71,8 +71,32 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
             </div>
+            <!-- For the mobile website -->
+            <div class="content_mobile">
+                <!-- We want to display this all the time, so we have our logo as well as the menu button -->
+                <ul class="content_nav">
+                    <ul class="logo_mobile">
+                        <h1 class="logo_mobile_writing">myHealth</h1>
+                        <div class="maple_image_mobile"></div>
+                    </ul>
+                    <!-- This specifies a function smoothscroll to execute when a user clicks on our menu -->
+                    <li onclick="smoothScroll(global_nav, list_menu)" class="menu_mobile" id="nav_menu">
+                        <span class="top_button"></span>
+                        <span class="bottom_button"></span>
+                    </li>
+                </ul>
+                <!-- The defualt behavior is to hide this menu, an id will be added to the super tag global_nav when this list is expanded and collapsed and when the list is active -->
+                <li class="list" id="list_menu">
+                    <!-- All the buttons we need in the menu -->
+                    <a href=#global_nav class="dashboard_mobile">Dashboard</a>
+                    <a href=#appointments class="appoint_mobile">Appointments</a>
+                    <a href=#prescriptions class="pres_mobile">Prescriptions</a>
+                    <a href=#tests class="tests_mobile">Tests</a>
+                    <a href='../Database/api/object_methods/account/logout.php' class="logout_mobile">Logout</a>
+                </li>
         </nav>
 
         <!--

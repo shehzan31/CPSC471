@@ -7,6 +7,7 @@ header("Content-Type: application/json; charset=UTF-8");
 include_once '../../config/database.php';
 include_once '../../objects/dependent.php';
 include_once '../../objects/person.php';
+include_once '../../objects/patient.php';
 
 
 session_start();
@@ -17,48 +18,53 @@ $db = $database->getConnection();
 
 $dependent = new Dependent($db);
 $person = new Person($db);
+$patient = new Patient($db);
 
-$SIN = 123456789;
+$user = $_SESSION['user'];
 
-$stmt1 = $dependent->returnAllDependents($SIN);
-$num1 = $stmt1 ->rowCount();
+$stmt1 = $patient->mr_number($user);
+$num1 = $stmt1->rowCount();
 
-if($num1 > 0){
-    
+if ($num1 == 1) {
+    $p = $stmt1-> fetch();
+    $SIN = $p['SIN'];
 
-    while ($row = $stmt1->fetch(PDO::FETCH_ASSOC)) {
-//         $d = $stmt1->fetch();
-        $dsin = $row['D_SIN'];
-        $relation = $row['Relationship'];
-        $stmt2 = $person->sin($dsin);
-        $num2 = $stmt2->rowCount();
-        $arr = array();
-        $arr['records'] = array();
-        if($num2 == 1){
+    $stmt2 = $dependent->returnAllDependents($SIN);
+    $num2 = $stmt2 ->rowCount();
 
+    if($num2 > 0) {
 
-            while($row1 = $stmt2->fetch(PDO::FETCH_ASSOC)){
+        while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+
+            $dsin = $row['D_SIN'];
+            $relation = $row['Relationship'];
+            $stmt3 = $person->sin($dsin);
+            $num3 = $stmt3->rowCount();
+            $arr = array();
+            $arr['records'] = array();
+            
+            if($num3 == 1) {
+                $row1 = $stmt3->fetch();
                 extract($row1);
+                    
                 $item = array(
                     "DFName"      => $FName,
                     "DMInit"      => $MInit,
                     "DLName"      => $LName,
                     "Relation"    => $relation,
                 );
-
+                    
                 array_push($arr['records'], $item);           
             }
         }
         echo json_encode($arr);
         
     }
-
-    // show products data in json format
-
+        // show products data in json format
+    else {
+        echo json_encode([]);
+    }
 }
-else {
-    echo json_encode(
-        array("message" => "No Dependents found.")
-    );
-}
+
+
 ?>

@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="styles/styles_index.css">
         <meta name="viewport" content="width=device-width", initial scale =1.0>
         <!-- Here we are specifying where we should get our javascript code from -->
-        <script type="text/javascript" src="/js/core.js"> </script>
+        <script type="text/javascript" src="./js/core.js"> </script>
         <!-- Here we are importing the jquery library so we can use it -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
         <script>
@@ -59,9 +59,9 @@
                 <li class="list" id="list_menu">
                     <!-- All the buttons we need in the menu -->
                     <a href=#global_nav class="home_mobile">Home</a>
-                    <a href="" class="about_mobile">About</a>
+                    <a href=#about class="about_mobile">About</a>
                     <a href="" class="contact_mobile">Contact</a>
-                    <a href="http://3.143.145.244/CPSC471/Database/api/object_methods/account/authenticate.php" class="login_mobile">Login</a>
+                    <a href="./login.html" class="login_mobile">Login</a>
                 </li>
             </div>
 
@@ -85,21 +85,20 @@
 
         <!-- This is what the user will see on the "first scroll" of the website -->
         <header class="header_content"> 
+            <section class="hospital">
+                <img src="./icons/Hospital.svg" class="hospital_image"></img>
+            </section>
             <info class="info">
                 <p class="info_main_text">Providing better health care for you.</p>
                 <p class="info_sub_text">All your health care needs in one place.</p>
                 <a href="#about" class="explore">Explore</a>
             </info>
-    
-            <section class="hospital">
-                <div class="hospital_image"></div>
-            </section>
         </header>
         
         <!-- We must have an id for this section as we want to smoothly scroll to this section if the user clicks on it -->
         <section id="about" class="about_content">
             <div class="about_frame"></div>
-            <div class="doctor_image"></div>
+            <img src="./icons/Doctors.svg" class="doctor_image"></img>
             <div class="explore_info">
                 <p class="explore_info_main_text">Your health infomation available instantly.</p>
                 <p class="explore_info_sub_text">MyHealth Canada provides quick access to important medical information such as medical history, prescriptions, allergies, conditions and more, available instantly anywhere in Canada. With full support from every hospital and clinic in Canada means you will never have to write a medical questionaire again.</p>

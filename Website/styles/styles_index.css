@@ -319,6 +319,137 @@ html, body{
         top: 28px;
         transform: rotate(45deg);
     }
+
+    /* This is specifying the behaviour and appearance of the mobile webpage */
+
+    .header_content {
+        position: absolute;
+        top: 80px;
+        height: 100%;
+        width: 100%;
+    }
+
+    .hospital {
+        position: relative;
+        height: 30%;
+        width: 100%;
+        top: 5%;
+    }
+
+    .hospital_image { 
+        object-fit: scale-down;
+        filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.25));
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        width:100%;
+        height: 100%;
+        top: 5%;
+    }
+
+    .info_main_text {
+        position: relative;
+        font-family: Quicksand;
+        top: 2.5%;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 40px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+    }
+
+    .info_sub_text {
+        position: relative;
+        font-family: Quicksand;
+        top: 0.5%;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 30px;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+        width: 90%;
+        left: 5%;
+    }
+
+    .explore {
+        position: relative;
+        top: 5%;
+        width: 50%;
+
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 200%;
+        display: inline-flex;
+        align-items: center;
+        text-align: center;
+
+        color: #FFFFFF;
+        background: #FF6961;
+        border-radius: 10px;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .explore:active {
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+    }
+
+    .about_content {
+        top: 100%; 
+        height: 89.5%;
+        width: 100%;
+        position: absolute;
+    }
+
+    .doctor_image {
+        position: relative;
+        top: 5%; 
+        object-fit: scale-down;
+        filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.25));
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        width:100%;
+        height: 25%;
+    }
+
+    .explore_info {
+        position: relative;
+        top: 5%;
+    }
+
+    .explore_info_main_text {
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 22px;
+        display: inline-flex;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+    }
+
+    .explore_info_sub_text {
+        width: 95%;
+        font-family: Quicksand;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 22px;
+        display: inline-flex;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+    }
+
 }
 
 
