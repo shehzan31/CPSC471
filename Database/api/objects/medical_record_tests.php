@@ -26,5 +26,14 @@ class Medical_Records_Tests{
         return $stmt;
     }
 
+    function insert($mr_number, $test_id) {
+        $query =   "INSERT INTO $this->database.$this->table_name(MR_Number, Test) VALUES
+        (?, ?)";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$mr_number, $test_id]);
+        return $stmt;
+    }
+
 }
 ?>
