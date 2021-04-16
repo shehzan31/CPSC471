@@ -71,6 +71,18 @@ class Doctor{
         echo "\nNew test created successfuly";
     }
 
+
+    function delete_doctor($Doctor_ID) {
+        $query =   "DELETE FROM $this->database.$this->table_name as p
+                    WHERE p.Doctor_ID = $Doctor_ID";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "\nDoctor deleted\n";
+    }
+
+
     function deleteTest($Doctor_ID, $H_Number, $MR_Number, $Test_ID) {
         $query1 =   "DELETE FROM $this->database.$this->Orders_Table as p
                     WHERE p.Doctor_ID = $Doctor_ID AND p.H_number = $H_Number AND p.Test_ID = $Test_ID";
