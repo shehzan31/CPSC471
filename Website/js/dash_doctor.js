@@ -4,20 +4,20 @@ const e = React.createElement;
 
 
 class Super extends React.Component {
-    
+
     constructor(props) {
         super(props);
-            this.state = {
-                h_num: null,
-                person: [],
-                isSet: false
-            }
-            this.personCardElement = React.createRef();
-            this.appointmentsButton = React.createRef();
-            this.conditionsButton = React.createRef();
-            this.testsButton = React.createRef();
-            this.prescriptionsButton = React.createRef();
-            this.viewDeck = React.createRef();
+        this.state = {
+            h_num: null,
+            person: [],
+            isSet: false
+        }
+        this.personCardElement = React.createRef();
+        this.appointmentsButton = React.createRef();
+        this.conditionsButton = React.createRef();
+        this.testsButton = React.createRef();
+        this.prescriptionsButton = React.createRef();
+        this.viewDeck = React.createRef();
     }
 
     handleSearchChange = (id, data) => {
@@ -28,10 +28,10 @@ class Super extends React.Component {
         })
         console.log(this.state.person);
         this.personCardElement.current.handlePersonChange(id, data);
-        this.appointmentsButton.current.changeUrl('Appointments','');
-        this.conditionsButton.current.changeUrl('Conditions','');
-        this.prescriptionsButton.current.changeUrl('Prescriptions','');
-        this.testsButton.current.changeUrl('Tests','');
+        this.appointmentsButton.current.changeUrl('Appointments', '');
+        this.conditionsButton.current.changeUrl('Conditions', '');
+        this.prescriptionsButton.current.changeUrl('Prescriptions', '');
+        this.testsButton.current.changeUrl('Tests', '');
     }
 
     getState() {
@@ -41,40 +41,60 @@ class Super extends React.Component {
     handleClicks = data => {
         if (data == 'Appointments') {
             this.handleAppointments();
+        } else if (data == 'Prescriptions') {
+            this.handlePrescriptions();
+        } else if (data == 'Tests') {
+            this.handleTests();
+        }else if (data == 'Conditions') {
+            this.handleConditions();
         }
-    }
+	}
 
     handleAppointments() {
         console.log('Button Clicked');
         this.viewDeck.current.changeInfo('appointments', '../Database/api/object_methods/Doctor/medical_record_doctor/showAllAppointments.php', this.state.h_num);
     }
 
-    render () {
+    handlePrescriptions() {
+        console.log('Button Clicked');
+        this.viewDeck.current.changeInfo('prescriptions', '../Database/api/object_methods/Doctor/medical_record_doctor/showAllPrescriptions.php', this.state.h_num);
+    }
+
+    handleTests() {
+        console.log('Test Button Clicked');
+        this.viewDeck.current.changeInfo('tests', '../Database/api/object_methods/Doctor/medical_record_doctor/showAllTests.php', this.state.h_num);
+    }
+	
+	handleConditions() {
+        console.log('Condition Button Clicked');
+        this.viewDeck.current.changeInfo('conditions', '../Database/api/object_methods/Doctor/medical_record_doctor/showAllConditions.php', this.state.h_num);
+    }
+    render() {
         if (this.state.isSet == false) {
             return (
-                e("div", {className: "doc_page"}, 
-                    e(Head, null), 
-                    e(Search, {onSearchChange: this.handleSearchChange}),
-                    e(PersonCard, {ref: this.personCardElement, style: 'display: none'}),
-                    e(DoctorButton, {className:'appointments',  ref: this.appointmentsButton,   style: 'display: none'}),
-                    e(DoctorButton, {className:'conditions',    ref: this.conditionsButton,     style: 'display: none'}),
-                    e(DoctorButton, {className:'prescriptions', ref: this.prescriptionsButton,  style: 'display: none'}),
-                    e(DoctorButton, {className:'test',          ref: this.testsButton,          style: 'display: none'}),
-                    e(View,         {className:'view_deck',     ref: this.viewDeck,             style: 'display: none', returnState: this.getState})
+                e("div", { className: "doc_page" },
+                    e(Head, null),
+                    e(Search, { onSearchChange: this.handleSearchChange }),
+                    e(PersonCard, { ref: this.personCardElement, style: 'display: none' }),
+                    e(DoctorButton, { className: 'appointments', ref: this.appointmentsButton, style: 'display: none' }),
+                    e(DoctorButton, { className: 'conditions', ref: this.conditionsButton, style: 'display: none' }),
+                    e(DoctorButton, { className: 'prescriptions', ref: this.prescriptionsButton, style: 'display: none' }),
+                    e(DoctorButton, { className: 'test', ref: this.testsButton, style: 'display: none' }),
+                    e(View, { className: 'view_deck', ref: this.viewDeck, style: 'display: none', returnState: this.getState })
                 ))
         }
         else {
             console.log('main component changed');
             return (
-                e("div", {className: "doc_page"}, 
-                    e(Head, null), 
-                    e(Search,       {onSearchChange: this.handleSearchChange}),
-                    e(PersonCard,   {ref: this.personCardElement}),
-                    e(DoctorButton, {ref: this.appointmentsButton,  buttonPushed: this.handleClicks}),
-                    e(DoctorButton, {ref: this.conditionsButton}),
-                    e(DoctorButton, {ref: this.prescriptionsButton}),
-                    e(DoctorButton, {ref: this.testsButton}),
-                    e(View,         {ref: this.viewDeck}))
+                e("div", { className: "doc_page" },
+                    e(Head, null),
+                    e(Search, { onSearchChange: this.handleSearchChange }),
+                    e(PersonCard, { ref: this.personCardElement }),
+                    e(DoctorButton, { ref: this.appointmentsButton, buttonPushed: this.handleClicks }),
+                    e(DoctorButton, {ref: this.conditionsButton, buttonPushed: this.handleClicks}),
+                    e(DoctorButton, { ref: this.prescriptionsButton, buttonPushed: this.handleClicks }),
+                    e(DoctorButton, { ref: this.testsButton, buttonPushed: this.handleClicks }),
+                    e(View, { ref: this.viewDeck }))
             )
         }
     }
@@ -84,10 +104,10 @@ class Head extends React.Component {
 
     constructor(props) {
         super(props);
-            this.state = { 
-                name: 'default',
-                isLoaded: false
-            }
+        this.state = {
+            name: 'default',
+            isLoaded: false
+        }
     }
 
     componentDidMount() {
@@ -104,9 +124,9 @@ class Head extends React.Component {
 
     render() {
         return e("div", null, e("h1", {
-          className: "doctor_text"
+            className: "doctor_text"
         }, "", this.state.name), e("div", {
-          className: "profile_image"
+            className: "profile_image"
         }));
     }
 
@@ -116,11 +136,11 @@ class Search extends React.Component {
 
     constructor(props) {
         super(props);
-            this.state = {
-                h_num: null,
-                date_sent: null,
-                person_Arr: []
-            }
+        this.state = {
+            h_num: null,
+            date_sent: null,
+            person_Arr: []
+        }
         this.onSubmit = this.onSubmit.bind(this);
     }
 
@@ -137,7 +157,7 @@ class Search extends React.Component {
         })
         fetch(request)
             .then(res => res.json())
-                .then(res => this.notifySuperChange(this.state.h_num, res))
+            .then(res => this.notifySuperChange(this.state.h_num, res))
     }
 
     notifySuperChange = (id, data) => {
@@ -146,11 +166,11 @@ class Search extends React.Component {
 
     render() {
         return (
-            e("div", {className: "search_container"}, 
-                e("div", {className: "search_bar"}, 
-                    e("input", {className:"search_bar_text", placeholder: "patient's health number", onChange: e => this.setState({h_num: e.target.value}) })), 
-                e("div", {className: "search_btn", }, 
-                    e("input", {className: "search_btn_text", type: "submit", value: "search", onClick: e => this.onSubmit(e)})))
+            e("div", { className: "search_container" },
+                e("div", { className: "search_bar" },
+                    e("input", { className: "search_bar_text", placeholder: "patient's health number", onChange: e => this.setState({ h_num: e.target.value }) })),
+                e("div", { className: "search_btn", },
+                    e("input", { className: "search_btn_text", type: "submit", value: "search", onClick: e => this.onSubmit(e) })))
         )
     }
 }
@@ -158,12 +178,12 @@ class Search extends React.Component {
 class PersonCard extends React.Component {
     constructor(props) {
         super(props);
-            this.state = {
-                isSet: false,
-                hnum: null,
-                name: null,
-                dob: null
-            }
+        this.state = {
+            isSet: false,
+            hnum: null,
+            name: null,
+            dob: null
+        }
     }
 
     handlePersonChange = (id, data) => {
@@ -172,7 +192,7 @@ class PersonCard extends React.Component {
             hnum: id,
             name: data.name,
             dob: data.dob
-        }) 
+        })
         console.log('received info in child');
     }
 
@@ -183,11 +203,11 @@ class PersonCard extends React.Component {
         } else {
             console.log('PersonCard mounted with info');
             return (
-                e("div", {className: "person_card"}, 
-                    e("h1", {className: "person_name"}, this.state.name), 
-                    e("h2", {className: "person_hnum"}, this.state.hnum), 
-                    e("h3", {className: "person_dob"}, this.state.dob), 
-                    e("div", {className: "person_image"}))
+                e("div", { className: "person_card" },
+                    e("h1", { className: "person_name" }, this.state.name),
+                    e("h2", { className: "person_hnum" }, this.state.hnum),
+                    e("h3", { className: "person_dob" }, this.state.dob),
+                    e("div", { className: "person_image" }))
             )
         }
     }
@@ -197,17 +217,17 @@ class DoctorButton extends React.Component {
 
     constructor(props) {
         super(props);
-            this.state = {
-                url: '',
-                name: ''
-            }
+        this.state = {
+            url: '',
+            name: ''
+        }
     }
 
     changeUrl = (name, url) => {
-        this.setState( {
+        this.setState({
             name: name,
             url: url
-        }) 
+        })
     }
 
     notifySuperOfClick() {
@@ -218,8 +238,8 @@ class DoctorButton extends React.Component {
         if (this.state.name == '') {
             return (null)
         } else {
-            return (e("button", {className: this.state.name, onClick: e => this.notifySuperOfClick()}, this.state.name))
-        }     
+            return (e("button", { className: this.state.name, onClick: e => this.notifySuperOfClick() }, this.state.name))
+        }
     }
 }
 
@@ -227,12 +247,12 @@ class DoctorButton extends React.Component {
 class View extends React.Component {
     constructor(props) {
         super(props);
-            this.state = {
-                source: '',
-                url: '',
-                data: [],
-                hnum: ''
-            }
+        this.state = {
+            source: '',
+            url: '',
+            data: [],
+            hnum: ''
+        }
     }
 
     changeInfo = (calle, passed_url, h_num) => {
@@ -244,14 +264,14 @@ class View extends React.Component {
                 'Content-Type': 'application/json'
             }
         })
-        
+
         fetch(request)
             .then(res => res.json())
             .then(res => {
-                this.setState( {
+                this.setState({
                     source: calle,
-                    url:    passed_url,
-                    data:   res.records,
+                    url: passed_url,
+                    data: res.records,
                     hnum: h_num
                 })
             })
@@ -274,22 +294,70 @@ class View extends React.Component {
         } else {
             if (this.state.source == 'appointments') {
                 return (
-                    e("div", {className:'view_deck'}, e("h1", { className: "appoint_text" }, "Appointments"),
-                    e("table", {className: "appoint_info"},
+                    e("div", { className: 'view_deck' }, e("h1", { className: "appoint_text" }, "Appointments"),
+                        e("table", { className: "appoint_info" },
+                            e("tr", null, " ",
+                                e("th", null, "ID"), " ",
+                                e("th", null, "Location"), " ",
+                                e("th", null, "Date"),
+                                e("th", null, "Time")),
+                            this.state.data.map(records =>
+                                e("tr", { className: "trow" },
+                                    e("td", null, " ", records.Appointment, " "),
+                                    e("td", null, " ", records.Location, " "),
+                                    e("td", null, " ", records.Date, " "),
+                                    e("td", null, " ", records.Time, " ")))),
+                        e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient })
+                    ))
+            }
+            else if (this.state.source == 'prescriptions') {
+                return (
+                    e("div", { className: 'view_deck' }, e("h1", { className: "pres_text" }, "Prescriptions"),
+                        e("table", { className: "pres_info" },
+                            e("tr", null, " ",
+                                e("th", null, "Name"), " ",
+                                e("th", null, "Type"), " ",
+                                e("th", null, "Field")),
+                            this.state.data.map(records =>
+                                e("tr", { className: "trow" },
+                                    e("td", null, " ", records.Prescription, " "),
+                                    e("td", null, " ", records.Type, " "),
+                                    e("td", null, " ", records.Field, " ")))),
+                        e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient })
+                    ))
+            }
+            else if (this.state.source == 'tests') {
+                return (
+                    e("div", { className: 'view_deck' }, e("h1", { className: "test_text" }, "Tests"),
+                        e("table", { className: "test_info" },
+                            e("tr", null, " ",
+                                e("th", null, " Test Type"), " ",
+                                e("th", null, "Test ID"), " ",
+                                e("th", null, "Date"), " ",
+                                e("th", null, "Result")),
+                            this.state.data.map(records =>
+                                e("tr", { className: "trow" },
+                                    e("td", null, " ", records.Test_Type, " "),
+                                    e("td", null, " ", records.Test_ID, " "),
+                                    e("td", null, " ", records.Test_Date, " "),
+                                    e("td", null, " ", records.Test_Result, " ")))),
+                        e(Submit, { className: "submit_form", returnState: this.getState, getHNum: this.getPatient })
+                    ))
+            }
+			else if(this.state.source == 'conditions'){
+                return (
+                    e("div", {className:'view_deck'}, e("h1", { className: "cond_text" }, "Conditions"),
+                    e("table", {className: "cond_info"},
                         e("tr", null, " ", 
-                            e("th", null, "ID"), " ", 
-                            e("th", null, "Location"), " ", 
-                            e("th", null, "Date"), 
-                            e("th", null, "Time")), 
+						    e("th", null, "MR_Number"), " ", 
+							e("th", null, "Conditions")),					   
                             this.state.data.map(records => 
                                 e("tr", { className: "trow" },
-                                e("td", null, " ", records.Appointment, " "), 
-                                e("td", null, " ", records.Location, " "), 
-                                e("td", null, " ", records.Date, " "), 
-                                e("td", null, " ", records.Time, " ")))),
+								e("td", null, " ", records.MR_Number, " "),
+								e("td", null, " ", records.Condition)))),
                     e(Submit, {className: "submit_form", returnState:this.getState, getHNum:this.getPatient})
                 ))
-            }
+			}
         }
     }
 }
@@ -297,13 +365,14 @@ class View extends React.Component {
 class Submit extends React.Component {
     constructor(props) {
         super(props);
-            this.state = {
-                hnum: null,
-                data1: null,
-                data2: null,
-                data3: null,
-                data4: null
-            }
+        this.state = {
+            hnum: null,
+            data1: null,
+            data2: null,
+            data3: null,
+            data4: null,
+            data5: null
+        }
     }
 
     onSubmit = (event) => {
@@ -318,23 +387,68 @@ class Submit extends React.Component {
 
     sendData = () => {
         console.log(this.state);
-            if (this.props.returnState() == 'appointments') {
-            
-                const request = new Request('../Database/api/object_methods/doctor/edits/editsAppointment.php', {
-                    method: 'POST',
-                    body: JSON.stringify(this.state),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                })
+        if (this.props.returnState() == 'appointments') {
 
-                fetch(request)
+            const request = new Request('../Database/api/object_methods/doctor/edits/editsAppointment.php', {
+                method: 'POST',
+                body: JSON.stringify(this.state),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            fetch(request)
                 .then(res => res.json())
                 .then(res => {
                     console.log('appointment added');
                 })
-    
-            }
+
+        }
+        else if (this.props.returnState() == 'prescriptions') {
+            const request = new Request('../Database/api/object_methods/doctor/edits/editsPrescription.php', {
+                method: 'POST',
+                body: JSON.stringify(this.state),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            fetch(request)
+                .then(res => res.json())
+                .then(res => {
+                    console.log('prescription added');
+                })
+        }
+        else if (this.props.returnState() == 'tests') {
+            const request = new Request('../Database/api/object_methods/doctor/edits/editsTest.php', {
+                method: 'POST',
+                body: JSON.stringify(this.state),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            fetch(request)
+                .then(res => res.json())
+                .then(res => {
+                    console.log('test added');
+                })
+        }
+        else if (this.props.returnState() == 'conditions') {
+            const request = new Request('../Database/api/object_methods/doctor/edits/editsCondition.php', {
+                method: 'POST',
+                body: JSON.stringify(this.state),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            fetch(request)
+                .then(res => res.json())
+                .then(res => {
+                    console.log('condition added');
+                })
+        }
     }
 
     render() {
@@ -343,19 +457,72 @@ class Submit extends React.Component {
         } else {
             if (this.props.returnState() == 'appointments') {
                 return (
-                    e("div", {className: "submit_form"}, 
-                        e("h3", {className:"submit_form_text"}, "Enter new appointment"), 
-                        e("div", {className: "location"}, 
-                            "Location", e("input", {className: "location_text", placeholder: "123rd St SE, Townsville BC A1A 1A1", onChange: e => this.setState({data1: e.target.value}) })), 
-                        e("div", {className: "date"}, 
-                            "Date", e("input", {className: "date_text", placeholder: "1900-01-01", onChange: e => this.setState({data2: e.target.value}) })), 
-                        e("div", {className: "time"}, 
-                            "Time", e("input", {className: "time_text",placeholder: "12:00", onChange: e => this.setState({data3: e.target.value}) })), 
-                        e("div", {className: "submit_btn"}, 
-                            e("input", {className: "submit_btn_text",type: "submit", value: "Submit", onClick: e => this.onSubmit(e)}))
+                    e("div", { className: "submit_form" },
+                        e("h3", { className: "submit_form_text" }, "Enter new appointment"),
+                        e("div", { className: "location" },
+                            "Location", e("input", { className: "location_text", placeholder: "123rd St SE, Townsville BC A1A 1A1", onChange: e => this.setState({ data1: e.target.value }) })),
+                        e("div", { className: "date" },
+                            "Date", e("input", { className: "date_text", placeholder: "1900-01-01", onChange: e => this.setState({ data2: e.target.value }) })),
+                        e("div", { className: "time" },
+                            "Time", e("input", { className: "time_text", placeholder: "12:00", onChange: e => this.setState({ data3: e.target.value }) })),
+                        e("div", { className: "submit_btn" },
+                            e("input", { className: "submit_btn_text", type: "submit", value: "Submit", onClick: e => this.onSubmit(e) }))
                     )
                 )
-            } else {
+            }
+            else if (this.props.returnState() == 'prescriptions') {
+                return (
+                    e("div", { className: "submit_form" },
+                        e("h3", { className: "submit_form_text" }, "Enter new prescription"),
+                        e("div", { className: "pname" },
+                            "Name", e("input", { className: "pname_text", placeholder: "Colon Medicine", onChange: e => this.setState({ data1: e.target.value }) })),
+                        e("div", { className: "type" },
+                            "Type", e("input", { className: "type_text", placeholder: "Tablets", onChange: e => this.setState({ data2: e.target.value }) })),
+                        e("div", { className: "field" },
+                            "Field", e("input", { className: "field_text", placeholder: "Painkiller", onChange: e => this.setState({ data3: e.target.value }) })),
+                        e("div", { className: "startD" },
+                            "Start Date", e("input", { className: "startD_text", placeholder: "01-01-2000", onChange: e => this.setState({ data4: e.target.value }) })),
+                        e("div", { className: "endD" },
+                            "End Date", e("input", { className: "endD_text", placeholder: "01-01-2000", onChange: e => this.setState({ data5: e.target.value }) })),
+                        e("div", { className: "submit_btn" },
+                            e("input", { className: "submit_btn_text", type: "submit", value: "Submit", onClick: e => this.onSubmit(e) }))
+                    )
+                )
+            }
+
+            if (this.props.returnState() == 'tests') {
+                return (
+                    e("div", { className: "submit_form" },
+                        e("h3", { className: "submit_form_text" }, "Enter new test"),
+                        e("div", { className: "test_type" },
+                            "Test Type", e("input", { className: "test_type_text", placeholder: "Blood Test", onChange: e => this.setState({ data1: e.target.value }) })),
+                        e("div", { className: "test_date" },
+                            "Test Date", e("input", { className: "test_date_text", placeholder: "1900-01-01", onChange: e => this.setState({ data2: e.target.value }) })),
+                        // e("div", { className: "Test_Time" },
+                        //     "Time", e("input", { className: "test_time_text", placeholder: "12:00", onChange: e => this.setState({ data3: e.target.value }) })),
+                        e("div", { className: "submit_btn" },
+                            e("input", { className: "submit_btn_text", type: "submit", value: "Submit", onClick: e => this.onSubmit(e) }))
+                    )
+                )
+            }
+            else if (this.props.returnState() == 'conditions') {
+                return (
+                    e("div", { className: "submit_form" },
+                        e("h3", { className: "submit_form_text" }, "Enter new condition"),
+                        e("div", { className: "doctoR_ID" },
+                            "Doctor_ID", e("input", { className: "doctoR_text", placeholder: "no id", onChange: e => this.setState({ data1: e.target.value }) })),
+                        e("div", { className: "conditioN" },
+                            "Condition", e("input", { className: "condi_text", placeholder: "no condition", onChange: e => this.setState({ data2: e.target.value }) })),
+                        e("div", { className: "date" },
+                            "Date", e("input", { className: "date_text", placeholder: "2000-01-30", onChange: e => this.setState({ data3: e.target.value }) })),
+                        e("div", { className: "chart" },
+                            "Chart", e("input", { className: "chart_text", placeholder: "no chart", onChange: e => this.setState({ data4: e.target.value }) })),
+                        e("div", { className: "submit_btn" },
+                            e("input", { className: "submit_btn_text", type: "submit", value: "Submit", onClick: e => this.onSubmit(e) }))
+                    )
+                )
+            }
+            else {
                 return (e('div', null))
             }
         }

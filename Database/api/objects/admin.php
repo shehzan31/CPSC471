@@ -78,11 +78,11 @@ class Admin {
 
     function post_admin($Admin_ID, $Password) {
         $query =   "INSERT INTO $this->database.$this->table_name(Admin_ID, Password)
-                    VALUES ($Admin_ID, $Password)";
+                    VALUES (?, ?)";
 
         $stmt = $this->conn->prepare($query);
 
-        $stmt->execute();
+        $stmt->execute([$Admin_ID, $Password]);
         echo "New ADMIN created\n";
     }
 

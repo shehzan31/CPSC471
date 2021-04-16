@@ -74,7 +74,19 @@ class Test{
         
         $stmt = $this->conn->prepare($query);
         $stmt->execute([$TName, $Test_ID, $Date, $Result]);
-        echo "\nNew record created successfuly";
+        return $stmt;
+    }
+
+    function getMax() {
+        $query =   "SELECT MAX(Test_ID) as largestID
+                    FROM $this->database.$this->table_name";
+        
+        //prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        //execute query
+        $stmt->execute();
+        return $stmt;
     }
 }
 

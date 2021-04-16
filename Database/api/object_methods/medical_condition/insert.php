@@ -2,24 +2,23 @@
 // required headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
-  
+
 // include database and object files
 include_once '../../config/database.php';
-include_once '../../objects/admin.php';
-  
+include_once '../../objects/medicalRecordCondition.php';
+
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
-  
+
 // initialize object
-$admin = new Admin($db);
+$insertmedicalcondition= new MedicalRecordCondition($db);
 
-// Object properties
-$Admin_ID = 67676767;
-$Password = hash('sha256', 'Password123');
+// Object Properties
+$mr_number = 101010108;
+$condition = "food poisoning";    
 
-
-  
 // query products
-$stmt = $admin->post_admin($Admin_ID, $Password);
+$stmt = $insertmedicalcondition->insert($mr_number, $condition);
+
 ?>
