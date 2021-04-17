@@ -15,7 +15,7 @@ $db = $database->getConnection();
 $test = new Test($db);
 
 // Object properties
-$Test_ID = 153453543;
+$Test_ID = 123471;
   
 // query products
 $stmt = $test->delete_test($Test_ID);
