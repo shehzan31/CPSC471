@@ -90,5 +90,16 @@ class Finds {
         $stmt->execute();
         echo "\nFinds deleted\n";
     }
+
+    function edit($Doctor_ID, $H_Number, $Condition, $Date, $Chart){
+        $query =   "UPDATE $this->database.$this->table_name as d
+                    SET d.Date = '$Date', d.Chart = '$Chart'
+                    WHERE  d.Doctor_ID = $Doctor_ID AND d.H_Number = $H_Number AND d.Condition = '$Condition'";
+
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->execute();
+        echo "\nInformation Updated\n";
+    }
 }
 ?>

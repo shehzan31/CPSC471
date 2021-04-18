@@ -26,6 +26,13 @@ $Type = $_POST['type'];
 $Field = $_POST['field'];
 
 // query products
-$stmt = $prescription->post($Pname, $Type, $Field);
+
+$stmt2 = $prescription->pname($Pname);
+$num = $stmt2 -> rowCount();
+
+if($num > 0){
+    $stmt = $prescription->edit($Pname, $Type, $Field);
+}
+
 
 ?>

@@ -57,6 +57,16 @@ class Prescription{
         $stmt->execute();
         echo "\nPrescription deleted\n";
     }
+
+    function edit($Pname, $Type, $Field){
+        $query =   "UPDATE $this->database.$this->table_name as p
+                    SET p.Type = '$Type', p.Field = '$Field'
+                    WHERE p.Pname = '$Pname'";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        echo "\nInformation Updated";
+    }
 }
 
 ?>

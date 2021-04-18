@@ -107,6 +107,18 @@ class Doctor{
 
         echo "\nTest deleted\n";
     }
+
+    function edit($Doctor_ID, $SIN){
+        $query =   "UPDATE $this->database.$this->Orders_Table as d
+                    SET d.SIN = '$SIN',
+                    WHERE d.Doctor_ID = $Doctor_ID";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        echo "\nInformation updated\n";
+    }
+
 }
 
 ?>

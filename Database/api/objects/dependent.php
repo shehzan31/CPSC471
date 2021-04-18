@@ -67,7 +67,7 @@ class Dependent {
         
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
-        echo "\nInformation updated\n"
+        echo "\nInformation updated\n";
     }
 }
 

@@ -65,5 +65,15 @@ class Person {
         echo "\nPerson deleted\n";
     }
 
+    function edit($SIN, $FName, $MInit, $LName, $Address_line, $Province, $City, $Postal_code, $Gender, $DOB) {
+        $query =   "UPDATE $this->database.$this->table_name as p
+                    SET p.FName = '$FName', p.MInit = '$MInit', p.LName = '$LName', p.Address_line = '$Address_line', p.Province = '$Province', p.City = '$City', p.Postal_code = '$Postal_code', p.Gender = '$Postal_code', p.DOB = '$DOB'
+                    WHERE p.SIN = $SIN";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        echo "\nInformation Updated";
+    }
+
 }
 ?>

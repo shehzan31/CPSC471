@@ -21,7 +21,7 @@ $rest_json = file_get_contents('php://input');
 $_POST = json_decode($rest_json, true);
 
 // Object Properties
-$Pname = "Colon medicine";
+$Pname = $_POST['pname'];
 
 // query products
 $stmt = $prescription->delete($Pname);

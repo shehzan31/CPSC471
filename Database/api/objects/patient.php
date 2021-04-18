@@ -78,6 +78,16 @@ class Patient{
         $stmt->execute();
         echo "\nPatient deleted\n";
     }
+
+    function edit($h_num, $mr_num, $sin) {
+        $query =   "UPDATE $this->database.$this->table_name as p
+                    SET p.MR_Number = '$mr_num', p.SIN = '$sin'
+                    WHERE p.H_Number = $h_num";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        echo "\nInformation Updated\n";
+    }
 }
 
 ?>
