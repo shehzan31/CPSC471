@@ -60,6 +60,8 @@ class MedicalRecordCondition{
         $stmt = $this->conn->prepare($query);
         $stmt->execute([$mr_number, $condition]);
         return $stmt;
+        echo "\nNew record created successfuly";
+
     }
 
 }

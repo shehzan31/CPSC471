@@ -34,6 +34,13 @@ class Medical_Records_Appointments{
         $stmt->execute([$mr_number, $appointment]);
         return $stmt;
     }
-
+    function post($mr_num, $app) {
+        $query =   "INSERT INTO $this->database.$this->table_name(MR_Number, Appoinment) VALUES
+                    (?, ?)";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$mr_num, $app]);
+        echo "\nNew record created successfuly";
+    }
 }
 ?>

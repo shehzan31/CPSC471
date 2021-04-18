@@ -34,6 +34,13 @@ class Medical_Records_Tests{
         $stmt->execute([$mr_number, $test_id]);
         return $stmt;
     }
-
+    function post($mr_num, $test) {
+        $query =   "INSERT INTO $this->database.$this->table_name(MR_Number, Test) VALUES
+                    (?, ?)";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$mr_num, $test]);
+        echo "\nNew record created successfuly";
+    }
 }
 ?>

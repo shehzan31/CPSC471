@@ -33,5 +33,13 @@ class Medical_Records_Prescriptions{
         $stmt->execute([$mr_number, $pname]);
         return $stmt;
     }
+    function post($mr_num, $pres) {
+        $query =   "INSERT INTO $this->database.$this->table_name(MR_Number, Prescription) VALUES
+                    (?, ?)";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$mr_num, $pres]);
+        echo "\nNew record created successfuly";
+    }
 }
 ?>

@@ -14,6 +14,12 @@ $db = $database->getConnection();
 // initialize object
 $finds= new Finds($db);
 
+// Get contents of post
+
+$rest_json = file_get_contents('php://input');
+
+$_POST = json_decode($rest_json, true);
+
 // Object Properties
 $Doctor_ID = 123456789;
 $H_Number = 200200200;
