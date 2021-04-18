@@ -64,5 +64,16 @@ class MedicalRecordCondition{
 
     }
 
+
+    function delete($condition) {
+        $query =   "DELETE FROM $this->database.$this->table_name as d
+                    WHERE d.Condition = $condition";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "\nMedical Record Condition deleted\n";
+    }
+
 }
 ?>

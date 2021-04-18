@@ -53,5 +53,15 @@ class Diagnosis {
         $stmt->execute();
         return $stmt;
     }
+
+    function delete($Condition) {
+        $query =   "DELETE FROM $this->database.$this->table_name as d
+                    WHERE d.Condition = $Condition";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "\nDiagnosis deleted\n";
+    }
 }
 ?>

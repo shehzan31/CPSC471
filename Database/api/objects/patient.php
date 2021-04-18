@@ -69,7 +69,7 @@ class Patient{
         echo "\nNew record created successfuly";
     }
 
-    function delete_patient($H_Number) {
+    function delete($H_Number) {
         $query =   "DELETE FROM $this->database.$this->table_name as p
                     WHERE p.H_Number = $H_Number";
 

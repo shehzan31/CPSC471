@@ -72,7 +72,7 @@ class Doctor{
     }
 
 
-    function delete_doctor($Doctor_ID) {
+    function delete($Doctor_ID) {
         $query =   "DELETE FROM $this->database.$this->table_name as p
                     WHERE p.Doctor_ID = $Doctor_ID";
 

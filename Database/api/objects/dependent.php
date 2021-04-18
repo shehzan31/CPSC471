@@ -49,6 +49,16 @@ class Dependent {
         $stmt->execute([$SIN, $D_SIN, $Relationship]);
         echo "\nNew record created successfuly";
     }
+
+    function delete($SIN, $DSSN) {
+        $query =   "DELETE FROM $this->database.$this->table_name as d
+                    WHERE d.SIN = $SIN AND d.D_SIN = $DSSN";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "\nDependent deleted\n";
+    }
 }
 
 ?>

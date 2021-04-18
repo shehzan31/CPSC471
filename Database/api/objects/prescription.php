@@ -47,6 +47,16 @@ class Prescription{
         $stmt->execute([$pname, $type, $field]);
         return $stmt;
     }
+
+    function delete($Pname) {
+        $query =   "DELETE FROM $this->database.$this->table_name as p
+                    WHERE p.Pname = $Pname";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "\nPrescription deleted\n";
+    }
 }
 
 ?>

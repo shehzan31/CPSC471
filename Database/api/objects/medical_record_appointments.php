@@ -42,5 +42,15 @@ class Medical_Records_Appointments{
         $stmt->execute([$mr_num, $app]);
         echo "\nNew record created successfuly";
     }
+
+    function delete($app) {
+        $query =   "DELETE FROM $this->database.$this->table_name as d
+                    WHERE d.Appointment = $app";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "\nMedical Record Appointment deleted\n";
+    }
 }
 ?>

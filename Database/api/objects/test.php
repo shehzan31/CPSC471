@@ -89,7 +89,7 @@ class Test{
         return $stmt;
     }
 
-    function delete_test($Test_ID) {
+    function delete($Test_ID) {
         $query =   "DELETE FROM $this->database.$this->table_name as p
                     WHERE p.Test_ID = $Test_ID";
 

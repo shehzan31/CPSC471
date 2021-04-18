@@ -80,5 +80,15 @@ class Finds {
         $stmt->execute([$Doctor_ID, $H_Number, $Condition, $Date, $Chart]);
         return $stmt;
     }
+
+    function delete($Doctor_ID, $H_Number, $Condition) {
+        $query =   "DELETE FROM $this->database.$this->table_name as d
+                    WHERE d.Doctor_ID = $Doctor_ID AND d.H_Number = $H_Number AND d.Condition = $Condition";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "\nFinds deleted\n";
+    }
 }
 ?>

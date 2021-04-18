@@ -41,5 +41,15 @@ class Medical_Records_Prescriptions{
         $stmt->execute([$mr_num, $pres]);
         echo "\nNew record created successfuly";
     }
+
+    function delete($pres) {
+        $query =   "DELETE FROM $this->database.$this->table_name as d
+                    WHERE d.Presription = $pres";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "\nMedical Record Prescription deleted\n";
+    }
 }
 ?>

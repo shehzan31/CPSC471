@@ -42,5 +42,15 @@ class Medical_Records_Tests{
         $stmt->execute([$mr_num, $test]);
         echo "\nNew record created successfuly";
     }
+
+    function delete($Test_ID) {
+        $query =   "DELETE FROM $this->database.$this->table_name as d
+                    WHERE d.Test = $Test_ID";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+        echo "\nMedical Record Test deleted\n";
+    }
 }
 ?>
