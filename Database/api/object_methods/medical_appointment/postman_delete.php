@@ -5,7 +5,7 @@ header("Content-Type: application/json; charset=UTF-8");
 
 // include database and object files
 include_once '../../config/database.php';
-include_once '../../objects/medical_record_appointment.php';
+include_once '../../objects/medical_record_appointments.php';
 
 // instantiate database and product object
 $database = new Database();

@@ -35,7 +35,7 @@ class Medical_Records_Appointments{
         return $stmt;
     }
     function post($mr_num, $app) {
-        $query =   "INSERT INTO $this->database.$this->table_name(MR_Number, Appoinment) VALUES
+        $query =   "INSERT INTO $this->database.$this->table_name(MR_Number, Appointment) VALUES
                     (?, ?)";
         
         $stmt = $this->conn->prepare($query);

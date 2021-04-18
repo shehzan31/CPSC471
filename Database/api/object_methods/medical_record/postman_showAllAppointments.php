@@ -20,7 +20,12 @@ $patient = new Patient($db);
 $mra = new Medical_Records_Appointments($db);
 $appointments = new Appointment($db);
 
-$user = '201201201';
+
+$rest_json = file_get_contents('php://input');
+
+$_GET = json_decode($rest_json, true);
+
+$user = $_GET['user'];
 
 // Query MR_Number 
 $stmt1 = $patient->mr_number($user);

@@ -50,12 +50,10 @@ class Prescription{
 
     function delete($Pname) {
         $query =   "DELETE FROM $this->database.$this->table_name as p
-                    WHERE p.Pname = $Pname";
+                    WHERE p.Pname = '$Pname'";
 
         $stmt = $this->conn->prepare($query);
-
         $stmt->execute();
-        echo "\nPrescription deleted\n";
     }
 
     function edit($Pname, $Type, $Field){
@@ -65,7 +63,6 @@ class Prescription{
         
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
-        echo "\nInformation Updated";
     }
 }
 

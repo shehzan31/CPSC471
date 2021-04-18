@@ -15,15 +15,6 @@ $db = $database->getConnection();
 // initialize object
 $doctor = new Doctor($db);
 
-// Object properties
-// $Doctor_ID = 123456781;
-// $H_Number = 201201201;
-// $MR_Number = 101010108;
-// $Test_ID = 123457;
-// $Test_Name = "Blood Check";
-// $Result = "Ok";
-// $Date = "2021-04-16";
-
 // Put contents of post into variable
 $Doctor_ID = $_SESSION['user'];
 $H_Number = $_POST['hnum'];

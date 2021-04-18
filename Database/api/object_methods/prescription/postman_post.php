@@ -28,4 +28,6 @@ $Field = $_POST['field'];
 // query products
 $stmt = $prescription->post($Pname, $Type, $Field);
 
+echo json_encode("prescription added");
+
 ?>

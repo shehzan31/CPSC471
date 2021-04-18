@@ -32,6 +32,7 @@ $num = $stmt2 -> rowCount();
 
 if($num > 0){
     $stmt = $prescription->edit($Pname, $Type, $Field);
+    echo json_encode($Pname . " edited");
 }
 
 

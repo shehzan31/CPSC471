@@ -27,5 +27,4 @@ $Result = $_POST['result'];
 
 // query products
 $stmt = $test->edit_result($Test_ID, $Result);
-
 ?>

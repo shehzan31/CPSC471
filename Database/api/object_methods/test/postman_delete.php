@@ -14,10 +14,11 @@ $db = $database->getConnection();
 // initialize object
 $test = new Test($db);
 
-// initialize object
-$insertmedicalcondition= new MedicalRecordCondition($db);
-
 // Get contents of post
+
+$rest_json = file_get_contents('php://input');
+
+$_POST = json_decode($rest_json, true);
 
 // Object properties\
 $Test_ID = $_POST['t_id'];

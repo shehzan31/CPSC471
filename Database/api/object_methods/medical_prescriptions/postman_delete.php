@@ -21,9 +21,11 @@ $rest_json = file_get_contents('php://input');
 $_POST = json_decode($rest_json, true);
 
 // Object Properties
-$pres = $_POST['pres'];    
+$mr_num = $_POST['mr_num'];
+$pres = $_POST['pres'];  
+
 
 // query products
-$stmt = $insertmedicalprescriptions->delete($pres);
+$stmt = $insertmedicalprescriptions->delete($mr_num, $pres);
 
 ?>

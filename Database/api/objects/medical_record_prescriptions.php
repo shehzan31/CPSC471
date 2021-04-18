@@ -42,9 +42,9 @@ class Medical_Records_Prescriptions{
         echo "\nNew record created successfuly";
     }
 
-    function delete($pres) {
+    function delete($mr, $pres) {
         $query =   "DELETE FROM $this->database.$this->table_name as d
-                    WHERE d.Presription = $pres";
+                    WHERE d.Prescription = '$pres' && d.MR_Number = '$mr'";
 
         $stmt = $this->conn->prepare($query);
 

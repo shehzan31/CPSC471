@@ -65,9 +65,9 @@ class MedicalRecordCondition{
     }
 
 
-    function delete($condition) {
+    function delete($mr,$condition) {
         $query =   "DELETE FROM $this->database.$this->table_name as d
-                    WHERE d.Condition = $condition";
+                    WHERE d.Condition = '$condition' && d.MR_Number = '$mr'";
 
         $stmt = $this->conn->prepare($query);
 

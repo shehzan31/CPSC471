@@ -5,9 +5,9 @@ header("Content-Type: application/json; charset=UTF-8");
   
 // include database and object files
 include_once '../../config/database.php';
-include_once '../../objects/medical_record_tests.php';
+include_once '../../objects/medical_record_prescriptions.php';
 include_once '../../objects/patient.php';
-include_once '../../objects/test.php';
+include_once '../../objects/prescription.php';
 
 session_start();
   
@@ -17,11 +17,14 @@ $db = $database->getConnection();
 
 // initialize object
 $patient = new Patient($db);
-$mrt = new Medical_Records_Tests($db);
-$tests = new Test($db);
+$mrp = new Medical_Records_Prescriptions($db);
+$prescriptions = new Prescription($db);
 
-$user = 201201201;
-// $user = $_SESSION['user'];
+$rest_json = file_get_contents('php://input');
+
+$_GET = json_decode($rest_json, true);
+
+$user = $_GET['user'];
 
 // Query MR_Number 
 $stmt1 = $patient->mr_number($user);
@@ -31,18 +34,19 @@ if ($num1 == 1) {
     $p = $stmt1-> fetch();
     $mr_number = $p['MR_Number'];
 
-    $stmt2 = $mrt->showAllTests($mr_number);
+    $stmt2 = $mrp->showAllPrescriptions($mr_number);
     $num2 = $stmt2->rowCount();
 
     if ($num2 > 0) {
+        
         $arr = array();
         $arr['records'] = array();
 
         while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
             
-            $t_id = $row['Test'];
+            $pname = $row['Prescription'];
 
-            $stmt3 = $tests->getTests($t_id);
+            $stmt3 = $prescriptions->pname($pname);
             $num3 = $stmt3->rowCount(); 
 
             if ($num3 > 0) {
@@ -52,9 +56,9 @@ if ($num1 == 1) {
                     extract($row1);
 
                     $item = array(
-                        "Test_Name"   => $TName,
-                        "Result"      => $Result,
-                        "Date"          => $Date
+                        "Prescription"   => $Pname,
+                        "Type"           => $Type,
+                        "Field"          => $Field,
                     );
 
                     array_push($arr['records'], $item);
@@ -70,7 +74,7 @@ if ($num1 == 1) {
 
     else {
         echo json_encode(
-            array("message" => "No Tests found.")
+            array("message" => "No Prescriptions found.")
         );
     }
 

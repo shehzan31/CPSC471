@@ -56,7 +56,7 @@ class Diagnosis {
 
     function delete($Condition) {
         $query =   "DELETE FROM $this->database.$this->table_name as d
-                    WHERE d.Condition = $Condition";
+                    WHERE d.Condition = '$Condition'";
 
         $stmt = $this->conn->prepare($query);
 

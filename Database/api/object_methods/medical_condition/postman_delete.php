@@ -21,9 +21,12 @@ $rest_json = file_get_contents('php://input');
 $_POST = json_decode($rest_json, true);
 
 // Object Properties
+$mr = $_POST['mr_num'];
 $condition = $_POST['cond'];    
 
 // query products
-$stmt = $insertmedicalcondition->delete($condition);
+$stmt = $insertmedicalcondition->delete($mr,$condition);
+
+echo "Record deleted"
 
 ?>

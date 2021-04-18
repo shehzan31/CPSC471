@@ -15,17 +15,22 @@ $db = $database->getConnection();
 $test = new Test($db);
 
 // initialize object
-$insertmedicalcondition= new MedicalRecordCondition($db);
+$insertmedicalcondition= new Test($db);
 
 // Get contents of post
+$rest_json = file_get_contents('php://input');
+
+$_POST = json_decode($rest_json, true);
 
 // Object properties\
 $Test_ID = $_POST['t_id'];
 $TName = $_POST['tname'];
 $Date = $_POST['date'];
-$Result = $_POST['date'];
+$Result = $_POST['result'];
 
 // query products
 $stmt = $test->post($TName, $Test_ID, $Date, $Result);
+
+echo json_encode("Posted successfuly to the database");
 
 ?>

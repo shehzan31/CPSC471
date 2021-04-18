@@ -27,4 +27,6 @@ $condition = $_POST['cond'];
 // query products
 $stmt = $insertmedicalcondition->insert($mr_number, $condition);
 
+echo "New record added"
+
 ?>
