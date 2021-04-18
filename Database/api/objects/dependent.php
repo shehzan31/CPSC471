@@ -59,6 +59,16 @@ class Dependent {
         $stmt->execute();
         echo "\nDependent deleted\n";
     }
+
+    function edit($SIN, $D_SSN, $Relationship) {
+        $query =   "UPDATE $this->database.$this->table_name as d
+                    SET d.Relationship = '$Relationship'
+                    WHERE d.SIN = $SIN AND d.D_SIN = $D_SSN";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        echo "\nInformation updated\n"
+    }
 }
 
 ?>
