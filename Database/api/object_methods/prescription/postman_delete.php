@@ -26,5 +26,5 @@ $Pname = $_POST['pname'];
 // query products
 $stmt = $prescription->delete($Pname);
 
-echo json_encode($Pname . " edited");
+echo json_encode($Pname . " deleted");
 ?>

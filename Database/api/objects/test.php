@@ -96,7 +96,7 @@ class Test{
         $stmt = $this->conn->prepare($query);
 
         $stmt->execute();
-        echo "\nDoctor deleted\n";
+        echo "\nTest deleted\n";
     }
 
     function edit_result($Test_ID, $Result) {
