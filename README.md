@@ -9,8 +9,7 @@ this link: localhost/CPSC471/Website/index.html
 
 In the beginning the first page will be the index, where information about the website will be
 shown and from where you can move forward to the login page.
-![image](https://user-images.githubusercontent.com/47336141/116320119-48db1500-a77d-11eb-94bf-a713f2b8f875.png)
-
+![image](https://user-images.githubusercontent.com/47336141/116320398-c9017a80-a77d-11eb-8c59-88a151fee0db.png)
 
 Once you press login, you are brought into the login page, which looks like
 ![image](https://user-images.githubusercontent.com/47336141/116320135-4ed0f600-a77d-11eb-9447-a1ce88835eb3.png)
