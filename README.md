@@ -1,5 +1,5 @@
 # Interface for Healthcare Database
-First download the latest from git at this link. After you have downloaded the repo, unzip the file
+First download the latest from git's repository. After you have downloaded the repo, unzip the file
 to your desktop. Next download xampp, and follow the instructions to download and install, for
 this project you only need to download and run the Apache web server. After xampp is
 downloaded, click start on the Apache module and verify that it is running correctly. Next, take
